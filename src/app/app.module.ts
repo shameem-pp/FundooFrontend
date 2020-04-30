@@ -8,12 +8,14 @@ import { MatSliderModule } from '@angular/material/slider';
 import { RegistrationComponent } from './Component/registration/registration.component';
 import { LoginComponent } from './Component/login/login.component';
 import { ResetPasswordComponent } from './Component/reset-password/reset-password.component';
+import { ForgotPasswordComponent } from './Component/forgot-password/forgot-password.component';
 @NgModule({
   declarations: [
     AppComponent,
     RegistrationComponent,
     LoginComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
