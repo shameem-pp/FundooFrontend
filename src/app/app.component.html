@@ -1,1 +1,2 @@
-<app-registration></app-registration>
+<app-registration *ngif="!showLogin"></app-registration>
+<app-login *ngif="showLogin"></app-login>

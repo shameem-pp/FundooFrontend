@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
-hide=true;
+  showLogin=false;
+  login(){
+this.showLogin=true;
+  }
   constructor() { }
 
   ngOnInit(): void {
