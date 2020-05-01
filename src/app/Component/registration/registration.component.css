@@ -3,4 +3,7 @@
     width: 50%;
     padding: 70px;
   }
-  
+  .btns{
+    display: inline-block;
+    padding-right: 100px;
+  }
