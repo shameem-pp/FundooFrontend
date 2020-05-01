@@ -1,16 +1,23 @@
-<p>
-    <mat-form-field appearance="outline">
-      <mat-label>Outline form field</mat-label>
-      <input matInput placeholder="Username">
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-      <mat-hint>Hint</mat-hint>
-    </mat-form-field>
-</p>
-<p>
-    <mat-form-field appearance="outline">
-      <mat-label>Outline form field</mat-label>
-      <input matInput placeholder="Password">
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-      <mat-hint>Hint</mat-hint>
-    </mat-form-field>
-  </p>
+<div class="center">
+  <mat-card> Login
+    <p>
+      <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="Username" type="text">
+        <mat-icon matSuffix>@gmail.com</mat-icon>
+      </mat-form-field>
+    </p>
+    <div class="inline">
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput placeholder="Password" type="password">
+        </mat-form-field>
+      </p>
+    </div>
+    <div class="btns">
+      <a mat-button href="https://www.google.com/" target="_blank">Login</a>
+      <button mat-raised-button color="primary">Create Account</button>
+    </div>
+  </mat-card>
+</div>
