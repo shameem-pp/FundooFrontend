@@ -16,14 +16,14 @@ import { ForgotPasswordComponent } from './Component/forgot-password/forgot-pass
     RegistrationComponent,
     LoginComponent,
     ResetPasswordComponent,
-    ForgotPasswordComponent,
-    MatFormFieldModule
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatSliderModule
+    MatSliderModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
