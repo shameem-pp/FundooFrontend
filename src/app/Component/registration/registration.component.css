@@ -1,9 +1,32 @@
-.center {
-    margin: auto;
-    width: 50%;
-    padding: 70px;
-  }
-  .btns{
-    display: inline-block;
-    padding-right: 100px;
-  }
+.container {
+    justify-content: center;
+    margin-top: 150px;
+}
+
+h1 {
+    color: cornflowerblue;
+}
+
+.box1,
+.box4 {
+    flex: 1;
+}
+
+.box3 {
+    width: 100%;
+}
+
+.btns,
+.container2,
+.container1,
+.container {
+    display: flex;
+}
+
+.login {
+    margin-right: 90px;
+}
+
+.register {
+    margin-left: 190px;
+}

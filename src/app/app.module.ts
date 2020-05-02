@@ -13,6 +13,8 @@ import { RegistrationComponent } from './Component/registration/registration.com
 import { LoginComponent } from './Component/login/login.component';
 import { ResetPasswordComponent } from './Component/reset-password/reset-password.component';
 import { ForgotPasswordComponent } from './Component/forgot-password/forgot-password.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { ForgotPasswordComponent } from './Component/forgot-password/forgot-pass
     MatFormFieldModule,
     MatCardModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

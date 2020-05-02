@@ -1,24 +1,18 @@
-<div class="center">
-  <mat-card> Login
-    <p>
-      <mat-form-field appearance="outline">
-        <mat-label>Username</mat-label>
-        <input matInput placeholder="Username" type="text">
-        <mat-icon matSuffix>@gmail.com</mat-icon>
-      </mat-form-field>
-    </p>
-    <div>
-      <p>
-        <mat-form-field appearance="outline">
-          <mat-label>Password</mat-label>
-          <input matInput placeholder="Password" type="password">
+<div class="container">
+    <mat-card>
+        <h1>Sign In</h1>
+        <mat-form-field appearance="outline" class="box1">
+            <mat-label>Username</mat-label>
+            <input matInput placeholder="Username" type="text">
+            <mat-icon matSuffix>@gmail.com</mat-icon>
         </mat-form-field>
-      <a mat-button routerLink='/forgotPassword' color='primary'> Forgot Password</a>
-      </p>
-    </div>
-    <div class="btns">
-      <a mat-button routerLink='/resetPassword'>Reset Password</a>
-      <a mat-stroked-button routerLink="/login" color="primary">Login</a>
-    </div>
-  </mat-card>
+        <mat-form-field appearance="outline" class="box2">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Password" type="password">
+        </mat-form-field>
+        <div class="btns">
+            <a class="forgotPassword" mat-button routerLink='/forgotPassword' color='primary'> Forgot Password</a>
+            <a class="login" mat-stroked-button routerLink="/login" color="primary">Login</a>
+        </div>
+    </mat-card>
 </div>
