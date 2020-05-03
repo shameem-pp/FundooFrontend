@@ -1,44 +1,51 @@
 <div class="container">
     <mat-card>
         <h1>Create Your Account</h1>
-        <div class="container1">
-            <div class="box1">
-                <mat-form-field appearance="outline" alli>
-                    <mat-label>First Name</mat-label>
-                    <input matInput placeholder="First Name" type="text">
+        <form [formGroup]="user" (ngSubmit)="validation()">
+            <div class="container1">
+                <div class="box1">
+                    <mat-form-field appearance="outline" alli>
+                        <mat-label>First Name</mat-label>
+                        <input formControlName="firstName" required matInput placeholder="First Name" type="text">
+                        <mat-error *ngIf="user.get('firstName').hasError('required')">First name required</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="box2">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Last Name</mat-label>
+                        <input formControlName="lastName" matInput placeholder="Last Name" required type="text">
+                        <mat-error *ngIf="user.get('lastName').hasError('required')">Last name required</mat-error>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div>
+                <mat-form-field appearance="outline" class="box3">
+                    <mat-label>Email</mat-label>
+                    <input formControlName="userName" matInput placeholder="Username" required type="email">
+                    <mat-error *ngIf="user.get('userName').hasError('required')">Email required</mat-error>
+                    <mat-error *ngIf="user.get('userName').hasError('email')">Invalid email</mat-error>
                 </mat-form-field>
             </div>
-            <div class="box2">
-                <mat-form-field appearance="outline">
-                    <mat-label>Last Name</mat-label>
-                    <input matInput placeholder="Last Name" type="text">
-                </mat-form-field>
+            <div class="container2">
+                <div class="box4">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input formControlName="password" matInput placeholder="Password" required type="password">
+                        <mat-error *ngIf="user.get('password').hasError('required')">Password required</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="box5">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Confirm</mat-label>
+                        <input formControlName="confirm" matInput placeholder="Confirm" required type="password">
+                        <mat-error *ngIf="user.get('confirm').hasError('required')">Password not match</mat-error>
+                    </mat-form-field>
+                </div>
             </div>
-        </div>
-        <div>
-            <mat-form-field appearance="outline" class="box3">
-                <mat-label>Username</mat-label>
-                <input matInput placeholder="Username" type="text">
-                <mat-icon matSuffix>@gmail.com</mat-icon>
-            </mat-form-field>
-        </div>
-        <div class="container2">
-            <div class="box4">
-                <mat-form-field appearance="outline">
-                    <mat-label>Password</mat-label>
-                    <input matInput placeholder="Password" type="password">
-                </mat-form-field>
+            <div class="btns">
+                <div class="login"><a mat-stroked-button routerLink="/login">Login</a></div>
+                <div class="register"><button type="submit" mat-raised-button color="primary">Register</button></div>
             </div>
-            <div class="box5">
-                <mat-form-field appearance="outline">
-                    <mat-label>Confirm</mat-label>
-                    <input matInput placeholder="Confirm" type="password">
-                </mat-form-field>
-            </div>
-        </div>
-        <div class="btns">
-            <div class="login"><a mat-stroked-button routerLink="/login">Login</a></div>
-            <div class="register"><button mat-raised-button color="primary">Register</button></div>
-        </div>
+        </form>
     </mat-card>
 </div>
