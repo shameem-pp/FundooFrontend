@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import {HttpClientModule} from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms'
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
@@ -15,6 +16,7 @@ import { LoginComponent } from './Component/login/login.component';
 import { ResetPasswordComponent } from './Component/reset-password/reset-password.component';
 import { ForgotPasswordComponent } from './Component/forgot-password/forgot-password.component';
 import { from } from 'rxjs';
+import { RegisterService } from './Service/register.service';
 
 @NgModule({
   declarations: [
@@ -33,9 +35,10 @@ import { from } from 'rxjs';
     MatCardModule,
     MatButtonModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [RegisterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
