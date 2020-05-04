@@ -8,7 +8,20 @@ export class UserService {
 
   constructor(private http:HttpService) { }
 
-  registration(data:object,path:string){
+  registrationAction(data:object,path:string){
     return this.http.post(data,path);
   }
+
+  loginAction(data:object,path:string){
+    return this.http.post(data,path);
+  }
+
+  forgotPasswordAction(data:object,path:string){
+    return this.http.post(data,path);
+  }
+
+  resetPasswordAction(data:object,path:string){
+    return this.http.post(data,path);
+  }
+
 }
