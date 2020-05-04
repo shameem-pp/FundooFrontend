@@ -15,8 +15,8 @@ import { RegistrationComponent } from './Component/registration/registration.com
 import { LoginComponent } from './Component/login/login.component';
 import { ResetPasswordComponent } from './Component/reset-password/reset-password.component';
 import { ForgotPasswordComponent } from './Component/forgot-password/forgot-password.component';
-import { from } from 'rxjs';
-import { RegisterService } from './Service/register.service';
+import { UserService } from './Service/user.service';
+import { HttpService } from './Service/http.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +38,8 @@ import { RegisterService } from './Service/register.service';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [RegisterService],
+  providers: [UserService,
+  HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
