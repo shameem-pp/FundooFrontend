@@ -17,7 +17,8 @@ user:FormGroup;
       password:this.valueOfInputField('password')
     }
     this.service.registration(data).subscribe(response=>{
-      alert(response)
+      alert("successfull");
+      console.log(response.toString())
     });
   }
 

@@ -6,20 +6,25 @@
 
 .box1,
 .box2 {
-    margin-left: 25%;
-    margin-right: 25%;
-    width: 50%;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
 }
 
 h1 {
-    margin-left: 25%;
+    margin-left: 10%;
     color: cornflowerblue;
 }
 
+.btns {
+    display: flex;
+    flex-direction: row;
+}
+
 .login {
-    margin-left: 7%;
+    margin-left: 29%;
 }
 
 .forgotPassword {
-    margin-left: 25%;
+    margin-left: 10%;
 }

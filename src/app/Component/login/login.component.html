@@ -1,18 +1,22 @@
 <div class="container">
     <mat-card>
         <h1>Sign In</h1>
-        <mat-form-field appearance="outline" class="box1">
-            <mat-label>Username</mat-label>
-            <input matInput placeholder="Username" type="text">
-            <mat-icon matSuffix>@gmail.com</mat-icon>
-        </mat-form-field>
-        <mat-form-field appearance="outline" class="box2">
-            <mat-label>Password</mat-label>
-            <input matInput placeholder="Password" type="password">
-        </mat-form-field>
-        <div class="btns">
-            <a class="forgotPassword" mat-button routerLink='/forgotPassword' color='primary'> Forgot Password</a>
-            <a class="login" mat-stroked-button routerLink="/login" color="primary">Login</a>
-        </div>
+        <form [formGroup]="user" (ngSubmit)="validation()">
+            <mat-form-field appearance="outline" class="box1">
+                <mat-label>Email</mat-label>
+                <input formControlName="userName" matInput placeholder="Email" required type="email">
+                <mat-error *ngIf="user.get('userName').hasError('required')">Email required</mat-error>
+                <mat-error *ngIf="user.get('userName').hasError('email')">Invalid email</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="box2">
+                <mat-label>Password</mat-label>
+                <input formControlName="password" matInput placeholder="Password" required type="password">
+                <mat-error *ngIf="user.get('password').hasError('required')">Password required</mat-error>
+            </mat-form-field>
+            <div class="btns">
+                <a class="forgotPassword" mat-button routerLink='/forgotPassword' color='primary'> Forgot Password</a>
+                <a class="login" mat-stroked-button routerLink="/login" color="primary">Login</a>
+            </div>
+        </form>
     </mat-card>
 </div>
