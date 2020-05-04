@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserService } from 'src/app/Service/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import { UserService } from 'src/app/Service/user.service';
 export class LoginComponent implements OnInit {
   user:FormGroup;
 
-  constructor(private fb:FormBuilder,private service:UserService,private snackBar: MatSnackBar) { }
+  constructor(private fb:FormBuilder,private router:Router,private service:UserService,private snackBar: MatSnackBar) { }
 
 validation(){
   let data={
@@ -22,6 +23,7 @@ validation(){
   this.service.loginAction(data,"api/Account/Login").subscribe(
     success=>{
       this.openSnackBar("Successfull","Login");
+      this.router.navigate(['/fundoo']);
     },
     error=>{
       this.openSnackBar(error.toString(),"Login");

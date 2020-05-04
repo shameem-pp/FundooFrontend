@@ -19,6 +19,7 @@ import { UserService } from './Service/user.service';
 import { HttpService } from './Service/http.service';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { from } from 'rxjs';
+import { FundooComponent } from './Component/fundoo/fundoo.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { from } from 'rxjs';
     RegistrationComponent,
     LoginComponent,
     ResetPasswordComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    FundooComponent
   ],
   imports: [
     BrowserModule,
