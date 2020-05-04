@@ -7,8 +7,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./forgot-password.component.css']
 })
 export class ForgotPasswordComponent implements OnInit {
-  constructor(private fb:FormBuilder) { }
   user:FormGroup;
+  constructor(private fb:FormBuilder) { }
+  validation(){
+  
+  }
   ngOnInit(): void {
     this.user =this.fb.group({
       userName:['',[Validators.required,Validators.email]]});
