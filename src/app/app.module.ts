@@ -17,6 +17,8 @@ import { ResetPasswordComponent } from './Component/reset-password/reset-passwor
 import { ForgotPasswordComponent } from './Component/forgot-password/forgot-password.component';
 import { UserService } from './Service/user.service';
 import { HttpService } from './Service/http.service';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { HttpService } from './Service/http.service';
     MatButtonModule,
     MatInputModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule
   ],
   providers: [UserService,
   HttpService],

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormGroup, Validators } from '@angular/forms'
 import {UserService} from './../../Service/user.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 import { from } from 'rxjs';
 
 @Component({
@@ -11,7 +12,7 @@ import { from } from 'rxjs';
 export class RegistrationComponent implements OnInit {
 user:FormGroup;
 
-  constructor(private fb:FormBuilder,private service:UserService) { }
+  constructor(private fb:FormBuilder,private service:UserService,private snackBar: MatSnackBar) { }
 
   validation(){
     let data={
@@ -20,13 +21,24 @@ user:FormGroup;
       email:this.valueOfInputField('userName'),
       password:this.valueOfInputField('password')
     }
-    this.service.registration(data,"api/account/AddUser").subscribe(response=>{
-      alert("successfull");
+    this.service.registration(data,"api/account/AddUser").subscribe(
+      response=>{
+     this.openSnackBar("successfull","Registration");
+    },
+    error => {
+      this.openSnackBar(error.toString(),"Registration");
+
     });
   }
 
   valueOfInputField(inputElement:string){
     return this.user.get(inputElement).value;
+  }
+
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+    });
   }
 
   ngOnInit(): void {
