@@ -3,6 +3,7 @@ import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/Service/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
 import { error } from 'protractor';
 
 @Component({
@@ -12,19 +13,20 @@ import { error } from 'protractor';
 })
 export class ResetPasswordComponent implements OnInit {
   user:FormGroup;
+token:string;
+email:string;
 
-  constructor(private fb:FormBuilder,private router:Router,private service:UserService,private snackBar: MatSnackBar) { }
+  constructor(private fb:FormBuilder,private route: ActivatedRoute,private service:UserService,private snackBar: MatSnackBar) { }
 
   validation(){
     let data={
       email:this.valueOfInputField('userName'),
-      password:this.valueOfInputField('password'),
-      confirm:this.valueOfInputField('confirm')
+      newPassword:this.valueOfInputField('password'),
+      confirmPassword:this.valueOfInputField('confirm')
     }
-this.service.resetPasswordAction(data,"api/Account/ResetPassword").subscribe(
+this.service.resetPasswordAction(data,"api/Account/ResetPassword?email="+this.email+"&token="+this.token).subscribe(
   success=>{
     this.openSnackBar("Successfull","Reset Password");
-    this.router.navigate(['/fundoo']);
   },
   error=>{
     this.openSnackBar(error.toString(),"reset password");
@@ -48,9 +50,11 @@ this.service.resetPasswordAction(data,"api/Account/ResetPassword").subscribe(
       userName:['',
         [Validators.required,Validators.email,Validators.pattern('^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\.([a-zA-Z]{2,5})$')]],
       password:['',
-        [Validators.required,Validators.pattern('^([a-z0-9])')]],
+        [Validators.required,Validators.pattern('^([a-z0-9]+)')]],
       confirm:['',
-        [Validators.required,Validators.pattern('^([a-z0-9])')]]});
+        [Validators.required,Validators.pattern('^([a-z0-9]+)')]]});
+this.email=this.route.snapshot.queryParamMap.get("email");
+this.token=this.route.snapshot.queryParamMap.get("token");
   }
 
 }

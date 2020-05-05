@@ -46,7 +46,7 @@ valueOfInputField(inputElement:string){
       userName:['',
         [Validators.required,Validators.email,Validators.pattern('^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\.([a-zA-Z]{2,5})$')]],
       password:['',
-        [Validators.required,Validators.pattern('^([a-z0-9])')]]});
+        [Validators.required,Validators.pattern('^([a-z0-9]+)')]]});
   }
 
 }
