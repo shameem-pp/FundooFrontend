@@ -11,10 +11,12 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   user:FormGroup;
+  loading:boolean=false;
 
   constructor(private fb:FormBuilder,private router:Router,private service:UserService,private snackBar: MatSnackBar) { }
 
 validation(){
+  this.loading=true;
   let data={
     email:this.valueOfInputField('userName'),
     password:this.valueOfInputField('password')
@@ -22,11 +24,13 @@ validation(){
 
   this.service.loginAction(data,"api/Account/Login").subscribe(
     success=>{
+      this.loading=false;
       this.openSnackBar("Successfull","Login");
       this.router.navigate(['/fundoo']);
     },
     error=>{
-      this.openSnackBar(error.toString(),"Login");
+      this.loading=false;
+      this.openSnackBar("Failed","Login");
     }
   );
 }

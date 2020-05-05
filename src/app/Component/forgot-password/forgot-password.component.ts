@@ -12,10 +12,12 @@ import { error } from '@angular/compiler/src/util';
 })
 export class ForgotPasswordComponent implements OnInit {
   user:FormGroup;
+  loading: boolean=false;
 
   constructor(private fb:FormBuilder,private service:UserService,private router:Router,private snackBar:MatSnackBar) { }
 
   validation(){
+    this.loading=true;
     let data={
       email:this.valueOfInputField('userName'),
     }
@@ -24,9 +26,11 @@ export class ForgotPasswordComponent implements OnInit {
       success=>{
         this.openSnackBar("Successfull","ForgotPassword");
         this.router.navigate(['/fundoo']);
+        this.loading=false;
       },
       error=>{
-        this.openSnackBar(error.toString(),"ForgotPassword");
+        this.openSnackBar("failed","ForgotPassword");
+        this.loading=false;
       }
     );
 

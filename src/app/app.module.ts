@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import {MatIconModule} from '@angular/material/icon';
+import {MatListModule} from '@angular/material/list';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSidenavModule} from '@angular/material/sidenav';
 import {HttpClientModule} from '@angular/common/http'
 import { ReactiveFormsModule } from '@angular/forms'
 import {MatButtonModule} from '@angular/material/button';
@@ -19,9 +23,9 @@ import { UserService } from './Service/user.service';
 import { HttpService } from './Service/http.service';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { from } from 'rxjs';
 import { FundooComponent } from './Component/fundoo/fundoo.component';
 import { DashboardComponent } from './Component/dashboard/dashboard.component';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -45,7 +49,11 @@ import { DashboardComponent } from './Component/dashboard/dashboard.component';
     ReactiveFormsModule,
     HttpClientModule,
     MatSnackBarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
+    MatIconModule
   ],
   providers: [UserService,
   HttpService],

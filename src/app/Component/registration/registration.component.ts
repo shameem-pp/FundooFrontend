@@ -12,10 +12,12 @@ import { from } from 'rxjs';
 })
 export class RegistrationComponent implements OnInit {
 user:FormGroup;
+  loading: boolean=false;
 
   constructor(private fb:FormBuilder,private service:UserService,private snackBar: MatSnackBar,private router:Router) { }
 
   validation(){
+    this.loading=true;
     let data={
       firstName:this.valueOfInputField('firstName'),
       lastName:this.valueOfInputField('lastName'),
@@ -24,11 +26,13 @@ user:FormGroup;
     }
     this.service.registrationAction(data,"api/account/AddUser").subscribe(
       response=>{
+        this.loading=false;
      this.openSnackBar("successfull","Registration");
      this.router.navigate(['/login'])
     },
     error => {
       this.openSnackBar(error.toString(),"Registration");
+      this.loading=false;
 
     });
   }

@@ -51,5 +51,8 @@
                 <div class="register"><button type="submit" mat-raised-button [disabled]="!user.valid" color="primary">Register</button></div>
             </div>
         </form>
+        <div *ngIf="loading">
+            <mat-spinner style="margin:5% 45% ;"></mat-spinner>
+        </div>
     </mat-card>
 </div>
