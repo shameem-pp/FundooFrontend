@@ -18,8 +18,10 @@ import { ForgotPasswordComponent } from './Component/forgot-password/forgot-pass
 import { UserService } from './Service/user.service';
 import { HttpService } from './Service/http.service';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { from } from 'rxjs';
 import { FundooComponent } from './Component/fundoo/fundoo.component';
+import { DashboardComponent } from './Component/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { FundooComponent } from './Component/fundoo/fundoo.component';
     LoginComponent,
     ResetPasswordComponent,
     ForgotPasswordComponent,
-    FundooComponent
+    FundooComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ import { FundooComponent } from './Component/fundoo/fundoo.component';
     MatInputModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatProgressSpinnerModule
   ],
   providers: [UserService,
   HttpService],

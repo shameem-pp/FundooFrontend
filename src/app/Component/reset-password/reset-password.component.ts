@@ -13,12 +13,14 @@ import { error } from 'protractor';
 })
 export class ResetPasswordComponent implements OnInit {
   user:FormGroup;
-token:string;
-email:string;
+  token:string;
+  email:string;
+  loading:boolean=false;
 
   constructor(private fb:FormBuilder,private route: ActivatedRoute,private service:UserService,private snackBar: MatSnackBar) { }
 
   validation(){
+    this.loading=true;
     let data={
       email:this.valueOfInputField('userName'),
       newPassword:this.valueOfInputField('password'),
@@ -26,10 +28,12 @@ email:string;
     }
 this.service.resetPasswordAction(data,"api/Account/ResetPassword?email="+this.email+"&token="+this.token).subscribe(
   success=>{
+    this.loading=false;
     this.openSnackBar("Successfull","Reset Password");
   },
   error=>{
     this.openSnackBar(error.toString(),"reset password");
+    this.loading=false;
   }
 )
 
