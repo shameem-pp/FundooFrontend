@@ -44,9 +44,9 @@ valueOfInputField(inputElement:string){
   ngOnInit(): void {
     this.user =this.fb.group({
       userName:['',
-        [Validators.required,Validators.email]],
+        [Validators.required,Validators.email,Validators.pattern('^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\.([a-zA-Z]{2,5})$')]],
       password:['',
-        Validators.required]});
+        [Validators.required,Validators.pattern('^([a-z0-9])')]]});
   }
 
 }

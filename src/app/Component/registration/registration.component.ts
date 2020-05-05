@@ -46,15 +46,15 @@ user:FormGroup;
   ngOnInit(): void {
     this.user =this.fb.group({
       firstName:['',
-        Validators.required],
+        [Validators.required,Validators.pattern('^[a-zA-z]+')]],
       lastName:['',
-        Validators.required],
-      userName:['',
-        [Validators.required,Validators.email]],
+        [Validators.required,Validators.pattern('^[a-zA-z]+')]],
+        userName:['',
+        [Validators.required,Validators.email,Validators.pattern('^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\.([a-zA-Z]{2,5})$')]],
       password:['',
-        Validators.required],
+        [Validators.required,Validators.pattern('^([a-z0-9])')]],
       confirm:['',
-        Validators.required]});
+        [Validators.required,Validators.pattern('^([a-z0-9])')]]});
   }
 
 }
