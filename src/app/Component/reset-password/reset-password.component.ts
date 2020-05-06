@@ -22,7 +22,6 @@ export class ResetPasswordComponent implements OnInit {
   validation(){
     this.loading=true;
     let data={
-      email:this.valueOfInputField('userName'),
       newPassword:this.valueOfInputField('password'),
       confirmPassword:this.valueOfInputField('confirm')
     }
