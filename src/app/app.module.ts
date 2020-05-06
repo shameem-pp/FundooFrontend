@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -26,6 +27,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { FundooComponent } from './Component/fundoo/fundoo.component';
 import { DashboardComponent } from './Component/dashboard/dashboard.component';
 import { from } from 'rxjs';
+import { CreateNoteComponent } from './Component/create-note/create-note.component';
+import { IconComponentComponent } from './Component/icon-component/icon-component.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,9 @@ import { from } from 'rxjs';
     ResetPasswordComponent,
     ForgotPasswordComponent,
     FundooComponent,
-    DashboardComponent
+    DashboardComponent,
+    CreateNoteComponent,
+    IconComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +58,8 @@ import { from } from 'rxjs';
     MatSidenavModule,
     MatToolbarModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    MatMenuModule
   ],
   providers: [UserService,
   HttpService],
