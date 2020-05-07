@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import{DashboardComponent} from './../dashboard/dashboard.component';
+import{CreateNoteComponent} from './../create-note/create-note.component';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-display',
