@@ -28,6 +28,12 @@ import { FundooComponent } from './Component/fundoo/fundoo.component';
 import { DashboardComponent } from './Component/dashboard/dashboard.component';
 import { CreateNoteComponent } from './Component/create-note/create-note.component';
 import { IconComponent } from './Component/icon/icon.component';
+import { NotesComponent } from './Component/notes/notes.component';
+import { RemindersComponent } from './Component/reminders/reminders.component';
+import { LabelsComponent } from './Component/labels/labels.component';
+import { ArchiveComponent } from './Component/archive/archive.component';
+import { BinComponent } from './Component/bin/bin.component';
+import { DisplayComponent } from './Component/display/display.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +45,13 @@ import { IconComponent } from './Component/icon/icon.component';
     FundooComponent,
     DashboardComponent,
     CreateNoteComponent,
-    IconComponent
+    IconComponent,
+    NotesComponent,
+    RemindersComponent,
+    LabelsComponent,
+    ArchiveComponent,
+    BinComponent,
+    DisplayComponent
   ],
   imports: [
     BrowserModule,
