@@ -1,10 +1,12 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
     <mat-toolbar class="example-toolbar">
         <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
-        <h1 class="example-app-name">Fundoo</h1>
-        <button mat-button [matMenuTriggerFor]="menu" style="margin-left: '80%';">Menu</button>
+        <h3 class="example-app-name">Fundoo</h3>
+        <button mat-button [matMenuTriggerFor]="menu" style="margin-left: '80%';"><span class="material-icons">
+            account_circle
+            </span></button>
         <mat-menu #menu="matMenu">
-            <button mat-menu-item>Sign Out</button>
+            <button mat-menu-item (click)="signOut()">Sign Out</button>
         </mat-menu>
     </mat-toolbar>
 
@@ -16,6 +18,7 @@
                 <a mat-list-item [routerLink]="'/contacts'"> Contacts </a>
                 <a mat-list-item [routerLink]="'/create-contact'"> Edit Labels </a>
                 <a mat-list-item [routerLink]="'/activities'"> Archive </a>
+                <a mat-list-item [routerLink]="'/activities'"> Bin </a>
             </mat-nav-list>
         </mat-sidenav>
         <mat-sidenav-content>

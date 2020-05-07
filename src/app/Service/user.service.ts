@@ -24,4 +24,8 @@ export class UserService {
     return this.http.post(data,path);
   }
 
+  signOutAction(path:string){
+    return this.http.get(path);
+  }
+
 }

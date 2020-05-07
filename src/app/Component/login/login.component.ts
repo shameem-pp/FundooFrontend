@@ -26,7 +26,7 @@ validation(){
     success=>{
       this.loading=false;
       this.openSnackBar("Successfull","Login");
-      this.router.navigate(['/fundoo']);
+      this.router.navigate(['/dashboard']);
     },
     error=>{
       this.loading=false;

@@ -26,9 +26,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { FundooComponent } from './Component/fundoo/fundoo.component';
 import { DashboardComponent } from './Component/dashboard/dashboard.component';
-import { from } from 'rxjs';
 import { CreateNoteComponent } from './Component/create-note/create-note.component';
-import { IconComponentComponent } from './Component/icon-component/icon-component.component';
+import { IconComponent } from './Component/icon/icon.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +39,7 @@ import { IconComponentComponent } from './Component/icon-component/icon-componen
     FundooComponent,
     DashboardComponent,
     CreateNoteComponent,
-    IconComponentComponent
+    IconComponent
   ],
   imports: [
     BrowserModule,

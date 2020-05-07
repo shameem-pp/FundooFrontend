@@ -17,7 +17,7 @@ export class ResetPasswordComponent implements OnInit {
   email:string;
   loading:boolean=false;
 
-  constructor(private fb:FormBuilder,private route: ActivatedRoute,private service:UserService,private snackBar: MatSnackBar) { }
+  constructor(private fb:FormBuilder,private router: Router,private route: ActivatedRoute,private service:UserService,private snackBar: MatSnackBar) { }
 
   validation(){
     this.loading=true;
@@ -29,6 +29,7 @@ this.service.resetPasswordAction(data,"api/Account/ResetPassword?email="+this.em
   success=>{
     this.loading=false;
     this.openSnackBar("Successfull","Reset Password");
+    this.router.navigate(['/login']);
   },
   error=>{
     this.openSnackBar(error.toString(),"reset password");

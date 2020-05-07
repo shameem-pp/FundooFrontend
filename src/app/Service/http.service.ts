@@ -10,7 +10,12 @@ export class HttpService {
   
   constructor(private http:HttpClient) { }
 
-  public post(data:object,path:string){
+  public post(data:object,path:string ){
     return this.http.post(environment.baseUrl+path,data);
+
+}
+
+public get(path: string){
+  return this.http.get(environment.baseUrl+path);
 }
 }
