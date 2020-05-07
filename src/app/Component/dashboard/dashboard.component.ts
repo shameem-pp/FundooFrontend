@@ -25,9 +25,14 @@ export class DashboardComponent implements OnDestroy {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 
+openNotes(){
+  
+}
+
   signOut(){
     this.service.signOutAction('api/Account/Logout').subscribe(
       success=>{
+        localStorage.removeItem('token');
         this.openSnackBar("Successfull","Logout");
         this.router.navigate(['/login']);
       }

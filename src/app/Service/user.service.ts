@@ -28,4 +28,8 @@ export class UserService {
     return this.http.get(path);
   }
 
+  isLoggedIn(){
+    return !!localStorage.getItem('token');
+  }
+
 }

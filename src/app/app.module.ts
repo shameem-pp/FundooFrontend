@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import {AuthGuard} from './auth.guard';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
@@ -34,6 +35,7 @@ import { LabelsComponent } from './Component/labels/labels.component';
 import { ArchiveComponent } from './Component/archive/archive.component';
 import { BinComponent } from './Component/bin/bin.component';
 import { DisplayComponent } from './Component/display/display.component';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -73,7 +75,7 @@ import { DisplayComponent } from './Component/display/display.component';
     MatMenuModule
   ],
   providers: [UserService,
-  HttpService],
+  HttpService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

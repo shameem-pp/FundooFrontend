@@ -25,6 +25,7 @@ validation(){
   this.service.loginAction(data,"api/Account/Login").subscribe(
     success=>{
       this.loading=false;
+      localStorage.setItem('token', success['token']); 
       this.openSnackBar("Successfull","Login");
       this.router.navigate(['/dashboard']);
     },
