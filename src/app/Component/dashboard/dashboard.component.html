@@ -2,7 +2,13 @@
     <mat-toolbar class="example-toolbar">
         <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
         <h3 class="example-app-name">Fundoo</h3>
-        <button mat-button [matMenuTriggerFor]="menu" style="margin-left: '80%';"><span class="material-icons">
+        <mat-card class="search-container">
+            <button class="searchbutton" mat-icon-button>
+                <mat-icon class="search-icon" matSuffix>search</mat-icon>
+              </button>
+            <input class="search-box" type="text" name="search" autocomplete="off" placeholder="Search">
+        </mat-card>
+        <button mat-button [matMenuTriggerFor]="menu"><span class="material-icons">
             account_circle
             </span></button>
         <mat-menu #menu="matMenu">
