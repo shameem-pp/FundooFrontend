@@ -12,6 +12,9 @@ export class DisplayComponent implements OnInit {
 
   constructor() { }
 
+  createNote(){
+    console.log("ljlj")
+  }
   ngOnInit(): void {
     console.log("khkhk")
   }
