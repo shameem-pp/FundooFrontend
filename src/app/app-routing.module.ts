@@ -10,6 +10,7 @@ import { AuthGuard } from './auth.guard';
 import { CreateNoteComponent } from './Component/create-note/create-note.component';
 import { DisplayComponent } from './Component/display/display.component';
 import { NotesComponent } from './Component/notes/notes.component';
+import { IconComponent } from './Component/icon/icon.component';
 
 const routes: Routes = [
   {path:'login',component:LoginComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path:'resetPassword',component:ResetPasswordComponent},
   {path:'forgotPassword',component:ForgotPasswordComponent},
   {path:'fundoo',component:FundooComponent},
+  {path:'i',component:IconComponent},
   {path:'dashboard',component:DashboardComponent,canActivate:[AuthGuard],
   children:[{path:'note',component:NotesComponent,children:[{path:'display',component:DisplayComponent},{path:'createnote',component:CreateNoteComponent}]}
   ]}];

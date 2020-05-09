@@ -7,8 +7,11 @@
     <div style="margin: 2% auto; width: '50%';">
         <mat-card>
             <div class="searchbox" (input)="notes.title=$event.target.textContent" role="textbox" name="search" style="width: '100%'; font-size: 1rem;" autocomplete="off" style="font-weight: 500;" contentEditable=true data-text="Title" (click)='openNote()'></div>
-            <div class="searchbox" (input)="notes.description=$event.target.textContent" contenteditable="true" style="margin: 2% 0%;" data-text="Take a note" aria-multiline="true" role="textbox" tabindex="0" spellcheck="false"></div>
-            <button style="margin-left: 90%;" type="button" (click)="apiCallCreateNote()" mat-button>Close</button>
+            <div class="searchbox" (input)="notes.description=$event.target.textContent" contenteditable="true" style="margin: 2% 0% 2%;" data-text="Take a note" aria-multiline="true" role="textbox" tabindex="0" spellcheck="false"></div>
+            <div class="flex">
+                <app-icon></app-icon>
+                <button style="margin-left: 90%;" type="button" (click)="apiCallCreateNote()" mat-button>Close</button>
+            </div>
         </mat-card>
     </div>
 </ng-template>
