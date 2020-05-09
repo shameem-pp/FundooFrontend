@@ -10,12 +10,17 @@ export class NoteService {
 
   constructor(private http:HttpClient) { }
   
-  header = new HttpHeaders().set(
-    "Authorization",
-     localStorage.getItem("token")
-  );
+  header = {
+    headers: new HttpHeaders()
+      .set('Authorization',  `Bearer ${localStorage.token}`)
+  }
+
+
+  getAllNote(path:string){
+    return this.http.get(environment.baseUrl+path,this.header)
+  }
 
   createNote(data:object,path:string){
-    return this.http.post(environment.baseUrl+path,data);
+    return this.http.post(environment.baseUrl+path,data,this.header);
   }
 }

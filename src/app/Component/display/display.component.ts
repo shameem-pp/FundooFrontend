@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import{DashboardComponent} from './../dashboard/dashboard.component';
 import{CreateNoteComponent} from './../create-note/create-note.component';
 import { from } from 'rxjs';
+import { NoteService } from 'src/app/Service/note.service';
 
 @Component({
   selector: 'app-display',
@@ -10,14 +11,19 @@ import { from } from 'rxjs';
 })
 export class DisplayComponent implements OnInit {
   clicked: boolean;
+  result: any;
 
-  constructor() { }
+  constructor(private service:NoteService) { }
 
-  createNote(){
-    this.clicked=true;
-  }
+
+
   ngOnInit(): void {
     this.clicked=false;
+    this.service.getAllNote("api/Note/GetAllNotes").subscribe(
+      response=>{
+        this.result=response;
+        console.log(response)
+    });
   }
 
 }
