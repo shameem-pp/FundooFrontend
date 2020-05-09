@@ -7,6 +7,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IconComponent implements OnInit {
 
+  reminder(){
+
+  }
+
+  collaborator(){
+
+  }
+
+  addColor(){
+
+  }
+
+  addImage(){
+
+  }
+
+  archive(){
+
+  }
+
+  more(){
+    
+  }
   constructor() { }
 
   ngOnInit(): void {
