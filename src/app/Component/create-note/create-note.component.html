@@ -6,11 +6,9 @@
 <ng-template #elseBlock>
     <div style="margin: 2% auto; width: '50%';">
         <mat-card>
-            <form [formGroup]="notes" (ngSubmit)="apiCallCreateNote()">
-                <div class="searchbox" formControlName="title" role="textbox" name="search" style="width: '100%'; font-size: 1rem;" autocomplete="off" style="font-weight: 500;" contentEditable=true data-text="Title" (click)='openNote()'></div>
-                <div class="searchbox" formControlName="description" contenteditable="true" style="margin: 2% 0%;" data-text="Take a note" aria-multiline="true" role="textbox" tabindex="0" spellcheck="false"></div>
-                <button style="margin-left: 90%;" type="submit" mat-button>Close</button>
-            </form>
+            <div class="searchbox" (input)="notes.title=$event.target.textContent" role="textbox" name="search" style="width: '100%'; font-size: 1rem;" autocomplete="off" style="font-weight: 500;" contentEditable=true data-text="Title" (click)='openNote()'></div>
+            <div class="searchbox" (input)="notes.description=$event.target.textContent" contenteditable="true" style="margin: 2% 0%;" data-text="Take a note" aria-multiline="true" role="textbox" tabindex="0" spellcheck="false"></div>
+            <button style="margin-left: 90%;" type="button" (click)="apiCallCreateNote()" mat-button>Close</button>
         </mat-card>
     </div>
 </ng-template>

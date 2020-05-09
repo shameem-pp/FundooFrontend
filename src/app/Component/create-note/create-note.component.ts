@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NoteService } from 'src/app/Service/note.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Note } from 'src/app/Models/note';
 
 @Component({
   selector: 'app-create-note',
@@ -9,33 +9,27 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class CreateNoteComponent implements OnInit {
   clicked:boolean=false;
-  notes:FormGroup;
-  constructor(private service:NoteService,private fb:FormBuilder) { }
+  @Input() notes:Note;
+  constructor(private service:NoteService) { }
 
   openNote(){
     this.clicked=true;
   }
 
   apiCallCreateNote(){
-    let data={
-      title:this.valueOfInputField('title'),
-      description:this.valueOfInputField('description')
+    if(this.notes.title!=null || this.notes.description!=null ){
+      this.service.createNote(this.notes,'api/Note/CreateNote').subscribe(
+        response=>{
+          console.log("succeess");
+        });
     }
-
-    if(data.title!=null || data.description!=null ){
-      this.service.createNote(data,'api/Note/CreateNote')
+    else{
+      this.clicked=false;
     }
-  }
-
-  valueOfInputField(inputElement:string){
-    return this.notes.get(inputElement).value;
   }
 
   ngOnInit(): void {
-    this.notes =this.fb.group({
-      title:[''],
-      description:['']
-    });
+    this.notes=new Note();
   }
 
 }
