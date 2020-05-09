@@ -1,4 +1,6 @@
-.search-box {
+.searchbox {
     border: 0px;
     outline: none;
+    word-wrap: break-word;
+    white-space: initial;
 }

@@ -9,6 +9,7 @@ import { DashboardComponent } from './Component/dashboard/dashboard.component';
 import { AuthGuard } from './auth.guard';
 import { CreateNoteComponent } from './Component/create-note/create-note.component';
 import { DisplayComponent } from './Component/display/display.component';
+import { NotesComponent } from './Component/notes/notes.component';
 
 const routes: Routes = [
   {path:'login',component:LoginComponent},
@@ -16,8 +17,9 @@ const routes: Routes = [
   {path:'resetPassword',component:ResetPasswordComponent},
   {path:'forgotPassword',component:ForgotPasswordComponent},
   {path:'fundoo',component:FundooComponent},
-  {path: 'display',component:DisplayComponent},
-  {path:'dashboard',component:DashboardComponent,canActivate:[AuthGuard]}];
+  {path:'dashboard',component:DashboardComponent,canActivate:[AuthGuard],
+  children:[{path:'note',component:NotesComponent,children:[{path:'display',component:DisplayComponent},{path:'createnote',component:CreateNoteComponent}]}
+  ]}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

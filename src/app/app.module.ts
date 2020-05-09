@@ -35,7 +35,7 @@ import { LabelsComponent } from './Component/labels/labels.component';
 import { ArchiveComponent } from './Component/archive/archive.component';
 import { BinComponent } from './Component/bin/bin.component';
 import { DisplayComponent } from './Component/display/display.component';
-import { from } from 'rxjs';
+import { NoteService } from './Service/note.service';
 
 @NgModule({
   declarations: [
@@ -75,7 +75,7 @@ import { from } from 'rxjs';
     MatMenuModule
   ],
   providers: [UserService,
-  HttpService,AuthGuard],
+  HttpService,AuthGuard,NoteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

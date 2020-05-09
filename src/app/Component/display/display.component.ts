@@ -9,14 +9,15 @@ import { from } from 'rxjs';
   styleUrls: ['./display.component.css']
 })
 export class DisplayComponent implements OnInit {
+  clicked: boolean;
 
   constructor() { }
 
   createNote(){
-    console.log("ljlj")
+    this.clicked=true;
   }
   ngOnInit(): void {
-    console.log("khkhk")
+    this.clicked=false;
   }
 
 }

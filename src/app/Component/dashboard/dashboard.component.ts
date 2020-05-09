@@ -3,6 +3,9 @@ import { MediaMatcher } from '@angular/cdk/layout';
 import { UserService } from 'src/app/Service/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import {DisplayComponent} from './../display/display.component';
+import{CreateNoteComponent} from './../create-note/create-note.component';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -26,7 +29,7 @@ export class DashboardComponent implements OnDestroy {
   }
 
 openNotes(){
-  
+
 }
 
   signOut(){

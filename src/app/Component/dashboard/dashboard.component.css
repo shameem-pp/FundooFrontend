@@ -57,8 +57,8 @@ input {
 
 .search-container {
     display: flex;
-    margin: 0% 15%;
-    width: 80%;
+    margin: 0% auto;
+    width: 60%;
     height: 80%;
 }
 
