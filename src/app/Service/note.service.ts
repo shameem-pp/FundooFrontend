@@ -16,6 +16,6 @@ export class NoteService {
   );
 
   createNote(data:object,path:string){
-    return this.http.post(environment.baseUrl+path,data,{headers:this.header});
+    return this.http.post(environment.baseUrl+path,data);
   }
 }
