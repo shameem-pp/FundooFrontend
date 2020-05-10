@@ -14,6 +14,7 @@ import { IconComponent } from './Component/icon/icon.component';
 
 const routes: Routes = [
   {path:'login',component:LoginComponent},
+  {path:'',component:DashboardComponent},
   {path:'registration',component:RegistrationComponent},
   {path:'resetPassword',component:ResetPasswordComponent},
   {path:'forgotPassword',component:ForgotPasswordComponent},

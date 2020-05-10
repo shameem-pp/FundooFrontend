@@ -10,7 +10,7 @@ import { NoteService } from 'src/app/Service/note.service';
   styleUrls: ['./display.component.css']
 })
 export class DisplayComponent implements OnInit {
-  clicked: boolean;
+  showIcon: boolean;
   result: any;
 
   constructor(private service:NoteService) { }
@@ -18,6 +18,7 @@ export class DisplayComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.showIcon=false;
     this.service.getAllNote("api/Note/GetAllNotes").subscribe(
       response=>{
         this.result=response;
