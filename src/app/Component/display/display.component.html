@@ -1,9 +1,12 @@
 <div style="display: flex; flex-wrap: wrap; margin: 2% auto; width: 60%;">
-    <mat-card *ngFor="let x of result;" style="margin-right: 2%; width: 50%; margin-bottom: 2%;">
+    <mat-card *ngFor="let x of result;" style="margin-right: 2%; width: 30%; margin-bottom: 2%;">
         <div>
             <div style=" font-size: 1.5rem; font-weight: 600;">{{x.title}}</div>
             <div style="height: auto;  word-break: break-word;  " (mouseover)="showIcon=true" (mouseout)="showIcon=false">{{x.description}}</div>
+            <div fxLayout="row">
+                <app-icon *ngIf="showIcon" style="z-index: 1;"></app-icon>
+            </div>
         </div>
     </mat-card>
-    <app-icon style="z-index: 1;"></app-icon>
+
 </div>
