@@ -4,7 +4,7 @@
             <div style=" font-size: 1.5rem; font-weight: 600;">{{x.title}}</div>
             <div style="height: auto;  word-break: break-word;  " (mouseover)="showIcon=true" (mouseout)="showIcon=false">{{x.description}}</div>
             <div fxLayout="row">
-                <app-icon *ngIf="showIcon" style="z-index: 1;"></app-icon>
+                <app-icon *ngIf="showIcon" style="z-index: 1; display: none;"></app-icon>
             </div>
         </div>
     </mat-card>

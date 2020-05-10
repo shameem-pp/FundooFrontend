@@ -10,14 +10,13 @@
             <div class="searchbox" (input)="notes.description=$event.target.textContent" contenteditable="true" style="margin: 2% 0% 2%;" data-text="Take a note" aria-multiline="true" role="textbox" tabindex="0" spellcheck="false"></div>
             <div fxLayout="row">
                 <app-icon></app-icon>
-                <button mat-button type="button" [matMenuTriggerFor]="menu">    <span class="material-icons icon">
+                <button class="btn" mat-button type="button" [matMenuTriggerFor]="menu">    <span class="material-icons icon">
                     more_vert
                     </span></button>
                 <mat-menu #menu="matMenu">
                     <button mat-menu-item>Add Label</button>
-                    <button mat-menu-item>Add Drawing</button>
                 </mat-menu>
-                <button type="button" (click)="apiCallCreateNote()" mat-button>Close</button>
+                <button type="button" class="icon" (click)="apiCallCreateNote()" mat-button>Close</button>
             </div>
         </mat-card>
     </div>
