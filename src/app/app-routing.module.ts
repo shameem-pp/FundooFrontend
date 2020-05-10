@@ -20,7 +20,7 @@ const routes: Routes = [
   {path:'fundoo',component:FundooComponent},
   {path:'i',component:IconComponent},
   {path:'dashboard',component:DashboardComponent,canActivate:[AuthGuard],
-  children:[{path:'note',component:NotesComponent,children:[{path:'display',component:DisplayComponent},{path:'createnote',component:CreateNoteComponent}]}
+  children:[{path:'',component:NotesComponent},{path:'note',component:NotesComponent,children:[{path:'display',component:DisplayComponent},{path:'createnote',component:CreateNoteComponent}]}
   ]}];
 
 @NgModule({

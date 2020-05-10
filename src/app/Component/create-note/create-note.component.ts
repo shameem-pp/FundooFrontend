@@ -20,7 +20,6 @@ export class CreateNoteComponent implements OnInit {
     if(this.notes.title!=null || this.notes.description!=null ){
       this.service.createNote(this.notes,'api/Note/CreateNote').subscribe(
         response=>{
-          console.log("succeess");
         });
     }
     else{

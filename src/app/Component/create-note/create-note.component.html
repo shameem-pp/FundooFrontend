@@ -1,4 +1,4 @@
-<div *ngIf="!clicked; else elseBlock" style="margin: 2% auto; width: '50%';">
+<div *ngIf="!clicked; else elseBlock" style="margin: 2% auto; width: '38%';">
     <mat-card>
         <input class="searchbox" type="text" name="search" style="width: '100%';" autocomplete="off" placeholder="Take a note" (click)='openNote()'>
     </mat-card>
@@ -8,9 +8,16 @@
         <mat-card>
             <div class="searchbox" (input)="notes.title=$event.target.textContent" role="textbox" name="search" style="width: '100%'; font-size: 1rem;" autocomplete="off" style="font-weight: 500;" contentEditable=true data-text="Title" (click)='openNote()'></div>
             <div class="searchbox" (input)="notes.description=$event.target.textContent" contenteditable="true" style="margin: 2% 0% 2%;" data-text="Take a note" aria-multiline="true" role="textbox" tabindex="0" spellcheck="false"></div>
-            <div class="flex" style="display: inline;">
+            <div style="display: inline-flex;">
                 <app-icon></app-icon>
-                <button style="margin-left: 90%;" type="button" (click)="apiCallCreateNote()" mat-button>Close</button>
+                <button type="button" [matMenuTriggerFor]="menu" mat-button>    <span class="material-icons icon">
+                    more_vert
+                    </span></button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item>Add Label</button>
+                    <button mat-menu-item>Add Drawing</button>
+                </mat-menu>
+                <button type="button" (click)="apiCallCreateNote()" mat-button>Close</button>
             </div>
         </mat-card>
     </div>
