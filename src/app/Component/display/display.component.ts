@@ -18,7 +18,6 @@ export class DisplayComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.clicked=false;
     this.service.getAllNote("api/Note/GetAllNotes").subscribe(
       response=>{
         this.result=response;
