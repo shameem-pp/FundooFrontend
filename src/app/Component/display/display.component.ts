@@ -10,15 +10,17 @@ import { NoteService } from 'src/app/Service/note.service';
   styleUrls: ['./display.component.css']
 })
 export class DisplayComponent implements OnInit {
-  showIcon: boolean;
   result: any;
+  isShow: boolean;
 
   constructor(private service:NoteService) { }
 
-
+showIcon(){
+this.isShow=!this.isShow;
+}
 
   ngOnInit(): void {
-    this.showIcon=false;
+    this.isShow=false;
     this.service.getAllNote("api/Note/GetAllNotes").subscribe(
       response=>{
         this.result=response;
