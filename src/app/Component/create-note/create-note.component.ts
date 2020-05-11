@@ -18,11 +18,13 @@ export class CreateNoteComponent implements OnInit {
   }
 
   apiCallCreateNote(){
-    if(this.notes.title!=null || this.notes.description!=null ){
+    if(this.notes.title!=null || this.notes.description!=null){
       this.service.createNote(this.notes,'api/Note/CreateNote').subscribe(
         response=>{
           this.clicked=false;
           this.notify.emit('callGetAllNoteApi');
+          this.notes.title=null;
+          this.notes.description=null;
         });
     }
     else{

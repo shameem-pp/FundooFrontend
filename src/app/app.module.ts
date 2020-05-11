@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import {AuthGuard} from './auth.guard';
@@ -76,7 +78,9 @@ import { NoteService } from './Service/note.service';
     MatIconModule,
     MatMenuModule,
     FlexLayoutModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [UserService,
   HttpService,AuthGuard,NoteService],

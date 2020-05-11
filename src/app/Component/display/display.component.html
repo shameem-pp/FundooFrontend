@@ -1,10 +1,10 @@
-<div style="display: flex; flex-wrap: wrap; margin: 2% auto; align-items: flex-start; width: 60%;">
-    <mat-card *ngFor="let x of result;" style="margin-right: 2%; width: 30%; margin-bottom: 2%;" (mouseover)="showIcon()" (mouseout)="showIcon()">
+<div style="display: flex; flex-wrap: wrap; margin: 2% auto; align-items: flex-start; width: 70%;">
+    <mat-card *ngFor="let x of result;" style="margin-right: 2%; width: 30%; margin-bottom: 2%;">
         <div>
             <div style=" font-size: 1.5rem; font-weight: 600;">{{x.title}}</div>
             <div style="height: auto; margin-bottom: 3%; word-break: break-word;  ">{{x.description}}</div>
         </div>
-        <div [hidden]="isShow" fxLayout="row">
+        <div fxLayout="row">
             <app-icon style="z-index: 1;"></app-icon>
             <button class="btn" mat-button type="button" [matMenuTriggerFor]="menu">    <span class="material-icons icon">
                 more_vert
