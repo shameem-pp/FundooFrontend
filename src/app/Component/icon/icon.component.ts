@@ -9,23 +9,23 @@ export class IconComponent implements OnInit {
 
   @Output() notify:EventEmitter<any>=new EventEmitter<any>();
   reminder(){
-    this.notify.emit();
+    this.notify.emit({name:"reminder",value:""});
   }
 
   collaborator(){
-
+    this.notify.emit({name:"collaborator",value:""});
   }
 
   addColor(){
-
+    this.notify.emit({name:"color",value:""});
   }
 
   addImage(){
-
+    this.notify.emit({name:"addImage",value:""});
   }
 
   archive(){
-    this.notify.emit(true);
+    this.notify.emit({name:"archive",value:true});
   }
 
   constructor() { }
