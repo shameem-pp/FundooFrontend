@@ -36,6 +36,7 @@ export class IconComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.notes.remainder="fdf";
   }
 
 }

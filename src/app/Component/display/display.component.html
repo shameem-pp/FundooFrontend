@@ -4,8 +4,8 @@
             <div style=" font-size: 1.5rem; font-weight: 600;">{{contents.title}}</div>
             <div style="height: auto; margin-bottom: 3%; word-break: break-word;  ">{{contents.description}}</div>
         </div>
-        <div fxLayout="row">
-            <app-icon style="z-index: 1;"></app-icon>
+        <div fxLayout="row" class="flex-container" fxLayout.sm="column">
+            <app-icon></app-icon>
             <button class="btn" mat-button type="button" [matMenuTriggerFor]="menu">    <span class="material-icons icon">
                 more_vert
                 </span></button>
