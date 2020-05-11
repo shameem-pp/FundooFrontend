@@ -1,5 +1,5 @@
 <div fxLayout="row" class="space">
-    <button class="btn" type="button" matTooltip="Remind me" [matMenuTriggerFor]="rem" (click)="reminder()" mat-button><span class="material-icons icon">
+    <button class="btn" type="button" matTooltip="Remind me" [matMenuTriggerFor]="rem" mat-button><span class="material-icons icon">
         notifications_none
         </span></button>
     <button class="btn" type="button" matTooltip="Add Collaborator" [matMenuTriggerFor]="clbrtr" (click)="collaborator()" mat-button>    <span class="material-icons icon">
@@ -16,13 +16,13 @@
                     </span></button>
 
     <mat-menu #rem="matMenu">
-        <button mat-menu-item name="">Later Today </button>
-        <button mat-menu-item>Tomorrow</button>
-        <button mat-menu-item>Next Week</button>
-        <button mat-menu-item>
+        <button (input)="notes.remainder='Later Today'" mat-menu-item (click)="reminder()">Later Today </button>
+        <button (input)="notes.remainder='Tomorrow'" mat-menu-item (click)="reminder()">Tomorrow</button>
+        <button (input)="notes.remainder='Next Week'" mat-menu-item (click)="reminder()">Next Week</button>
+        <button (input)="notes.remainder=$event.target.textContent" mat-menu-item (click)="reminder()">
         <mat-form-field>
             <mat-label>Choose a date</mat-label>
-            <input matInput [matDatepicker]="picker">
+            <input (input)="notes.remainder=$event.target.textContent" matInput [matDatepicker]="picker">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>

@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Note } from 'src/app/Models/note';
 
 @Component({
   selector: 'app-icon',
@@ -7,9 +8,13 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class IconComponent implements OnInit {
 
+
+  notes:Note=new Note();
+
   @Output() notify:EventEmitter<any>=new EventEmitter<any>();
   reminder(){
     this.notify.emit({name:"reminder",value:""});
+    console.log(this.notes.remainder)
   }
 
   collaborator(){
