@@ -1,7 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NoteService } from 'src/app/Service/note.service';
 import { Note } from 'src/app/Models/note';
-import { not } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-create-note',
@@ -13,6 +12,7 @@ export class CreateNoteComponent implements OnInit {
   @Input() notes:Note;
   constructor(private service:NoteService) { }
 
+  @Output() notify:EventEmitter<any>=new EventEmitter<any>();
   openNote(){
     this.clicked=true;
   }
@@ -21,6 +21,8 @@ export class CreateNoteComponent implements OnInit {
     if(this.notes.title!=null || this.notes.description!=null ){
       this.service.createNote(this.notes,'api/Note/CreateNote').subscribe(
         response=>{
+          this.clicked=false;
+          this.notify.emit('callGetAllNoteApi');
         });
     }
     else{

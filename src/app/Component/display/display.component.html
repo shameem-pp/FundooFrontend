@@ -2,7 +2,7 @@
     <mat-card *ngFor="let x of result;" style="margin-right: 2%; width: 30%; margin-bottom: 2%;" (mouseover)="showIcon()" (mouseout)="showIcon()">
         <div>
             <div style=" font-size: 1.5rem; font-weight: 600;">{{x.title}}</div>
-            <div style="height: auto;  word-break: break-word;  ">{{x.description}}</div>
+            <div style="height: auto; margin-bottom: 3%; word-break: break-word;  ">{{x.description}}</div>
         </div>
         <div [hidden]="isShow" fxLayout="row">
             <app-icon style="z-index: 1;"></app-icon>
