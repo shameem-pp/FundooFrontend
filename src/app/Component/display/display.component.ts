@@ -14,7 +14,7 @@ export class DisplayComponent implements OnInit {
 
   iconEvent(eventValue,id){
     console.log(id);
-    this.notify.emit({id:id,value:eventValue,name:eventValue.name})
+    this.notify.emit({id:id,value:eventValue.value,name:eventValue.name})
   }
 
 

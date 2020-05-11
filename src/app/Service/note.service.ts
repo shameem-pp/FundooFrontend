@@ -25,10 +25,10 @@ export class NoteService {
   }
 
   archiveNote(data:number,path:string){
-    return this.http.put(environment.baseUrl+path,data);
+    return this.http.put(environment.baseUrl+path,data,this.header);
   }
 
   addReminder(data:string,path:string){
-    return this.http.put(environment.baseUrl+path,data);
+    return this.http.put(environment.baseUrl+path,data,this.header);
   }
 }
