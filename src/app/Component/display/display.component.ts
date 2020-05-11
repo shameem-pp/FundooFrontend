@@ -7,16 +7,13 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class DisplayComponent implements OnInit {
   @Input() result: any;
-  isShow: boolean;
 
   constructor() { }
+  iconEvent(event){
 
-showIcon(){
-this.isShow=!this.isShow;
-}
+  }
 
   ngOnInit(): void {
-    this.isShow=false;   
   }
 
 }

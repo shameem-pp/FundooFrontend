@@ -12,9 +12,21 @@ export class IconComponent implements OnInit {
   notes:Note=new Note();
 
   @Output() notify:EventEmitter<any>=new EventEmitter<any>();
-  reminder(){
-    this.notify.emit({name:"reminder",value:""});
-    console.log(this.notes.remainder)
+  reminder(event){
+    let date=new Date(); 
+    switch(event){
+      case 'Later Today':
+        event+=date.getDate();
+        break;
+        case 'Tomorrow':
+          event+=new Date(date).getDate()+1;
+          break;
+          case 'Next Week':
+            event+=new Date(date).getDate()-1;
+            break;
+    }
+    this.notify.emit({name:"reminder",value:event});
+    
   }
 
   collaborator(){
@@ -36,7 +48,6 @@ export class IconComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.notes.remainder="fdf";
   }
 
 }
