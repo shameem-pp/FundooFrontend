@@ -28,7 +28,7 @@ export class NoteService {
     return this.http.put(environment.baseUrl+path,data,this.header);
   }
 
-  addReminder(data:string,path:string){
+  addReminder(data,path:string){
     return this.http.put(environment.baseUrl+path,data,this.header);
   }
 }

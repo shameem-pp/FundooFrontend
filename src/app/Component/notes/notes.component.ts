@@ -37,7 +37,7 @@ export class NotesComponent implements OnInit {
 
   addReminder(eventValue) {
     debugger;
-    this.service.addReminder(eventValue.value,'api/Note/Reminder?value='+eventValue.value+'/'+eventValue.id).subscribe(
+    this.service.addReminder(eventValue,'api/Note/Reminder/'+eventValue.id).subscribe(
       response=>{
         console.log("success")
       }
