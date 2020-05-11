@@ -20,6 +20,46 @@ export class NotesComponent implements OnInit {
     });
   }
 
+  apiCall(evnt){
+    switch(evnt['name']){
+      case "collaborator":this.collaborator(evnt);
+      break;
+      case "color":this.addColor(evnt);
+      break;
+      case "addImage":this.addImage(evnt);
+      break;
+      case "archive":this.archieve(evnt);
+      break;
+      case "reminder":this.addReminder(evnt);
+      break;
+    }
+  }
+
+  addReminder(eventValue) {
+    this.service.addReminder(eventValue.eventValue,'api/Note/Reminder/'+eventValue.id);
+  }
+
+  archieve(eventValue) {
+    
+    this.service.archiveNote(eventValue.id,'api/Note/Archive/'+eventValue.id).subscribe
+    (
+      response=>{
+        console.log("success");
+      }
+
+    );
+  }
+
+  addImage(eventValue) {
+  }
+
+  addColor(eventValue) {
+  }
+
+  collaborator(eventValue) {
+  }
+ 
+
   ngOnInit(): void {
   this.apiCallGetAllNote();
   }

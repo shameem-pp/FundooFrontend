@@ -1,2 +1,2 @@
 <app-create-note (notify)="apiCallGetAllNote($event)"></app-create-note>
-<app-display [result]="listOfNotes"></app-display>
+<app-display [result]="listOfNotes" (notify)="apiCall($event)"></app-display>

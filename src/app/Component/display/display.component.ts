@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Note } from 'src/app/Models/note';
 
 @Component({
   selector: 'app-display',
@@ -9,9 +10,13 @@ export class DisplayComponent implements OnInit {
   @Input() result: any;
 
   constructor() { }
-  iconEvent(event){
+  @Output() notify:EventEmitter<any> =new EventEmitter<any>();
 
+  iconEvent(eventValue,id){
+    console.log(id);
+    this.notify.emit({id:id,value:eventValue,name:eventValue.name})
   }
+
 
   ngOnInit(): void {
   }

@@ -23,4 +23,12 @@ export class NoteService {
   createNote(data:object,path:string){
     return this.http.post(environment.baseUrl+path,data,this.header);
   }
+
+  archiveNote(data:number,path:string){
+    return this.http.put(environment.baseUrl+path,data);
+  }
+
+  addReminder(data:string,path:string){
+    return this.http.put(environment.baseUrl+path,data);
+  }
 }
