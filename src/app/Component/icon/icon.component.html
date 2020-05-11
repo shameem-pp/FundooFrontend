@@ -1,25 +1,27 @@
 <div style="display:flexbox">
-    <button class="btn" type="button" [matMenuTriggerFor]="rem" (click)="reminder()" mat-button><span class="material-icons icon">
+    <button class="btn" type="button" matTooltip="Remind me" [matMenuTriggerFor]="rem" (click)="reminder()" mat-button><span class="material-icons icon">
         notifications_none
         </span></button>
-    <button class="btn" type="button" [matMenuTriggerFor]="clbrtr" (click)="collaborator()" mat-button>    <span class="material-icons icon">
+    <button class="btn" type="button" matTooltip="Add Collaborator" [matMenuTriggerFor]="clbrtr" (click)="collaborator()" mat-button>    <span class="material-icons icon">
         person_add
         </span></button>
-    <button class="btn" type="button" [matMenuTriggerFor]="clr" (click)="addColor()" mat-button>    <span class="material-icons icon">
+    <button class="btn" type="button" matTooltip="Add Color" [matMenuTriggerFor]="clr" (click)="addColor()" mat-button>    <span class="material-icons icon">
             color_lens
             </span></button>
-    <button class="btn" type="button" [matMenuTriggerFor]="img" (click)="addImage()" mat-button>    <span class="material-icons icon">
+    <button class="btn" type="button" matTooltip="Add Image" [matMenuTriggerFor]="img" (click)="addImage()" mat-button>    <span class="material-icons icon">
                 photo_size_select_actual
                 </span></button>
-    <button class="btn" type="button" (click)="archive()" mat-button>    <span class="material-icons icon">
+    <button class="btn" type="button" matTooltip="Archive" (click)="archive()" mat-button>    <span class="material-icons icon">
                     archive
                     </span></button>
 
     <mat-menu #rem="matMenu">
-        <button mat-menu-item>Add Label</button>
+        <button mat-menu-item>Later Today </button>
+        <button mat-menu-item>Tomorrow</button>
+        <button mat-menu-item>Next Week</button>
     </mat-menu>
     <mat-menu #clbrtr="matMenu">
-        <button mat-menu-item>Add Label</button>
+        <button mat-menu-item>Add Collaborator</button>
     </mat-menu>
     <mat-menu #clr="matMenu">
         <!-- <input type="color" list="presetColors">

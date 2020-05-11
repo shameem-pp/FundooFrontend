@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
+import {MatTooltipModule} from '@angular/material/tooltip';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import {AuthGuard} from './auth.guard';
 import {MatMenuModule} from '@angular/material/menu';
@@ -75,7 +75,8 @@ import { NoteService } from './Service/note.service';
     MatListModule,
     MatIconModule,
     MatMenuModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatTooltipModule
   ],
   providers: [UserService,
   HttpService,AuthGuard,NoteService],

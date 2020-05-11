@@ -27,6 +27,10 @@ export class CreateNoteComponent implements OnInit {
     }
   }
 
+  iconEvent(evnt){
+debugger;
+  }
+
   ngOnInit(): void {
     this.notes=new Note();
   }

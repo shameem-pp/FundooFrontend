@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-icon',
@@ -7,8 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IconComponent implements OnInit {
 
+  @Output() notify:EventEmitter<any>=new EventEmitter<any>();
   reminder(){
-
+    this.notify.emit();
   }
 
   collaborator(){
@@ -24,12 +25,9 @@ export class IconComponent implements OnInit {
   }
 
   archive(){
-
+    this.notify.emit(true);
   }
 
-  more(){
-    
-  }
   constructor() { }
 
   ngOnInit(): void {
