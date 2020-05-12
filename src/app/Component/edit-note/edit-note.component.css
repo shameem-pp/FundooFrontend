@@ -3,10 +3,14 @@
     font-weight: 600;
 }
 
-input-box {
+.input-box {
     height: auto;
     margin-bottom: 3%;
-    word-break: break-word;
     border: 0px;
     outline: none;
+    width: 100%;
+}
+
+.close-btn {
+    margin-left: 50%;
 }

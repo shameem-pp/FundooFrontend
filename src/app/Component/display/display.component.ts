@@ -21,6 +21,8 @@ export class DisplayComponent implements OnInit {
 
   openEditDialogue(contentOfNote){
     const dialogRef = this.dialog.open(EditNoteComponent, {
+      width:'50%',
+      height:'auto',
       data: { pageValue: contentOfNote }
     });
  

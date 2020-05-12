@@ -1,9 +1,11 @@
 <div>
-    <input type="text" value="{{fromPage.title}}" class="input-title input-box"><br>
-    <input type="text" class="input-box" value="{{fromPage.description}}">
-    <div style="margin-left: 70%;">Edited {{fromPage.modifiedDate}}</div>
-</div>
-<div style="display: flex;">
-    <app-icon></app-icon>
-    <button mat-button mat-dialog-close>Close</button>
+    <div>
+        <input type="text" [(ngModel)]="title" class="input-title input-box"><br>
+        <input type="text" class="input-box" [(ngModel)]="description">
+        <div style="margin-left: 70%;">Edited {{fromPage.modifiedDate}}</div>
+    </div>
+    <div style="display: flex;">
+        <app-icon></app-icon>
+        <button class="close-btn" mat-button mat-dialog-close (click)=apiCallUpdateNote()>Close</button>
+    </div>
 </div>
