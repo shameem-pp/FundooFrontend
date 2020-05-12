@@ -29,7 +29,7 @@ const routes: Routes = [
   {path:'label',component:LabelsComponent},
   {path:'archive',component:ArchiveComponent},
   {path:'bin',component:BinComponent},
-  {path:'Reminders',component:RemindersComponent},
+  {path:'reminder',component:RemindersComponent},
   {path:'note',component:NotesComponent,
   children:[{path:'display',component:DisplayComponent,children:[{path:'icon',component:IconComponent}]},{path:'createnote',component:CreateNoteComponent,children:[{path:'icon',component:IconComponent}]}]}
   ]}];

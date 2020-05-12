@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Optional, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-edit-note',
@@ -6,8 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-note.component.css']
 })
 export class EditNoteComponent implements OnInit {
-
-  constructor() { }
+ notes:any;
+  fromPage: any;
+  fromDialog: any;
+ contents:any
+  constructor(public dialogRef: MatDialogRef<EditNoteComponent>,
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: any) { 
+      this.fromPage = data.pageValue;
+    }
 
   ngOnInit(): void {
   }

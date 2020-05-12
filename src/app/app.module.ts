@@ -86,6 +86,7 @@ import { EditNoteComponent } from './Component/edit-note/edit-note.component';
     MatNativeDateModule,
     MatDialogModule
   ],
+  entryComponents:[EditNoteComponent],
   providers: [UserService,
   HttpService,AuthGuard,NoteService],
   bootstrap: [AppComponent]

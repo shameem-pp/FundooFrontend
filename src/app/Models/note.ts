@@ -9,4 +9,5 @@ export class Note {
     image:string;
     remainder:string
     trash:boolean;
+    modifiedDate:any
 }
