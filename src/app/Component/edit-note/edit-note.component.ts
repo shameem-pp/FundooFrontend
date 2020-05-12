@@ -8,7 +8,6 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class EditNoteComponent implements OnInit {
 
- notes:any;
   fromPage: any;
   fromDialog: any;
   title: string;
@@ -30,11 +29,11 @@ export class EditNoteComponent implements OnInit {
     apiCallUpdateNote(){
       debugger
       if(this.title!=null){
-        this.notes['title'].setValue=this.title;
+        this.fromPage['title']=this.title;
       }
 
       if(this.description!=null){
-        this.notes['description'].setValue=this.description;
+        this.fromPage['description']=this.description;
       }
 
       console.log(this.description)
