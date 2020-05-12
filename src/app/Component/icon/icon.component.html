@@ -1,4 +1,4 @@
-<div fxLayout="row" class="flex-container">
+<div style="display: flex; flex-flow: row;">
     <button class="btn" type="button" matTooltip="Remind me" [matMenuTriggerFor]="rem" mat-button><span class="material-icons icon">
         notifications_none
         </span></button>
@@ -17,7 +17,7 @@
     <button class="btn" mat-button type="button" [matMenuTriggerFor]="menu">    <span class="material-icons icon">
                         more_vert
                         </span></button>
-    <button type="button" *ngIf="onCreateNote && !onDisplay" class="icon" (click)="createNote()" mat-button>Close</button>
+    <button type="button" *ngIf="onCreateNote && !onDisplay" class="btn" style="margin-left: 40%;" (click)="createNote()" mat-button>Close</button>
     <mat-menu #menu="matMenu">
         <button mat-menu-item>Add Label</button>
         <button *ngIf="!onCreateNote && onDisplay" mat-menu-item>Delete Note</button>

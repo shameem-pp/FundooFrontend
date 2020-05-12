@@ -1,10 +1,10 @@
 <div style="display: flex; flex-wrap: wrap; margin: 2% auto; align-items: flex-start; width: 60%;">
-    <mat-card *ngFor="let contents of result;" style="margin-right: 2%; width: 30%; margin-bottom: 2%;">
+    <mat-card *ngFor="let contents of result;" class="display-card">
         <div>
             <div style=" font-size: 1.5rem; font-weight: 600;">{{contents.title}}</div>
             <div style="height: auto; margin-bottom: 3%; word-break: break-word;  ">{{contents.description}}</div>
         </div>
-        <div style="display: flex; flex-wrap: wrap;">
+        <div>
             <app-icon [onDisplay]="true" (notify)="iconEvent($event,contents.id)"></app-icon>
         </div>
     </mat-card>

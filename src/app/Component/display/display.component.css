@@ -4,3 +4,11 @@
     word-wrap: break-word;
     white-space: initial;
 }
+
+.display-card {
+    margin-right: 2%;
+    width: 30%;
+    margin-bottom: 2%;
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px rgb(127, 127, 128);
+}

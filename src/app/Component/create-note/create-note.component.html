@@ -1,11 +1,11 @@
 <div *ngIf="!clicked; else elseBlock" style="margin: 2% auto; width: '38%';">
-    <mat-card>
+    <mat-card class="display-card">
         <input class="searchbox" type="text" name="search" style="width: '100%';" autocomplete="off" placeholder="Take a note" (click)='openNote()'>
     </mat-card>
 </div>
 <ng-template #elseBlock>
     <div style="margin: 2% auto; width: '38%';">
-        <mat-card fxLayout="column" class="flex-container">
+        <mat-card fxLayout="column" class="flex-container" class="display-card">
             <div>
                 <div class="searchbox" (input)="notes.title=$event.target.textContent" role="textbox" name="search" style="width: '100%'; font-size: 1rem;" autocomplete="off" style="font-weight: 500;" contentEditable=true data-text="Title" (click)='openNote()'></div>
                 <div class="searchbox" (input)="notes.description=$event.target.textContent" contenteditable="true" style="margin: 2% 0% 2%;" data-text="Take a note" aria-multiline="true" role="textbox" tabindex="0" spellcheck="false"></div>

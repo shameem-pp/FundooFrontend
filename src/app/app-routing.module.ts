@@ -11,6 +11,10 @@ import { CreateNoteComponent } from './Component/create-note/create-note.compone
 import { DisplayComponent } from './Component/display/display.component';
 import { NotesComponent } from './Component/notes/notes.component';
 import { IconComponent } from './Component/icon/icon.component';
+import { LabelsComponent } from './Component/labels/labels.component';
+import { ArchiveComponent } from './Component/archive/archive.component';
+import { BinComponent } from './Component/bin/bin.component';
+import { RemindersComponent } from './Component/reminders/reminders.component';
 
 const routes: Routes = [
   {path:'login',component:LoginComponent},
@@ -21,7 +25,13 @@ const routes: Routes = [
   {path:'fundoo',component:FundooComponent},
   {path:'i',component:IconComponent},
   {path:'dashboard',component:DashboardComponent,canActivate:[AuthGuard],
-  children:[{path:'',component:NotesComponent},{path:'note',component:NotesComponent,children:[{path:'display',component:DisplayComponent,children:[{path:'icon',component:IconComponent}]},{path:'createnote',component:CreateNoteComponent,children:[{path:'icon',component:IconComponent}]}]}
+  children:[{path:'',component:NotesComponent},
+  {path:'label',component:LabelsComponent},
+  {path:'archive',component:ArchiveComponent},
+  {path:'bin',component:BinComponent},
+  {path:'Reminders',component:RemindersComponent},
+  {path:'note',component:NotesComponent,
+  children:[{path:'display',component:DisplayComponent,children:[{path:'icon',component:IconComponent}]},{path:'createnote',component:CreateNoteComponent,children:[{path:'icon',component:IconComponent}]}]}
   ]}];
 
 @NgModule({

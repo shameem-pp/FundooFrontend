@@ -6,3 +6,8 @@
 [contentEditable=true]:empty:not(:focus):before {
     content: attr(data-text)
 }
+
+.display-card {
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px rgb(127, 127, 128);
+}
