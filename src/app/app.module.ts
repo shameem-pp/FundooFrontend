@@ -41,6 +41,7 @@ import { ArchiveComponent } from './Component/archive/archive.component';
 import { BinComponent } from './Component/bin/bin.component';
 import { DisplayComponent } from './Component/display/display.component';
 import { NoteService } from './Service/note.service';
+import { EditNoteComponent } from './Component/edit-note/edit-note.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { NoteService } from './Service/note.service';
     LabelsComponent,
     ArchiveComponent,
     BinComponent,
-    DisplayComponent
+    DisplayComponent,
+    EditNoteComponent
   ],
   imports: [
     BrowserModule,
