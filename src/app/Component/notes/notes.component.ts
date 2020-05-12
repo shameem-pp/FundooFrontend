@@ -39,6 +39,7 @@ export class NotesComponent implements OnInit {
     debugger;
     this.service.addReminder(eventValue,'api/Note/Reminder/'+eventValue.id).subscribe(
       response=>{
+        this.apiCallGetAllNote();
         console.log("success")
       }
     );
@@ -49,6 +50,7 @@ export class NotesComponent implements OnInit {
     this.service.archiveNote(eventValue.id,'api/Note/Archive/'+eventValue.id).subscribe
     (
       response=>{
+        this.apiCallGetAllNote();
         console.log("success");
       }
 
