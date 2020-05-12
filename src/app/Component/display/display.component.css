@@ -4,12 +4,3 @@
     word-wrap: break-word;
     white-space: initial;
 }
-
-.icon {
-    font-size: 15px;
-}
-
-.btn {
-    width: 13px!important;
-    min-width: unset!important;
-}

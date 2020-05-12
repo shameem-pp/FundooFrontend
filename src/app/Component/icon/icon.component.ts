@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Note } from 'src/app/Models/note';
 
 @Component({
@@ -8,7 +8,9 @@ import { Note } from 'src/app/Models/note';
 })
 export class IconComponent implements OnInit {
 
-
+  @Input() onDisplay:boolean=false;
+  @Input() onCreateNote:boolean=false;
+  
   notes:Note=new Note();
 
   @Output() notify:EventEmitter<any>=new EventEmitter<any>();
@@ -45,6 +47,9 @@ export class IconComponent implements OnInit {
     this.notify.emit({name:"archive",value:true});
   }
 
+  createNote(){
+    this.notify.emit({name:"createNote",value:true});
+  }
   constructor() { }
 
   ngOnInit(): void {

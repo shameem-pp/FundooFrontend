@@ -4,20 +4,13 @@
     </mat-card>
 </div>
 <ng-template #elseBlock>
-    <div style="margin: 2% auto; width: '50%';">
-        <mat-card>
-            <div class="searchbox" (input)="notes.title=$event.target.textContent" role="textbox" name="search" style="width: '100%'; font-size: 1rem;" autocomplete="off" style="font-weight: 500;" contentEditable=true data-text="Title" (click)='openNote()'></div>
-            <div class="searchbox" (input)="notes.description=$event.target.textContent" contenteditable="true" style="margin: 2% 0% 2%;" data-text="Take a note" aria-multiline="true" role="textbox" tabindex="0" spellcheck="false"></div>
-            <div fxLayout="row">
-                <app-icon (notify)="iconEvent($event)"></app-icon>
-                <button class="btn" mat-button type="button" [matMenuTriggerFor]="menu">    <span class="material-icons icon">
-                    more_vert
-                    </span></button>
-                <mat-menu #menu="matMenu">
-                    <button mat-menu-item>Add Label</button>
-                </mat-menu>
-                <button type="button" class="icon" style="margin-left: 40%;" (click)="apiCallCreateNote()" mat-button>Close</button>
+    <div style="margin: 2% auto; width: '38%';">
+        <mat-card fxLayout="column" class="flex-container">
+            <div>
+                <div class="searchbox" (input)="notes.title=$event.target.textContent" role="textbox" name="search" style="width: '100%'; font-size: 1rem;" autocomplete="off" style="font-weight: 500;" contentEditable=true data-text="Title" (click)='openNote()'></div>
+                <div class="searchbox" (input)="notes.description=$event.target.textContent" contenteditable="true" style="margin: 2% 0% 2%;" data-text="Take a note" aria-multiline="true" role="textbox" tabindex="0" spellcheck="false"></div>
             </div>
+            <app-icon [onCreateNote]="true" (notify)="iconEvent($event)"></app-icon>
         </mat-card>
     </div>
 </ng-template>

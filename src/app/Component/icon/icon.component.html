@@ -1,4 +1,4 @@
-<div fxLayout="row" fxLayout.sm="column" fxLayoutAlign="space-evenly" class="flex-container">
+<div fxLayout="row" class="flex-container">
     <button class="btn" type="button" matTooltip="Remind me" [matMenuTriggerFor]="rem" mat-button><span class="material-icons icon">
         notifications_none
         </span></button>
@@ -14,6 +14,14 @@
     <button class="btn" type="button" matTooltip="Archive" (click)="archive()" mat-button>    <span class="material-icons icon">
                     archive
                     </span></button>
+    <button class="btn" mat-button type="button" [matMenuTriggerFor]="menu">    <span class="material-icons icon">
+                        more_vert
+                        </span></button>
+    <button type="button" *ngIf="onCreateNote && !onDisplay" class="icon" (click)="createNote()" mat-button>Close</button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item>Add Label</button>
+        <button *ngIf="!onCreateNote && onDisplay" mat-menu-item>Delete Note</button>
+    </mat-menu>
 
     <mat-menu #rem="matMenu">
         <button mat-menu-item (click)="reminder('Later Today')">Later Today </button>

@@ -44,6 +44,8 @@ export class CreateNoteComponent implements OnInit {
     break;
     case "reminder":this.addReminder(evnt['value']);
     break;
+    case "createNote":this.apiCallCreateNote();
+    break;
     }
   }
 

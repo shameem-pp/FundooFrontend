@@ -3,6 +3,6 @@
   }
   
   .btn {
-      width: 13px!important;
-      min-width: unset!important;
+      border: 0px!important;
+      outline: none!important;
   }
