@@ -32,7 +32,18 @@ export class NotesComponent implements OnInit {
       break;
       case "reminder":this.addReminder(evnt);
       break;
+      case "updateNote":this.updateNote(event);
+      debugger
+      break;
     }
+  }
+  updateNote(event) {
+    this.service.updateNote(event.data,'api/Note/EditNote').subscribe
+    (
+      response=>{
+        this.apiCallGetAllNote();
+      }
+    );
   }
 
   addReminder(eventValue) {

@@ -9,7 +9,10 @@ import { EditNoteComponent } from '../edit-note/edit-note.component';
   styleUrls: ['./display.component.css']
 })
 export class DisplayComponent implements OnInit {
+
   @Input() result: any;
+  dialogeValue:any;
+
 
   constructor(public dialog:MatDialog) { }
   @Output() notify:EventEmitter<any> =new EventEmitter<any>();
@@ -27,6 +30,8 @@ export class DisplayComponent implements OnInit {
     });
  
     dialogRef.afterClosed().subscribe(result => {
+      this.dialogeValue=result;
+      this.notify.emit(this.dialogeValue);
       console.log('The dialog was closed', result);
     });
   }

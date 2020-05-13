@@ -1,6 +1,6 @@
 <div style="display: flex; flex-wrap: wrap; margin: 2% auto; align-items: flex-start; width: 65%;">
-    <mat-card *ngFor="let contents of result;" class="display-card" (click)="openEditDialogue(contents)">
-        <div>
+    <mat-card *ngFor="let contents of result;" class="display-card">
+        <div (click)="openEditDialogue(contents)">
             <div style=" font-size: 1.5rem; font-weight: 600;">{{contents.title}}</div>
             <div style="height: auto; margin-bottom: 3%; word-break: break-word;  ">{{contents.description}}</div>
         </div>

@@ -9,5 +9,15 @@
 
 .display-card {
     border-radius: 10px;
-    box-shadow: 4px 4px 4px rgb(127, 127, 128);
+    box-shadow: 3px 3px 8px rgb(127, 127, 128);
+}
+
+.title-box {
+    width: '100%';
+    font-size: 1.5rem!important;
+    font-weight: 500;
+}
+
+.description-box {
+    margin: 2% 0% 2%;
 }

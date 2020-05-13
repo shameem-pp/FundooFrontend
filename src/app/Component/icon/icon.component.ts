@@ -50,6 +50,11 @@ export class IconComponent implements OnInit {
   createNote(){
     this.notify.emit({name:"createNote",value:true});
   }
+
+  delete(){
+    this.notify.emit({name:"trash",value:true});
+  }
+  
   constructor() { }
 
   ngOnInit(): void {

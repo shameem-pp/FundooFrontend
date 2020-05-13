@@ -35,6 +35,7 @@ export class EditNoteComponent implements OnInit {
         this.fromPage['description']=this.description;
       }
       
+      this.dialogRef.close({ name: 'updateNote', data: this.fromDialog });
       console.log(this.description)
     }
 
