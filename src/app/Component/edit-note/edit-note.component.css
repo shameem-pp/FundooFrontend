@@ -6,8 +6,8 @@
 .input-box {
     height: auto;
     margin-bottom: 3%;
-    border: 0px;
-    outline: none;
+    border: 0px!important;
+    outline: none!important;
     width: 100%;
 }
 

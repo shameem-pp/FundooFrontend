@@ -14,6 +14,9 @@ export class IconComponent implements OnInit {
   notes:Note=new Note();
 
   @Output() notify:EventEmitter<any>=new EventEmitter<any>();
+
+  colorArray: { color: string; name: string; }[][];
+
   reminder(event){
     let date=new Date(); 
     switch(event){
@@ -58,6 +61,22 @@ export class IconComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.colorArray=[
+      [{'color':'rgb(255,255,255)','name':'White'},
+      {'color':'rgb(242,139,130)','name':'Red'},
+      {'color':'rgb(251,188,4)','name':'Orange'},
+      {'color':'rgb(255,244,117)','name':'Yellow'}],
+
+      [{'color':'rgb(204,255,144)','name':'Green'},
+      {'color':'rgb(167,255,235)','name':'Teal'},
+      {'color':'rgb(203,240,248)','name':'Blue'},
+      {'color':'rgb(174,203,250)','name':'Darkblue'}],
+
+      [{'color':'rgb(239, 222, 205)','name':'Almond'},
+      {'color':'rgb(75, 83, 32)','name':'Army green'},
+      {'color':'rgb(255, 153, 102)','name':'Atomictangerine'},
+      {'color':'rgb(152, 119, 123)','name':'Bazaar'}],
+  ]
   }
 
 }

@@ -10,33 +10,26 @@ export class EditNoteComponent implements OnInit {
 
   fromPage: any;
   fromDialog: any;
-  title: string;
-  description: string;
+  @Input() title:any;
+  @Input() description:any;
+ 
 
   constructor(public dialogRef: MatDialogRef<EditNoteComponent>,
     @Optional() @Inject(MAT_DIALOG_DATA) public data: any) { 
       this.fromPage = data.pageValue;
       console.log(this.fromPage)
-      if(this.fromPage.title!=null){
-        this.title=this.fromPage.title;
-      }
-      else if(this.fromPage.description!=null){
-        this.description=this.fromPage.description;
-      }
     }
 
   
     apiCallUpdateNote(){
       if(this.title!=null){
-        this.fromPage['title']=this.title;
+        this.fromPage.title=this.title;
       }
-
       if(this.description!=null){
-        this.fromPage['description']=this.description;
+        this.fromPage.description=this.description;
       }
       
-      this.dialogRef.close({ name: 'updateNote', data: this.fromDialog });
-      console.log(this.description)
+      this.dialogRef.close({ name: 'updateNote', data: this.fromPage });
     }
 
   ngOnInit(): void {

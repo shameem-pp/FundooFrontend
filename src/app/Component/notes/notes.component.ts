@@ -32,8 +32,7 @@ export class NotesComponent implements OnInit {
       break;
       case "reminder":this.addReminder(evnt);
       break;
-      case "updateNote":this.updateNote(event);
-      debugger
+      case "updateNote":this.updateNote(evnt);
       break;
     }
   }

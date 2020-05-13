@@ -41,12 +41,11 @@
         <button mat-menu-item>Add Collaborator</button>
     </mat-menu>
     <mat-menu #clr="matMenu">
-        <!-- <input type="color" list="presetColors">
-        <datalist id="presetColors">
-    <option>#ff0000</option>/>
-    <option>#00ff00</option>
-    <option>#0000ff</option>
-  </datalist> -->
+        <mat-card *ngFor="let colors of colorArray">
+            <div style="display: flex;" *ngFor="let colour of colors">
+                <button mat-menu-item style="background-color: 'colour.color';"></button>
+            </div>
+        </mat-card>
     </mat-menu>
     <mat-menu #img="matMenu">
         <button mat-menu-item>Add Image</button>
