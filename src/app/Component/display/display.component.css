@@ -6,9 +6,9 @@
 }
 
 .display-card {
-    margin-right: 2%;
+    margin-right: 3%;
     width: 30%;
     margin-bottom: 2%;
     border-radius: 6px;
-    box-shadow: 2px 2px 4px rgb(127, 127, 128);
+    box-shadow: 1px 1px 4px rgb(127, 127, 128);
 }

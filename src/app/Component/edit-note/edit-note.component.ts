@@ -27,7 +27,6 @@ export class EditNoteComponent implements OnInit {
 
   
     apiCallUpdateNote(){
-      debugger
       if(this.title!=null){
         this.fromPage['title']=this.title;
       }
@@ -35,7 +34,7 @@ export class EditNoteComponent implements OnInit {
       if(this.description!=null){
         this.fromPage['description']=this.description;
       }
-
+      
       console.log(this.description)
     }
 
