@@ -39,6 +39,11 @@ export class IconComponent implements OnInit {
   }
 
   addColor(){
+    for (let colours in this.colorArray) {
+      for (let index = 0; index < colours.length; index++) {
+      document.getElementById('col').style.backgroundColor=colours[index]['color'];
+      }
+    }
     this.notify.emit({name:"color",value:""});
   }
 
