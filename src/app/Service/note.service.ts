@@ -35,4 +35,8 @@ export class NoteService {
   updateNote(data,path:string){
     return this.http.put(environment.baseUrl+path,data,this.header)
   }
+
+  addColor(data,path:string){
+    return this.http.put(environment.baseUrl+path,data);
+  }
 }

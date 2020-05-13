@@ -71,6 +71,16 @@ export class NotesComponent implements OnInit {
   }
 
   addColor(eventValue) {
+    let data={
+      id:eventValue.id,
+      value:eventValue.value.color
+    }
+    this.service.addColor(data,"api/Note/Reminder").subscribe
+    (
+      response=>{
+        this.apiCallGetAllNote();
+      }
+    );
   }
 
   collaborator(eventValue) {

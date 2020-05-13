@@ -12,6 +12,7 @@ export class DisplayComponent implements OnInit {
 
   @Input() result: any;
   dialogeValue:any;
+  backgroundColor:any='rgb(255,255,255)';
 
 
   constructor(public dialog:MatDialog) { }
@@ -19,6 +20,10 @@ export class DisplayComponent implements OnInit {
 
   iconEvent(eventValue,id){
     console.log(id);
+    if(eventValue.name=='color'){
+      this.backgroundColor=eventValue.value.color;
+    }
+
     this.notify.emit({id:id,value:eventValue.value,name:eventValue.name})
   }
 

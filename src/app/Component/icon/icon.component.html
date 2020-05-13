@@ -42,7 +42,7 @@
     </mat-menu>
     <mat-menu #clr="matMenu">
         <div class="color-row" *ngFor="let colors of colorArray">
-            <mat-card *ngFor="let colour of colors;" [style.background]=colour.color (click)="addColor()" class="mat-color"> </mat-card>
+            <mat-card *ngFor="let colour of colors;" [style.background]=colour.color (click)="addColor(colour)" class="mat-color"> </mat-card>
         </div>
     </mat-menu>
     <mat-menu #img="matMenu">
