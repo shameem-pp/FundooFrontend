@@ -5,7 +5,7 @@
     <button class="btn" type="button" matTooltip="Add Collaborator" [matMenuTriggerFor]="clbrtr" (click)="collaborator()" mat-button>    <span class="material-icons icon">
         person_add
         </span></button>
-    <button class="btn" type="button" matTooltip="Add Color" [matMenuTriggerFor]="clr" (click)="addColor()" mat-button>    <span class="material-icons icon">
+    <button class="btn" type="button" matTooltip="Add Color" [matMenuTriggerFor]="clr" mat-button>    <span class="material-icons icon">
             color_lens
             </span></button>
     <button class="btn" type="button" matTooltip="Add Image" [matMenuTriggerFor]="img" (click)="addImage()" mat-button>    <span class="material-icons icon">
@@ -41,8 +41,8 @@
         <button mat-menu-item>Add Collaborator</button>
     </mat-menu>
     <mat-menu #clr="matMenu">
-        <div style="display: flex; width: 100%; margin: 3%; flex-flow: row;" *ngFor="let colors of colorArray">
-            <mat-card id="col" *ngFor="let colour of colors;" [style.background]=colour.color style="margin: 2%;"> </mat-card>
+        <div class="color-row" *ngFor="let colors of colorArray">
+            <mat-card *ngFor="let colour of colors;" [style.background]=colour.color (click)="addColor()" class="mat-color"> </mat-card>
         </div>
     </mat-menu>
     <mat-menu #img="matMenu">
