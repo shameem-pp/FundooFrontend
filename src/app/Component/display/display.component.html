@@ -1,5 +1,5 @@
 <div style="display: flex; flex-wrap: wrap; margin: 2% auto; align-items: flex-start; width: 65%;">
-    <mat-card *ngFor="let contents of result;" [style.background]="backgroundColor" class="display-card">
+    <mat-card *ngFor="let contents of result;" [style.background]=contents.changeColor class="display-card">
         <div (click)="openEditDialogue(contents)">
             <div style=" font-size: 1.5rem; font-weight: 600;">{{contents.title}}</div>
             <div style="height: auto; margin-bottom: 3%; word-break: break-word;  ">{{contents.description}}</div>

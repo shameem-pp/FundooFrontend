@@ -15,6 +15,9 @@ export class NoteService {
       .set('Authorization',  `Bearer ${localStorage.token}`)
   }
 
+  trashNote(path:string,data){
+   return this.http.put(environment.baseUrl+path,data);
+  }
 
   getAllNote(path:string){
     return this.http.get(environment.baseUrl+path,this.header)
@@ -37,6 +40,6 @@ export class NoteService {
   }
 
   addColor(data,path:string){
-    return this.http.put(environment.baseUrl+path,data);
+    return this.http.put(environment.baseUrl+path,data,this.header);
   }
 }

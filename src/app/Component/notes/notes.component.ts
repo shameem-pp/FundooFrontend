@@ -24,6 +24,7 @@ export class NotesComponent implements OnInit {
     switch(evnt['name']){
       case "collaborator":this.collaborator(evnt);
       break;
+      case "trash":this.trash(evnt);
       case "color":this.addColor(evnt);
       break;
       case "addImage":this.addImage(evnt);
@@ -35,6 +36,14 @@ export class NotesComponent implements OnInit {
       case "updateNote":this.updateNote(evnt);
       break;
     }
+  }
+  trash(evnt: any) {
+    this.service.trashNote("api/Note/Trash/"+evnt.id,evnt.id).subscribe
+    (
+      response=>{
+        this.apiCallGetAllNote();
+      }
+    )
   }
   updateNote(event) {
     this.service.updateNote(event.data,'api/Note/EditNote').subscribe
@@ -75,7 +84,7 @@ export class NotesComponent implements OnInit {
       id:eventValue.id,
       value:eventValue.value.color
     }
-    this.service.addColor(data,"api/Note/Reminder").subscribe
+    this.service.addColor(data,"api/Note/ChangeColor").subscribe
     (
       response=>{
         this.apiCallGetAllNote();
