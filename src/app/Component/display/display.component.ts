@@ -29,7 +29,7 @@ export class DisplayComponent implements OnInit {
 
   openEditDialogue(contentOfNote){
     const dialogRef = this.dialog.open(EditNoteComponent, {
-      width:'50%',
+      width:'40%',
       height:'auto',
       data: { pageValue: contentOfNote }
     });
