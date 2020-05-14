@@ -9,8 +9,13 @@
     border: 0px!important;
     outline: none!important;
     width: 100%;
+    padding: 15px;
 }
 
 .close-btn {
     margin-left: 50%;
+}
+
+::ng-deep .mat-dialog-container {
+    padding: 0px;
 }
