@@ -5,8 +5,7 @@
             <div style="height: auto; margin-bottom: 3%; word-break: break-word;  ">{{contents.description}}</div>
         </div>
         <div>
-
-            <app-icon ngIf="[style.hover]" [onDisplay]="true" (notify)="iconEvent($event,contents.id)"></app-icon>
+            <app-icon (mouseover)="[style.display='block']" (mouseout)="color='red'" [onDisplay]="true" (notify)="iconEvent($event,contents.id)"></app-icon>
         </div>
     </mat-card>
 </div>

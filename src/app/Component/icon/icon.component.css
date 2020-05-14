@@ -2,6 +2,12 @@
       font-size: 18px;
   }
   
+  .icon-container {
+      display: flex;
+      flex-flow: row;
+      display: none;
+  }
+  
   .color-row {
       display: flex;
       flex-flow: row;
