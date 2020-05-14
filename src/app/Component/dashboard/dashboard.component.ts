@@ -8,6 +8,7 @@ import{CreateNoteComponent} from './../create-note/create-note.component';
 import { from } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { LabelsComponent } from '../labels/labels.component';
+import { LabelService } from 'src/app/Service/label.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,11 +17,11 @@ import { LabelsComponent } from '../labels/labels.component';
 })
 export class DashboardComponent implements OnDestroy {
   mobileQuery: MediaQueryList;
-
+  labels:any=null;
 
   private _mobileQueryListener: () => void;
 
-  constructor(public dialog:MatDialog,changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,private snackBar: MatSnackBar,private router: Router,private service:UserService) {
+  constructor(private labelService:LabelService, public dialog:MatDialog,changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,private snackBar: MatSnackBar,private router: Router,private service:UserService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -32,8 +33,21 @@ export class DashboardComponent implements OnDestroy {
 
   openDialog(){
     const dialogRef = this.dialog.open(LabelsComponent, {
-      width:'25%'
+      width:'25%',
+      data: { pageValue: this.labels }
     });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed', result);
+    });
+}
+
+apiCallGetAllLabel(){
+  this.labelService.getAllLabel("api/Label/GetAllLabel").subscribe
+  (
+    response=>{
+      this.labels=response;
+    }
+  )
 }
 
   signOut(){
