@@ -10,7 +10,7 @@
                 <div class="searchbox title-box" (input)="notes.title=$event.target.textContent" role="textbox" name="search" autocomplete="off" contentEditable=true data-text="Title" (click)='openNote()'></div>
                 <div class="searchbox description-box" (input)="notes.description=$event.target.textContent" contenteditable="true" data-text="Take a note" aria-multiline="true" role="textbox" tabindex="0" spellcheck="false"></div>
             </div>
-            <app-icon [onCreateNote]="true" (notify)="iconEvent($event)"></app-icon>
+            <app-icon [style.display='block' ] [onCreateNote]="true" (notify)="iconEvent($event)"></app-icon>
         </mat-card>
     </div>
 </ng-template>

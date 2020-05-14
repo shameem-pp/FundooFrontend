@@ -5,6 +5,7 @@
   .icon-container {
       display: flex;
       flex-flow: row;
+      display: none;
   }
   
   .color-row {
