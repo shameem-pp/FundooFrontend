@@ -1,7 +1,5 @@
-<div>
+<div class="dialog-container" [style.background]="fromPage.changeColor">
     <div>
-        <!-- <input type="text" formControlName="title" [ngModel]="noteForm.get('title').value" class="input-title input-box"><br>
-        <input type="text" class="input-box" [ngModel]="noteForm.get('description').value" formControlName="description"> -->
         <div class="searchbox title-box" (input)="title=$event.target.textContent" role="textbox" name="search" autocomplete="off" class="input-title input-box" contentEditable=true>{{fromPage.title}}</div>
         <div class="searchbox description-box" (input)="description=$event.target.textContent" contenteditable="true" aria-multiline="true" class="input-box" role="textbox" tabindex="0" spellcheck="false">{{fromPage.description}}</div>
         <div style="margin-left: 70%;">Edited {{fromPage.modifiedDate}}</div>
