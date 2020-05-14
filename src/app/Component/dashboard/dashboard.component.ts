@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
 import {DisplayComponent} from './../display/display.component';
 import{CreateNoteComponent} from './../create-note/create-note.component';
 import { from } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { LabelsComponent } from '../labels/labels.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,7 +20,7 @@ export class DashboardComponent implements OnDestroy {
 
   private _mobileQueryListener: () => void;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,private snackBar: MatSnackBar,private router: Router,private service:UserService) {
+  constructor(public dialog:MatDialog,changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,private snackBar: MatSnackBar,private router: Router,private service:UserService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -28,8 +30,10 @@ export class DashboardComponent implements OnDestroy {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
 
-openNotes(){
-
+  openDialog(){
+    const dialogRef = this.dialog.open(LabelsComponent, {
+      width:'25%'
+    });
 }
 
   signOut(){

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { NgxSpinnerModule } from "ngx-spinner";
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -87,9 +88,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatDatepickerModule,
     MatNativeDateModule,
     MatDialogModule,
-    NgbModule
+    NgbModule,
+    NgxSpinnerModule
   ],
-  entryComponents:[EditNoteComponent],
+  entryComponents:[EditNoteComponent,LabelsComponent],
   providers: [UserService,
   HttpService,AuthGuard,NoteService],
   bootstrap: [AppComponent]

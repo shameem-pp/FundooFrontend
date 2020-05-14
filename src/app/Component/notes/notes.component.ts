@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NoteService } from 'src/app/Service/note.service';
+import { NgxSpinnerService } from "ngx-spinner";
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-notes',
@@ -9,13 +11,14 @@ import { NoteService } from 'src/app/Service/note.service';
 export class NotesComponent implements OnInit {
   listOfNotes: Object;
 
-  constructor(private service:NoteService) { }
+  constructor(private service:NoteService,private spinner: NgxSpinnerService,private snackBar: MatSnackBar) { }
 
 
   apiCallGetAllNote(event?){
     this.service.getAllNote("api/Note/GetAllNotes").subscribe(
       response=>{
         this.listOfNotes=response;
+        this.stopSpinner();
         console.log(response)
     });
   }
@@ -38,6 +41,7 @@ export class NotesComponent implements OnInit {
     }
   }
   trash(evnt: any) {
+    this.startSpinner();
     this.service.trashNote("api/Note/Trash/"+evnt.id,evnt.id).subscribe
     (
       response=>{
@@ -46,6 +50,7 @@ export class NotesComponent implements OnInit {
     )
   }
   updateNote(event) {
+    this.startSpinner();
     this.service.updateNote(event.data,'api/Note/EditNote').subscribe
     (
       response=>{
@@ -55,8 +60,12 @@ export class NotesComponent implements OnInit {
   }
 
   addReminder(eventValue) {
-    debugger;
-    this.service.addReminder(eventValue,'api/Note/Reminder/'+eventValue.id).subscribe(
+    let data={
+      id:eventValue.id,
+      value:eventValue.value
+    }
+    this.startSpinner();
+    this.service.addReminder(data,'api/Note/Reminder').subscribe(
       response=>{
         this.apiCallGetAllNote();
         console.log("success")
@@ -77,6 +86,7 @@ export class NotesComponent implements OnInit {
   }
 
   addImage(eventValue) {
+    this.startSpinner();
   }
 
   addColor(eventValue) {
@@ -84,6 +94,7 @@ export class NotesComponent implements OnInit {
       id:eventValue.id,
       value:eventValue.value.color
     }
+    this.startSpinner();
     this.service.addColor(data,"api/Note/ChangeColor").subscribe
     (
       response=>{
@@ -93,9 +104,21 @@ export class NotesComponent implements OnInit {
   }
 
   collaborator(eventValue) {
+    this.startSpinner();
   }
  
+startSpinner(){
+  this.spinner.show();
+}
 
+stopSpinner(){
+  this.spinner.hide();
+}
+openSnackBar(message: string, action: string) {
+  this.snackBar.open(message, action, {
+    duration: 2000,
+  });
+}
   ngOnInit(): void {
   this.apiCallGetAllNote();
   }
