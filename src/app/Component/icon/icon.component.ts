@@ -7,7 +7,7 @@ import { Note } from 'src/app/Models/note';
   styleUrls: ['./icon.component.css']
 })
 export class IconComponent implements OnInit {
-
+  time = {hour: 13, minute: 30};
   @Input() onDisplay:boolean=false;
   @Input() onCreateNote:boolean=false;
   
@@ -16,6 +16,10 @@ export class IconComponent implements OnInit {
   @Output() notify:EventEmitter<any>=new EventEmitter<any>();
 
   colorArray: { color: string; name: string; }[][];
+
+  constructor() {
+
+   }
 
   reminder(event){
     let date=new Date(); 
@@ -57,8 +61,7 @@ export class IconComponent implements OnInit {
   delete(){
     this.notify.emit({name:"trash",value:true});
   }
-  
-  constructor() { }
+
 
   ngOnInit(): void {
     this.colorArray=[

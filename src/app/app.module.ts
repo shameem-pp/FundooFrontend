@@ -42,6 +42,7 @@ import { BinComponent } from './Component/bin/bin.component';
 import { DisplayComponent } from './Component/display/display.component';
 import { NoteService } from './Service/note.service';
 import { EditNoteComponent } from './Component/edit-note/edit-note.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,8 @@ import { EditNoteComponent } from './Component/edit-note/edit-note.component';
     MatTooltipModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatDialogModule
+    MatDialogModule,
+    NgbModule
   ],
   entryComponents:[EditNoteComponent],
   providers: [UserService,
