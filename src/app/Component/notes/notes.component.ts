@@ -20,7 +20,11 @@ export class NotesComponent implements OnInit {
         this.listOfNotes=response;
         this.stopSpinner();
         console.log(response)
-    });
+    },
+    error=>{
+      this.stopSpinner();
+    }
+    );
   }
 
   apiCall(evnt){
@@ -46,6 +50,9 @@ export class NotesComponent implements OnInit {
     (
       response=>{
         this.apiCallGetAllNote();
+      },
+      error=>{
+        this.stopSpinner();
       }
     )
   }
@@ -55,6 +62,9 @@ export class NotesComponent implements OnInit {
     (
       response=>{
         this.apiCallGetAllNote();
+      },
+      error=>{
+        this.stopSpinner();
       }
     );
   }
@@ -69,6 +79,9 @@ export class NotesComponent implements OnInit {
       response=>{
         this.apiCallGetAllNote();
         console.log("success")
+      },
+      error=>{
+        this.stopSpinner();
       }
     );
   }
@@ -80,6 +93,9 @@ export class NotesComponent implements OnInit {
       response=>{
         this.apiCallGetAllNote();
         console.log("success");
+      },
+      error=>{
+        this.stopSpinner();
       }
 
     );

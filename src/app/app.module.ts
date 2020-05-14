@@ -44,6 +44,7 @@ import { DisplayComponent } from './Component/display/display.component';
 import { NoteService } from './Service/note.service';
 import { EditNoteComponent } from './Component/edit-note/edit-note.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LabelService } from './Service/label.service';
 
 @NgModule({
   declarations: [
@@ -93,7 +94,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   entryComponents:[EditNoteComponent,LabelsComponent],
   providers: [UserService,
-  HttpService,AuthGuard,NoteService],
+  HttpService,AuthGuard,NoteService,LabelService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
