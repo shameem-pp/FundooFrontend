@@ -10,6 +10,7 @@ import { Note } from 'src/app/Models/note';
 export class CreateNoteComponent implements OnInit {
   clicked:boolean=false;
   @Input() notes:Note;
+  backgroundColor:any='rgb(255,255,255)';
   constructor(private service:NoteService) { }
 
   @Output() notify:EventEmitter<any>=new EventEmitter<any>();
@@ -25,6 +26,7 @@ export class CreateNoteComponent implements OnInit {
           this.notify.emit('callGetAllNoteApi');
           this.notes.title=null;
           this.notes.description=null;
+          this.backgroundColor='rgb(255,255,255)';
         });
     }
     else{
@@ -36,9 +38,9 @@ export class CreateNoteComponent implements OnInit {
     switch(evnt['name']){
     case "collaborator":this.collaborator(evnt['value']);
     break;
-    case "color":this.addColor(evnt['value']);
+    case "color":this.addColor(evnt);
     break;
-    case "addImage":this.addImage(evnt['value']);
+    case "addImage":this.addImage(evnt);
     break;
     case "archive":this.archieve(evnt['value']);
     break;
@@ -62,7 +64,8 @@ export class CreateNoteComponent implements OnInit {
   }
 
   addColor(eventValue) {
-    this.notes.changeColor=eventValue;
+      this.backgroundColor=eventValue.value.color;
+      this.notes.changeColor=eventValue.value.color;
   }
 
   collaborator(eventValue) {
