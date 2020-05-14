@@ -16,7 +16,7 @@ export class NoteService {
   }
 
   trashNote(path:string,data){
-   return this.http.put(environment.baseUrl+path,data,this.header);
+   return this.http.put(environment.baseUrl+path,data);
   }
 
   getAllNote(path:string){

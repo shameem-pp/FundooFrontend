@@ -25,7 +25,6 @@ export class NotesComponent implements OnInit {
       case "collaborator":this.collaborator(evnt);
       break;
       case "trash":this.trash(evnt);
-      break;
       case "color":this.addColor(evnt);
       break;
       case "addImage":this.addImage(evnt);
