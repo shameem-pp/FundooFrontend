@@ -3,6 +3,10 @@
     font-weight: 600;
 }
 
+.container-dialog {
+    padding: 10px;
+}
+
 .input-box {
     height: auto;
     margin-bottom: 3%;

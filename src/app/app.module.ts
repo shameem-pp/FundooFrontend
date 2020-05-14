@@ -42,7 +42,6 @@ import { BinComponent } from './Component/bin/bin.component';
 import { DisplayComponent } from './Component/display/display.component';
 import { NoteService } from './Service/note.service';
 import { EditNoteComponent } from './Component/edit-note/edit-note.component';
-import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 
 @NgModule({
   declarations: [
@@ -87,7 +86,6 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
     MatDatepickerModule,
     MatNativeDateModule,
     MatDialogModule,
-    NgxMaterialTimepickerModule
   ],
   entryComponents:[EditNoteComponent],
   providers: [UserService,

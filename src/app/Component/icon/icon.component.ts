@@ -8,6 +8,7 @@ import { Note } from 'src/app/Models/note';
 })
 export class IconComponent implements OnInit {
 
+  time = {hour: 13, minute: 30};
   @Input() onDisplay:boolean=false;
   @Input() onCreateNote:boolean=false;
   

@@ -34,10 +34,10 @@
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
-        <div class="ngx-timepicker-field-example">
-            <ngx-timepicker-field [format]="24" [defaultTime]="'23:11'"></ngx-timepicker-field>
-        </div>
+        <button mat-menu-item>
+            <ngb-timepicker [(ngModel)]="time"></ngb-timepicker>
     </button>
+        </button>
 
     </mat-menu>
     <mat-menu #clbrtr="matMenu">
