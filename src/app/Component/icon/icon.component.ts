@@ -7,8 +7,8 @@ import { Note } from 'src/app/Models/note';
   styleUrls: ['./icon.component.css']
 })
 export class IconComponent implements OnInit {
-  selectedDate: Date;
-  month:any;
+  selectedDate: Date= new Date;
+  month:any = new Array();
   currentTime:any;
   dateAndTime: any;
   @Input() onDisplay: boolean = false;
