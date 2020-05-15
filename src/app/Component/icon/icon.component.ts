@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Note } from 'src/app/Models/note';
+import { Time } from 'src/app/Models/time';
 
 @Component({
   selector: 'app-icon',
@@ -9,7 +10,7 @@ import { Note } from 'src/app/Models/note';
 export class IconComponent implements OnInit {
   selectedDate: Date= new Date;
   month:any = new Array();
-  currentTime:any;
+  currentTime:Time={ hour: 8, minute: 0 };
   dateAndTime: any;
   @Input() onDisplay: boolean = false;
   @Input() onCreateNote: boolean = false;
@@ -24,21 +25,18 @@ export class IconComponent implements OnInit {
   }
 
   reminder(event) {
-    // this.selectedDate = new Date;
-    // this.month = new Array();
-    // this.currentTime = { hour: 08, minute: 0 };
-    // this.month[0] = "Jan";
-    // this.month[1] = "Feb";
-    // this.month[2] = "Mar";
-    // this.month[3] = "Apr";
-    // this.month[4] = "May";
-    // this.month[5] = "Jun";
-    // this.month[6] = "Jul";
-    // this.month[7] = "Aug";
-    // this.month[8] = "Sep";
-    // this.month[9] = "Oct";
-    // this.month[10] = "Nov";
-    // this.month[11] = "Dec";
+    this.month[0] = "Jan";
+    this.month[1] = "Feb";
+    this.month[2] = "Mar";
+    this.month[3] = "Apr";
+    this.month[4] = "May";
+    this.month[5] = "Jun";
+    this.month[6] = "Jul";
+    this.month[7] = "Aug";
+    this.month[8] = "Sep";
+    this.month[9] = "Oct";
+    this.month[10] = "Nov";
+    this.month[11] = "Dec";
     switch (event) {
       case 'Later Today':
         this.dateAndTime.day = this.selectedDate.getDate();
