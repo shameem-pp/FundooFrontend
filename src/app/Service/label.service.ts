@@ -13,7 +13,12 @@ export class LabelService {
     headers: new HttpHeaders()
       .set('Authorization',  `Bearer ${localStorage.token}`)
   }
+  
   getAllLabel(path:string){
     return this.http.get(environment.baseUrl+path,this.header);
+  }
+
+  createLabel(path:string,data){
+    return this.http.post(environment.baseUrl+path,data,this.header);
   }
 }

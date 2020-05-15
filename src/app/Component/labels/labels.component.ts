@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { LabelService } from 'src/app/Service/label.service';
+import { Label } from 'src/app/Models/label';
 
 @Component({
   selector: 'app-labels',
@@ -7,11 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LabelsComponent implements OnInit {
   clicked:boolean=true;
-  constructor() { }
+  data:Label=new Label();
+  notes = new FormControl('');
+
+  constructor(private service:LabelService) { }
 
   onClickToggle(){
     this.clicked=!this.clicked;
   }
+
+  apiCallCreateLabel(){
+    if(this.clicked && this.notes.value!=null){
+      this.data.LabelName=this.notes.value;
+      this.service.createLabel('api/Label/CreateLabel',this.data).subscribe
+      (
+        response=>{
+          console.log(response);
+        }
+      )
+    }
+  }
+
   ngOnInit(): void {
   }
 
