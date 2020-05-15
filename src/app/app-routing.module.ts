@@ -18,7 +18,7 @@ import { RemindersComponent } from './Component/reminders/reminders.component';
 
 const routes: Routes = [
   {path:'login',component:LoginComponent},
-  {path:'',component:DashboardComponent},
+  {path:'',component:NotesComponent},
   {path:'registration',component:RegistrationComponent},
   {path:'resetPassword',component:ResetPasswordComponent},
   {path:'forgotPassword',component:ForgotPasswordComponent},
