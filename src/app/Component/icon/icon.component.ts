@@ -11,7 +11,7 @@ export class IconComponent implements OnInit {
   selectedDate: Date= new Date;
   month:any = new Array();
   currentTime:Time={ hour: 8, minute: 0 };
-  dateAndTime: any;
+  dateAndTime: any={day:' ',month:' '};
   @Input() onDisplay: boolean = false;
   @Input() onCreateNote: boolean = false;
 
@@ -39,22 +39,21 @@ export class IconComponent implements OnInit {
     this.month[11] = "Dec";
     switch (event) {
       case 'Later Today':
-        this.dateAndTime.day = this.selectedDate.getDate();
+        this.dateAndTime['day'] = this.selectedDate.getDate();
         break;
       case 'Tomorrow':
-        this.dateAndTime.day = new Date(this.selectedDate).getDate() + 1;
+        this.dateAndTime['day'] = new Date(this.selectedDate).getDate() + 1;
         break;
       case 'Next Week':
-        this.dateAndTime.day = new Date(this.selectedDate).getDate() + 7;
+        this.dateAndTime['day'] = new Date(this.selectedDate).getDate() + 7;
         break;
       default:
-        this.dateAndTime = this.selectedDate.getDate();
+        this.dateAndTime['day'] = this.selectedDate.getDate();
         break;
     }
 
-    this.dateAndTime.month=this.month[this.selectedDate.getMonth()];
-    this.notify.emit({ name: "reminder", value: this.dateAndTime.day+" "+this.dateAndTime.month+", "+this.currentTime.hour+":"+this.currentTime.minute });
-
+    this.dateAndTime['month']=this.month[this.selectedDate.getMonth()];
+    this.notify.emit({ name: "reminder", value: this.dateAndTime.day+" "+this.dateAndTime.month+", "+this.currentTime.hour+":"+this.currentTime.minute+'0' });
   }
 
   collaborator() {
