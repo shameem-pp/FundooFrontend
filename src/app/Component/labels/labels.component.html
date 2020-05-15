@@ -1,11 +1,9 @@
-<p>
-    <mat-form-field appearance="legacy">
-        <input matInput placeholder="Create New Label">
-
-        <mat-icon matSuffix>
-            <span mat-button matTooltip="Create Label" class="material-icons">done</span>
-        </mat-icon>
-        <mat-hint>Hint</mat-hint>
-    </mat-form-field>
-</p>
-<button class="close-btn" mat-button mat-dialog-close>Close</button>
+<div style="display: flex;">
+    <button class="icon-btn" *ngIf='clicked; else elseBlock' (click)="onClickToggle()" mat-button matTooltip="Cancel"><span class="material-icons icon">clear</span></button>
+    <input (click)="onClickToggle()" matInput placeholder="Create New Label " style="margin: 2%; outline: none; border: 0px; border-bottom: 1px solid; ">
+    <button *ngIf='clicked' class="icon-btn " mat-button><span mat-button matTooltip="Create Label " class="material-icons icon ">done</span></button>
+    <ng-template #elseBlock>
+        <button class="icon-btn " (click)="onClickToggle() " mat-button matTooltip="Cancel "><span class="material-icons ">add</span></button>
+    </ng-template>
+</div>
+<button class="close-btn " mat-button mat-dialog-close>Close</button>

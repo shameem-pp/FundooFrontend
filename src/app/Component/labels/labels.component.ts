@@ -6,9 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./labels.component.css']
 })
 export class LabelsComponent implements OnInit {
-
+  clicked:boolean=true;
   constructor() { }
 
+  onClickToggle(){
+    this.clicked=!this.clicked;
+  }
   ngOnInit(): void {
   }
 

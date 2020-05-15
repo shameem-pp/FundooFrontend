@@ -1,0 +1,19 @@
+.icon {
+    font-size: 18px;
+}
+
+.icon-btn {
+    border: 0px!important;
+    outline: none!important;
+    min-width: 3px!important;
+    width: auto;
+    text-align: center;
+    border-radius: 15px;
+}
+
+::ng-deep .mat-button,
+.mat-icon-button,
+.mat-stroked-button,
+.mat-flat-button {
+    padding: 3px 10px;
+}
