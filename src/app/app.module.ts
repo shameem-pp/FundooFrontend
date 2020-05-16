@@ -45,7 +45,6 @@ import { NoteService } from './Service/note.service';
 import { EditNoteComponent } from './Component/edit-note/edit-note.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LabelService } from './Service/label.service';
-import { LabelDisplayComponent } from './Component/label-display/label-display.component';
 
 @NgModule({
   declarations: [
@@ -64,9 +63,8 @@ import { LabelDisplayComponent } from './Component/label-display/label-display.c
     ArchiveComponent,
     BinComponent,
     DisplayComponent,
-    EditNoteComponent,
-    LabelDisplayComponent
-  ],
+    EditNoteComponent
+    ],
   imports: [
     FormsModule,
     BrowserModule,
