@@ -2,6 +2,10 @@
     font-size: 18px;
 }
 
+.close-btn {
+    border-radius: 15px;
+}
+
 .icon-btn {
     border: 0px!important;
     outline: none!important;

@@ -17,13 +17,15 @@ export class LabelsComponent implements OnInit {
 
   onClickToggle(){
     this.clicked=!this.clicked;
-    debugger
+  }
+
+  apiCallCreateNote(){
     if(this.clicked && this.notes.value!=null){
-      this.data.LabelName=this.notes.value;
+      this.data.labelName=this.notes.value;
       this.service.createLabel('api/Label/CreateLabel',this.data).subscribe
       (
         response=>{
-          console.log(response);
+          console.log(response)
         }
       )
     }

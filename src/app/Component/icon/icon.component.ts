@@ -10,7 +10,7 @@ import { Time } from 'src/app/Models/time';
 export class IconComponent implements OnInit {
   selectedDate: Date= new Date;
   month:any = new Array();
-  currentTime:Time={ hour: 8, minute: 0 };
+  currentTime:Time={ hour: 20, minute: 10 };
   dateAndTime: any={day:' ',month:' '};
   @Input() onDisplay: boolean = false;
   @Input() onCreateNote: boolean = false;
@@ -53,7 +53,7 @@ export class IconComponent implements OnInit {
     }
 
     this.dateAndTime['month']=this.month[this.selectedDate.getMonth()];
-    this.notify.emit({ name: "reminder", value: this.dateAndTime.day+" "+this.dateAndTime.month+", "+this.currentTime.hour+":"+this.currentTime.minute+'0' });
+    this.notify.emit({ name: "reminder", value: this.dateAndTime.day+" "+this.dateAndTime.month+", "+this.currentTime.hour+":"+this.currentTime.minute });
   }
 
   collaborator() {

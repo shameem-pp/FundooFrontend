@@ -1,9 +1,11 @@
 <div style="display: flex;">
     <button class="icon-btn" *ngIf='clicked; else elseBlock' (click)="onClickToggle()" mat-button matTooltip="Cancel"><span class="material-icons icon">clear</span></button>
     <input [formControl]="notes" matInput placeholder="Create New Label " style="margin: 2%; outline: none; border: 0px; border-bottom: 1px solid; ">
-    <button *ngIf='clicked' class="icon-btn " mat-button><span mat-button matTooltip="Create Label " class="material-icons icon ">done</span></button>
+    <button *ngIf='clicked' (click)=" apiCallCreateNote()" class="icon-btn " mat-button><span mat-button matTooltip="Create Label " class="material-icons icon ">done</span></button>
     <ng-template #elseBlock>
-        <button class="icon-btn " (click)="onClickToggle() " mat-button matTooltip="Cancel "><span class="material-icons ">add</span></button>
+        <button class="icon-btn " (click)="onClickToggle() " mat-button><span class="material-icons ">add</span></button>
     </ng-template>
 </div>
-<button class="close-btn " mat-button mat-dialog-close>Close</button>
+<div style="padding-left: 80%; margin-top: 6%; border-top:1px solid ;">
+    <button class="close-btn " mat-button mat-dialog-close>Done</button>
+</div>
