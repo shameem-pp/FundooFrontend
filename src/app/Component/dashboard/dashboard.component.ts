@@ -25,6 +25,7 @@ export class DashboardComponent implements OnDestroy {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
+    this.apiCallGetAllLabel();
   }
 
   ngOnDestroy(): void {
@@ -32,7 +33,6 @@ export class DashboardComponent implements OnDestroy {
   }
 
   openDialog(){
-    this.apiCallGetAllLabel();
     const dialogRef = this.dialog.open(LabelsComponent, {
       width:'25%',
       data: { pageValue: this.labels }
@@ -49,6 +49,7 @@ apiCallGetAllLabel(){
       this.labels=response;
     }
   )
+
 }
 
   signOut(){

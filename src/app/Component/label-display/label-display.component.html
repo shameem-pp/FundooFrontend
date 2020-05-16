@@ -1,0 +1,5 @@
+<div class="display-container" *ngFor="let contents of labels;">
+    <button (click)="apiCallDelete()" class="icon-btn " mat-button matTooltip="Delete Label"><span class="material-icons">delete</span></button>
+    <div class="label-name">{{contents.labelName}}</div>
+    <button class="icon-btn edit-btn" mat-button matTooltip="Rename Label"><span class="material-icons">create</span></button>
+</div>

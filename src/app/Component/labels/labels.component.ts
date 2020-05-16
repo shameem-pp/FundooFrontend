@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Optional, Inject } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { LabelService } from 'src/app/Service/label.service';
 import { Label } from 'src/app/Models/label';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-labels',
@@ -11,15 +12,18 @@ import { Label } from 'src/app/Models/label';
 export class LabelsComponent implements OnInit {
   clicked:boolean=true;//toggle
   data:Label=new Label();//create note api
-  notes = new FormControl('');//create note input
   labels: any;//get all note
 
-  constructor(private labelService:LabelService) { }
+  constructor(private labelService:LabelService,public dialogRef: MatDialogRef<LabelsComponent>,
+    @Optional() @Inject(MAT_DIALOG_DATA) public datas: any) { 
+      this.labels = datas.pageValue;
+      console.log(this.labels)
+    }
 
-  onClickToggle(){
-    this.clicked=!this.clicked;
+ 
+  apiCallDelete(){
+    
   }
-
   apiCallGetAllLabel(){
     this.labelService.getAllLabel("api/Label/GetAllLabel").subscribe
     (
@@ -29,13 +33,14 @@ export class LabelsComponent implements OnInit {
     )
   }
 
-  apiCallCreateNote(){
-    if(this.clicked && this.notes.value!=null){
-      this.data.labelName=this.notes.value;
+  apiCallCreateNote(event){
+    if(this.clicked && event.value!=null){
+      this.data.labelName=event.value;
       this.labelService.createLabel('api/Label/CreateLabel',this.data).subscribe
       (
         response=>{
-          this.apiCallCreateNote()
+          this.apiCallGetAllLabel
+          debugger
         }
       )
     }

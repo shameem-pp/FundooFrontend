@@ -1,0 +1,22 @@
+.display-container {
+    display: flex;
+    margin-top: 4%;
+}
+
+.label-name {
+    margin: 3% 0%;
+    margin-left: 2%;
+}
+
+.edit-btn {
+    position: absolute;
+    margin-left: 235px;
+}
+
+.icon-btn {
+    border: 0px!important;
+    outline: none!important;
+    min-width: 3px!important;
+    text-align: center;
+    border-radius: 15px;
+}
