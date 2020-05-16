@@ -32,6 +32,7 @@ export class DashboardComponent implements OnDestroy {
   }
 
   openDialog(){
+    this.apiCallGetAllLabel();
     const dialogRef = this.dialog.open(LabelsComponent, {
       width:'25%',
       data: { pageValue: this.labels }

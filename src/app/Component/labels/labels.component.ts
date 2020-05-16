@@ -9,23 +9,33 @@ import { Label } from 'src/app/Models/label';
   styleUrls: ['./labels.component.css']
 })
 export class LabelsComponent implements OnInit {
-  clicked:boolean=true;
-  data:Label=new Label();
-  notes = new FormControl('');
+  clicked:boolean=true;//toggle
+  data:Label=new Label();//create note api
+  notes = new FormControl('');//create note input
+  labels: any;//get all note
 
-  constructor(private service:LabelService) { }
+  constructor(private labelService:LabelService) { }
 
   onClickToggle(){
     this.clicked=!this.clicked;
   }
 
+  apiCallGetAllLabel(){
+    this.labelService.getAllLabel("api/Label/GetAllLabel").subscribe
+    (
+      response=>{
+        this.labels=response;
+      }
+    )
+  }
+
   apiCallCreateNote(){
     if(this.clicked && this.notes.value!=null){
       this.data.labelName=this.notes.value;
-      this.service.createLabel('api/Label/CreateLabel',this.data).subscribe
+      this.labelService.createLabel('api/Label/CreateLabel',this.data).subscribe
       (
         response=>{
-          console.log(response)
+          this.apiCallCreateNote()
         }
       )
     }
