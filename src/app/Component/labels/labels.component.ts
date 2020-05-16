@@ -21,9 +21,15 @@ export class LabelsComponent implements OnInit {
     }
 
  
-  apiCallDelete(){
-    
+  apiCallDelete(event){
+    this.labelService.deleteLabel('api/label/DeleteLabel/'+event).subscribe
+    (
+      response=>{
+        this.apiCallGetAllLabel();
+      }
+    )
   }
+
   apiCallGetAllLabel(){
     this.labelService.getAllLabel("api/Label/GetAllLabel").subscribe
     (

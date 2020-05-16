@@ -1,7 +1,7 @@
 <div>
     <app-label-create (notify)="apiCallCreateNote($event)"></app-label-create>
     <div>
-        <app-label-display [labels]="labels"></app-label-display>
+        <app-label-display (notify)="apiCallDelete($event)" [labels]="labels"></app-label-display>
     </div>
 </div>
 
