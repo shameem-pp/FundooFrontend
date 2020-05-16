@@ -39,8 +39,7 @@ export class LabelsComponent implements OnInit {
       this.labelService.createLabel('api/Label/CreateLabel',this.data).subscribe
       (
         response=>{
-          this.apiCallGetAllLabel
-          debugger
+          this.apiCallGetAllLabel();
         }
       )
     }

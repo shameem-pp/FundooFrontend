@@ -1,0 +1,10 @@
+.close-btn {
+    border-radius: 15px;
+    margin-top: 2%;
+    margin-left: 70%;
+}
+
+.label-container {
+    height: 350px;
+    overflow-y: scroll;
+}

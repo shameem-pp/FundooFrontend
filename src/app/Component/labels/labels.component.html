@@ -1,9 +1,8 @@
-<div style=" height: 350px; overflow-y: scroll;">
+<div>
     <app-label-create (notify)="apiCallCreateNote($event)"></app-label-create>
     <div>
         <app-label-display [labels]="labels"></app-label-display>
     </div>
 </div>
-<!-- <div style=" border-top:1px solid ;"> -->
+
 <button class="close-btn " mat-button mat-dialog-close>Done</button>
-<!-- </div> -->

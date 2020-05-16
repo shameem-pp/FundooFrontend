@@ -21,4 +21,8 @@ export class LabelService {
   createLabel(path:string,data){
     return this.http.post(environment.baseUrl+path,data,this.header);
   }
+
+  deleteLabel(path:string){
+    return this.http.delete(environment.baseUrl+path,this.header)
+  }
 }

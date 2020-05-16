@@ -3,6 +3,6 @@
     <input [formControl]="notes" matInput placeholder="Create New Label " style="outline: none; border: 0px; border-bottom: 1px solid; ">
     <button *ngIf='clicked' (click)=" apiCallCreateNote()" class="icon-btn " mat-button><span mat-button matTooltip="Create Label " class="material-icons icon ">done</span></button>
     <ng-template #elseBlock>
-        <button class="icon-btn " (click)="onClickToggle() " mat-button><span class="material-icons ">add</span></button>
+        <button class="icon-btn " (click)="onClickToggle() " mat-button><span class="material-icons icon ">add</span></button>
     </ng-template>
 </div>

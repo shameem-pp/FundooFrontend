@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Label } from 'src/app/Models/label';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-label-display',
@@ -8,11 +7,13 @@ import { Label } from 'src/app/Models/label';
 })
 export class LabelDisplayComponent implements OnInit {
   @Input() labels:any;
-  constructor() {
-   }
-  apiCallDelete(){
-    
+  @Output() notify:EventEmitter<any> =new EventEmitter();
+  constructor() {}
+
+  apiCallDelete(id){
+    this.notify.emit(id);
   }
+  
   ngOnInit(): void {
   }
 
