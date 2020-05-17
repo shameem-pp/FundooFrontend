@@ -19,10 +19,14 @@
                         </span></button>
     <button type="button" *ngIf="onCreateNote && !onDisplay" class="btn" style="margin-left: 50%;" (click)="createNote()" mat-button>Close</button>
     <mat-menu #menu="matMenu">
-        <button mat-menu-item>Add Label</button>
+        <button mat-menu-item [matMenuTriggerFor]="addlabel">Add Label</button>
         <button *ngIf="!onCreateNote && onDisplay" (click)="delete()" mat-menu-item>Delete Note</button>
     </mat-menu>
-
+    <mat-menu #addlabel="matMenu">
+        <!-- <ng-template *ngFor="let label of labels">
+            <mat-checkbox>{{labels.labelName}}</mat-checkbox>
+        </ng-template> -->
+    </mat-menu>
     <mat-menu #rem="matMenu">
         <button mat-menu-item (click)="reminder('Later Today')">Later Today </button>
         <button mat-menu-item (click)="reminder('Tomorrow')">Tomorrow</button>

@@ -1,6 +1,8 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Note } from 'src/app/Models/note';
 import { Time } from 'src/app/Models/time';
+import { Label } from 'src/app/Models/label';
+import { LabelService } from 'src/app/Service/label.service';
 
 @Component({
   selector: 'app-icon',
@@ -8,20 +10,21 @@ import { Time } from 'src/app/Models/time';
   styleUrls: ['./icon.component.css']
 })
 export class IconComponent implements OnInit {
-  selectedDate: Date= new Date;
-  month:any = new Array();
-  currentTime:Time={ hour: 20, minute: 10 };
-  dateAndTime: any={day:' ',month:' '};
+  selectedDate: Date = new Date;
+  month: any = new Array();
+  currentTime: Time = { hour: 20, minute: 10 };
+  dateAndTime: any = { day: ' ', month: ' ' };
   @Input() onDisplay: boolean = false;
   @Input() onCreateNote: boolean = false;
 
+  labels:any=new Label();
   notes: Note = new Note();
 
   @Output() notify: EventEmitter<any> = new EventEmitter<any>();
 
   colorArray: { color: string; name: string; }[][];
 
-  constructor() {
+  constructor(private labelService:LabelService) {
   }
 
   reminder(event) {
@@ -52,8 +55,8 @@ export class IconComponent implements OnInit {
         break;
     }
 
-    this.dateAndTime['month']=this.month[this.selectedDate.getMonth()];
-    this.notify.emit({ name: "reminder", value: this.dateAndTime.day+" "+this.dateAndTime.month+", "+this.currentTime.hour+":"+this.currentTime.minute });
+    this.dateAndTime['month'] = this.month[this.selectedDate.getMonth()];
+    this.notify.emit({ name: "reminder", value: this.dateAndTime.day + " " + this.dateAndTime.month + ", " + this.currentTime.hour + ":" + this.currentTime.minute });
   }
 
   collaborator() {
@@ -79,6 +82,16 @@ export class IconComponent implements OnInit {
   delete() {
     this.notify.emit({ name: "trash", value: true });
   }
+
+  addLabel(){
+    this.labelService.getAllLabel('api/label/GetAllLabel').subscribe
+    (
+      response=>{
+        this.labels=response
+      }
+    );
+  }
+
   Propogation($event) {
     $event.stopPropagation();
     $event.preventDefault();
@@ -101,6 +114,10 @@ export class IconComponent implements OnInit {
       { 'color': 'rgb(255, 153, 102)', 'name': 'Atomictangerine' },
       { 'color': 'rgb(152, 119, 123)', 'name': 'Bazaar' }],
     ];
+
+    this.addLabel();
   }
+
+
 
 }
