@@ -47,6 +47,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LabelService } from './Service/label.service';
 import { LabelDisplayComponent } from './Component/label-display/label-display.component';
 import { LabelCreateComponent } from './Component/label-create/label-create.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -94,7 +95,8 @@ import { LabelCreateComponent } from './Component/label-create/label-create.comp
     MatNativeDateModule,
     MatDialogModule,
     NgbModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    MatCheckboxModule
   ],
   entryComponents:[EditNoteComponent,LabelsComponent],
   providers: [UserService,
