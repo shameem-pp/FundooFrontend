@@ -60,7 +60,12 @@ export class NotesComponent implements OnInit {
   }
   addLabel(evnt) {
     this.data.noteId=evnt.id;
-    this.labelService.editlabel('api/label/EditLabel',this.data)
+    this.labelService.editlabel('api/label/EditLabel',this.data).subscribe
+    (
+      response=>{
+        this.apiCallGetAllLabel();
+      }
+    )
   }
 
   trash(evnt: any) {
