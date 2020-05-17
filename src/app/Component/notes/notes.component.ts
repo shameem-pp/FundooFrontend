@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NoteService } from 'src/app/Service/note.service';
 import { NgxSpinnerService } from "ngx-spinner";
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { LabelService } from 'src/app/Service/label.service';
+import { Label } from 'src/app/Models/label';
 
 @Component({
   selector: 'app-notes',
@@ -10,8 +12,18 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class NotesComponent implements OnInit {
   listOfNotes: Object;
+  labels:Object; 
+  data:Label;
+  constructor(private labelService:LabelService,private service:NoteService,private spinner: NgxSpinnerService,private snackBar: MatSnackBar) { }
 
-  constructor(private service:NoteService,private spinner: NgxSpinnerService,private snackBar: MatSnackBar) { }
+  apiCallGetAllLabel(){
+    this.labelService.getAllLabel('api/label/GetAllLabel').subscribe
+    (
+      response=>{
+        this.labels=response;
+      }
+    )
+  }
 
 
   apiCallGetAllNote(event?){
@@ -42,8 +54,15 @@ export class NotesComponent implements OnInit {
       break;
       case "updateNote":this.updateNote(evnt);
       break;
+      case "label":this.addLabel(evnt);
+      break;
     }
   }
+  addLabel(evnt) {
+    this.data.noteId=evnt.id;
+    this.labelService.editlabel('api/label/EditLabel',this.data)
+  }
+
   trash(evnt: any) {
     this.startSpinner();
     this.service.trashNote("api/Note/Trash/"+evnt.id,evnt.id).subscribe

@@ -10,6 +10,7 @@ import { EditNoteComponent } from '../edit-note/edit-note.component';
 })
 export class DisplayComponent implements OnInit {
 
+  @Input() labels:any;
   @Input() result: any;
   dialogeValue:any;
   backgroundColor:any='rgb(255,255,255)';

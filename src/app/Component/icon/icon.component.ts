@@ -17,7 +17,7 @@ export class IconComponent implements OnInit {
   @Input() onDisplay: boolean = false;
   @Input() onCreateNote: boolean = false;
 
-  labels:any=new Label();
+  @Input() labels:any;
   notes: Note = new Note();
 
   @Output() notify: EventEmitter<any> = new EventEmitter<any>();
@@ -85,12 +85,6 @@ export class IconComponent implements OnInit {
   }
 
   addLabel(){
-    this.labelService.getAllLabel('api/Label/GetAllLabel').subscribe
-    (
-      response=>{
-        this.labels=response
-      }
-    );
   }
 
   Propogation($event) {
@@ -116,7 +110,6 @@ export class IconComponent implements OnInit {
       { 'color': 'rgb(152, 119, 123)', 'name': 'Bazaar' }],
     ];
 
-    this.addLabel();
   }
 
 

@@ -25,4 +25,8 @@ export class LabelService {
   deleteLabel(path:string){
     return this.http.delete(environment.baseUrl+path,this.header)
   }
+
+  editlabel(path:string,data){
+    return this.http.put(environment.baseUrl+path,data,this.header);
+  }
 }
