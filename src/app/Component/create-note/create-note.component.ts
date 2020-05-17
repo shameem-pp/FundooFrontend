@@ -9,6 +9,8 @@ import { Note } from 'src/app/Models/note';
 })
 export class CreateNoteComponent implements OnInit {
   clicked:boolean=false;
+  contents:any={id:0};
+  @Input() labels:any;
   @Input() notes:Note;
   backgroundColor:any='rgb(255,255,255)';
   constructor(private service:NoteService) { }
@@ -48,7 +50,13 @@ export class CreateNoteComponent implements OnInit {
     break;
     case "createNote":this.apiCallCreateNote();
     break;
+    case "label":this.apiCallEditLabel(evnt);
+    break;
     }
+  }
+  apiCallEditLabel(evnt) {
+    this.contents.id=evnt.value.id;
+    this.notify.emit(evnt);
   }
 
   addReminder(eventValue) {
