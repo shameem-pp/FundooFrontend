@@ -84,7 +84,7 @@ export class IconComponent implements OnInit {
   }
 
   addLabel(){
-    this.labelService.getAllLabel('api/label/GetAllLabel').subscribe
+    this.labelService.getAllLabel('api/Label/GetAllLabel').subscribe
     (
       response=>{
         this.labels=response
