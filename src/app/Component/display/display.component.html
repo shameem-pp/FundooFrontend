@@ -1,11 +1,12 @@
 <div style="display: flex; flex-wrap: wrap; margin: 2% auto; align-items: flex-start; width: 60%;">
     <mat-card *ngFor="let contents of result;" [style.background]=contents.changeColor class="display-card">
         <div (click)="openEditDialogue(contents)">
-            <div style=" font-size: 1.5rem; font-weight: 600;">{{contents.title}}</div>
-            <div style="height: auto; margin-bottom: 3%; word-break: break-word;  ">{{contents.description}}</div>
+            <div class="title-box">{{contents.title}}</div>
+            <div class="description-box">{{contents.description}}</div>
+            <mat-chip-list style="width: auto;" aria-label="Fish selection">
+                <mat-chip style="font-size: 10px;" *ngIf=contents.remainder;><span style="font-size: 16px;" class="material-icons">query_builder</span>&nbsp; {{contents.remainder}} </mat-chip>
+            </mat-chip-list>
         </div>
-        <div>
-            <app-icon [onDisplay]="true" (notify)="iconEvent($event,contents.id)"></app-icon>
-        </div>
+        <app-icon class="icons" [onDisplay]="true" (notify)="iconEvent($event,contents.id)"></app-icon>
     </mat-card>
 </div>

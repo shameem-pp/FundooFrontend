@@ -23,9 +23,9 @@
         <button *ngIf="!onCreateNote && onDisplay" (click)="delete()" mat-menu-item>Delete Note</button>
     </mat-menu>
     <mat-menu #addlabel="matMenu">
-        <div *ngFor="let label of labels">
+        <!-- <div *ngFor="let label of labels;">
             <mat-checkbox>{{labels.labelName}}</mat-checkbox>
-        </div>
+        </div> -->
     </mat-menu>
     <mat-menu #rem="matMenu">
         <button mat-menu-item (click)="reminder('Later Today')">Later Today </button>

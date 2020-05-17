@@ -5,6 +5,26 @@
     white-space: initial;
 }
 
+.mat-standard-chip ::ng-deep {
+    min-height: 20px;
+}
+
+.title-box {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.description-box {
+    height: auto;
+    margin-bottom: 3%;
+    word-break: break-word;
+}
+
+
+/* .icons {
+    visibility: hidden;
+} */
+
 .display-card {
     margin-right: 3%;
     width: 30%;

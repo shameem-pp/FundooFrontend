@@ -48,6 +48,7 @@ import { LabelService } from './Service/label.service';
 import { LabelDisplayComponent } from './Component/label-display/label-display.component';
 import { LabelCreateComponent } from './Component/label-create/label-create.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -96,7 +97,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatDialogModule,
     NgbModule,
     NgxSpinnerModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatChipsModule
   ],
   entryComponents:[EditNoteComponent,LabelsComponent],
   providers: [UserService,

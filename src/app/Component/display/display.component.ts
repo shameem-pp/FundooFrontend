@@ -14,7 +14,6 @@ export class DisplayComponent implements OnInit {
   dialogeValue:any;
   backgroundColor:any='rgb(255,255,255)';
 
-
   constructor(public dialog:MatDialog) { }
   @Output() notify:EventEmitter<any> =new EventEmitter<any>();
 
