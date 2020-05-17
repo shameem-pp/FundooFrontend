@@ -65,6 +65,7 @@ export class IconComponent implements OnInit {
 
   addColor(color) {
     this.notify.emit({ name: "color", value: color });
+    console.log(this.labels);
   }
 
   addImage() {
