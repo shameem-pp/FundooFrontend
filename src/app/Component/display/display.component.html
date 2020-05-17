@@ -6,7 +6,12 @@
             <mat-chip-list style="width: auto;" aria-label="Fish selection">
                 <mat-chip style="font-size: 10px;" *ngIf=contents.remainder;><span style="font-size: 16px;" class="material-icons">query_builder</span>&nbsp; {{contents.remainder}} </mat-chip>
             </mat-chip-list>
+            <mat-chip-list style="width: auto;" aria-label="Fish selection" *ngFor="let label of labels">
+                <mat-chip style="font-size: 10px;" *ngIf="contents.id==label.noteId" ;>{{label.labelName} </mat-chip>
+            </mat-chip-list>
         </div>
-        <app-icon class="icons" [onDisplay]="true" (notify)="iconEvent($event,contents.id)"></app-icon>
+        <div style="margin-top: 5%;">
+            <app-icon class="icons" [labels]="labels" [onDisplay]="true" (notify)="iconEvent($event,contents.id)"></app-icon>
+        </div>
     </mat-card>
 </div>

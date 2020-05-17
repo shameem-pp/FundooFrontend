@@ -24,7 +24,7 @@
     </mat-menu>
     <mat-menu #addlabel="matMenu">
         <div *ngFor="let label of labels;">
-            <mat-checkbox>{{label.labelName}}</mat-checkbox>
+            <mat-checkbox (change)="addLabel(label)">{{label.labelName}}</mat-checkbox>
         </div>
     </mat-menu>
     <mat-menu #rem="matMenu">

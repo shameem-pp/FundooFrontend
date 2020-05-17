@@ -13,7 +13,7 @@ import { Label } from 'src/app/Models/label';
 export class NotesComponent implements OnInit {
   listOfNotes: Object;
   labels:Object; 
-  data:Label;
+  data:Label=new Label();
   constructor(private labelService:LabelService,private service:NoteService,private spinner: NgxSpinnerService,private snackBar: MatSnackBar) { }
 
   apiCallGetAllLabel(){
@@ -59,7 +59,11 @@ export class NotesComponent implements OnInit {
     }
   }
   addLabel(evnt) {
+    debugger
     this.data.noteId=evnt.id;
+    this.data.id=evnt.value.id;
+    this.data.labelName=evnt.value.labelName;
+    this.data.email=evnt.value.email;
     this.labelService.editlabel('api/label/EditLabel',this.data).subscribe
     (
       response=>{
@@ -161,6 +165,7 @@ openSnackBar(message: string, action: string) {
 }
   ngOnInit(): void {
   this.apiCallGetAllNote();
+  this.apiCallGetAllLabel();
   }
 
 }
