@@ -27,7 +27,7 @@ export class RemindersComponent implements OnInit {
 
 
   apiCallGetAllNote(event?){
-    this.noteService.getAllNote("api/Note/GetArchivededNotes").subscribe(
+    this.noteService.getAllNote("api/Note/GetReminderNotes").subscribe(
       response=>{
         this.listOfNotes=response;
         console.log(response)
