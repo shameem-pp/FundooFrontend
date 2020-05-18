@@ -42,4 +42,8 @@ export class NoteService {
   addColor(data,path:string){
     return this.http.put(environment.baseUrl+path,data,this.header);
   }
+
+  getAllArchivedNote(path:string){
+    return this.http.get(environment.baseUrl+path,this.header)
+  }
 }
