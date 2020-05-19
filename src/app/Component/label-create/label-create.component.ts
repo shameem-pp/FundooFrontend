@@ -16,6 +16,7 @@ export class LabelCreateComponent implements OnInit {
 
   apiCallCreateNote(){
     this.notify.emit(this.notes);
+    this.notes.setValue('');
   }
 
   onClickToggle(){

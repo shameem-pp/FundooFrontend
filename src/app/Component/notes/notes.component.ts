@@ -57,7 +57,28 @@ export class NotesComponent implements OnInit {
       break;
       case "label":this.addLabel(evnt);
       break;
+      case "deleteLabel":this.deleteLabel(evnt.id);
+      break;
+      case "deleteReminder":this.deleteReminder(evnt)
     }
+  }
+
+deleteReminder(evnt){
+  this.service.updateNote(evnt,'api/Note/EditNote').subscribe
+  (
+    response=>{
+      this.apiCallGetAllNote();
+    }
+  )
+}
+
+  deleteLabel(id: any) {
+    this.labelService.deleteLabel('api/label/DeleteLabel/'+id).subscribe
+    (
+      response=>{
+        this.apiCallGetAllLabel();
+      }
+    );
   }
   addLabel(evnt) {
     debugger
