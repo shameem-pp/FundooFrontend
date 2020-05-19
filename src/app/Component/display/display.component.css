@@ -5,6 +5,18 @@
     white-space: initial;
 }
 
+.matchip-content {
+    font-size: 10px;
+}
+
+.display-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2% auto;
+    align-items: flex-start;
+    width: 60%;
+}
+
 .mat-standard-chip ::ng-deep {
     min-height: 20px;
 }

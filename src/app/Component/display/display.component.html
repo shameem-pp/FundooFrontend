@@ -1,17 +1,17 @@
-<div style="display: flex; flex-wrap: wrap; margin: 2% auto; align-items: flex-start; width: 60%;">
+<div class="display-container">
     <mat-card *ngFor="let contents of result;" [style.background]=contents.changeColor class="display-card"> {{changeColour(contents.changeColor)}}
         <div (click)="openEditDialogue(contents)">
             <div class="title-box">{{contents.title}}</div>
             <div class="description-box">{{contents.description}}</div>
             <mat-chip-list style="width: auto;">
-                <mat-chip style="font-size: 10px; " [style.background]="backgroundColor" *ngIf=contents.remainder;><span style="font-size: 16px;" class="material-icons">query_builder</span>&nbsp; {{contents.remainder}}
+                <mat-chip class="matchip-content" [style.background]="backgroundColor" *ngIf=contents.remainder;><span style="font-size: 16px;" class="material-icons">query_builder</span>&nbsp; {{contents.remainder}}
                     <mat-icon matChipRemove (click)="updateNote(contents)">cancel</mat-icon>
                 </mat-chip>
             </mat-chip-list>
         </div>
         <div style="width: auto; display: flex;  margin-top: 1%; flex-wrap: wrap; justify-content: flex-start;">
             <mat-chip-list *ngFor="let label of labels;" [style.background]="backgroundColor">
-                <mat-chip style="font-size: 10px;" [selectable]=true [style.background]="backgroundColor" *ngIf="contents.id==label.noteId;">{{label.labelName}}
+                <mat-chip class="matchip-content" [selectable]=true [style.background]="backgroundColor" *ngIf="contents.id==label.noteId;">{{label.labelName}}
                     <mat-icon matChipRemove (click)="deleteLabel(label.id)">cancel</mat-icon>
                 </mat-chip>
             </mat-chip-list>

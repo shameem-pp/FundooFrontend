@@ -55,6 +55,7 @@ export class CreateNoteComponent implements OnInit {
     }
   }
   apiCallEditLabel(evnt) {
+    evnt.name="addLabel";
     this.notify.emit(evnt);
   }
 
