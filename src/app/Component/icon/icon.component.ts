@@ -85,7 +85,7 @@ export class IconComponent implements OnInit {
   }
 
   addLabel(selected){
-    this.notify.emit({ name: "label", value: selected });
+    this.notify.emit({ name: "label", value: selected,selected:true });
   }
 
   Propogation($event) {

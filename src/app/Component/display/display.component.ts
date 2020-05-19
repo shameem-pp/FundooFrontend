@@ -35,7 +35,6 @@ export class DisplayComponent implements OnInit {
     }
   }
   updateNote(contents){
-    debugger
     contents.remainder=null;
     this.notify.emit({id:contents.id,value:contents,name:"deleteReminder"})
   }
