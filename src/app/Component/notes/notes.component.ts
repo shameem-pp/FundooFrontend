@@ -40,7 +40,6 @@ export class NotesComponent implements OnInit {
   }
 
   apiCall(evnt){
-    debugger;
     switch(evnt['name']){
       case "collaborator":this.collaborator(evnt);
       break;
@@ -58,6 +57,8 @@ export class NotesComponent implements OnInit {
       break;
       case "label":this.addLabel(evnt);
       break;
+      case "createLabel":this.addLabelFromCreateNote(evnt);
+      break;
       case "deleteLabel":this.deleteLabel(evnt.id);
       break;
       case "deleteReminder":this.deleteReminder(evnt)
@@ -65,6 +66,21 @@ export class NotesComponent implements OnInit {
       case "callGetAllNoteApi":this.apiCallGetAllNote(evnt);
       break;
     }
+  }
+  addLabelFromCreateNote(evnt: any) {
+    this.data.noteId=this.listOfNotes[0].id;
+    this.data.id=evnt.value.id;
+    this.data.labelName=evnt.value.labelName;
+    this.data.email=evnt.value.email;
+    this.labelService.editlabel('api/label/EditLabel',this.data).subscribe
+    (
+      response=>{
+        this.apiCallGetAllLabel();
+      },
+      error=>{
+        this.apiCallGetAllLabel();
+      }
+    )
   }
 
 deleteReminder(evnt){
@@ -85,7 +101,6 @@ deleteReminder(evnt){
     );
   }
   addLabel(evnt) {
-    debugger
     this.data.noteId=evnt.id;
     this.data.id=evnt.value.id;
     this.data.labelName=evnt.value.labelName;

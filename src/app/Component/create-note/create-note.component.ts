@@ -13,6 +13,7 @@ export class CreateNoteComponent implements OnInit {
   @Input() labels:any;
   @Input() notes:Note;
   backgroundColor:any='rgb(255,255,255)';
+  labelEvent: any;
   constructor(private service:NoteService) { }
 
   @Output() notify=new EventEmitter<any>();
@@ -21,11 +22,17 @@ export class CreateNoteComponent implements OnInit {
   }
 
   apiCallCreateNote(){
+
+    console.log(this.labels)
     if(this.notes.title!=null || this.notes.description!=null){
       this.service.createNote(this.notes,'api/Note/CreateNote').subscribe(
         response=>{
           this.clicked=false;
           this.notify.emit({name:'callGetAllNoteApi'});
+          if(this.labelEvent.value.noteId==-1){
+            this.labelEvent.name="createLabel";
+            this.notify.emit(this.labelEvent);
+          }
           this.notes.title=null;
           this.notes.description=null;
           this.backgroundColor='rgb(255,255,255)';
@@ -33,11 +40,12 @@ export class CreateNoteComponent implements OnInit {
     }
     else{
       this.clicked=false;
+      this.labelEvent.value.noteId=0;
+      this.notify.emit(this.labelEvent);
     }
   }
 
   iconEvent(evnt){
-    debugger
     switch(evnt['name']){
     case "collaborator":this.collaborator(evnt['value']);
     break;
@@ -58,8 +66,8 @@ export class CreateNoteComponent implements OnInit {
 
   apiCallEditLabel(evnt) {
     evnt.value.noteId=-1;
-    this.apiCallCreateNote();
     this.notify.emit(evnt);
+    this.labelEvent=evnt;
   }
 
   addReminder(eventValue) {
