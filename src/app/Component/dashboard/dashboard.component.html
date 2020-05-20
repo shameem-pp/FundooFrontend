@@ -9,9 +9,11 @@
               </button>
             <input class="search-box" type="text" name="search" autocomplete="off" placeholder="Search">
         </mat-card>
-        <button mat-button [matMenuTriggerFor]="menu"><span class="material-icons">
-            account_circle
-            </span></button>
+        <button *ngIf="viewToggle; else elseBlock" mat-button (click)="toggleViews()"><span class="material-icons">view_agenda</span></button>
+        <ng-template #elseBlock>
+            <button mat-button (click)="toggleViews()"><span class="material-icons">view_module</span></button>
+        </ng-template>
+        <button mat-button [matMenuTriggerFor]="menu"><span class="material-icons">account_circle</span></button>
         <mat-menu #menu="matMenu">
             <button mat-menu-item (click)="signOut()">Sign Out</button>
         </mat-menu>

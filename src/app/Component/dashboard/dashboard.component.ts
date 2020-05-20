@@ -20,6 +20,7 @@ export class DashboardComponent implements OnDestroy {
   labels:any=null;
 
   private _mobileQueryListener: () => void;
+  viewToggle: boolean=true;
 
   constructor(private labelService:LabelService, public dialog:MatDialog,changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,private snackBar: MatSnackBar,private router: Router,private service:UserService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
@@ -52,6 +53,9 @@ apiCallGetAllLabel(){
 
 }
 
+toggleViews(){
+this.viewToggle=!this.viewToggle;
+}
   signOut(){
     this.service.signOutAction('api/Account/Logout').subscribe(
       success=>{
