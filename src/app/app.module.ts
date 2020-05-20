@@ -50,6 +50,7 @@ import { LabelCreateComponent } from './Component/label-create/label-create.comp
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatChipsModule} from '@angular/material/chips';
 import { DataService } from './Service/data.service';
+import { SearchComponent } from './Component/search/search.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { DataService } from './Service/data.service';
     DisplayComponent,
     EditNoteComponent,
     LabelDisplayComponent,
-    LabelCreateComponent
+    LabelCreateComponent,
+    SearchComponent
     ],
   imports: [
     FormsModule,
