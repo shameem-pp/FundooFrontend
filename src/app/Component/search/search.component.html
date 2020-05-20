@@ -1,6 +1,6 @@
 <div class="display-container">
-    <mat-card [style.width]="width" *ngFor="let contents of result | filter:searchText" [style.background]=contents.changeColor class="display-card">
-        <div (click)="openEditDialogue(contents)">
+    <mat-card *ngFor="let contents of result | filter:searchText" [style.background]=contents.changeColor class="display-card">
+        <div>
             <div class="title-box">{{contents.title}}</div>
             <div class="description-box">{{contents.description}}</div>
             <mat-chip-list style="width: auto;">
@@ -9,13 +9,13 @@
                 </mat-chip>
             </mat-chip-list>
         </div>
-        <div style="width: auto; display: flex;  margin-top: 1%; flex-wrap: wrap; justify-content: flex-start;">
-            <mat-chip-list *ngFor="let label of labels;" [style.background]="backgroundColor">
+        <!-- <div style="width: auto; display: flex;  margin-top: 1%; flex-wrap: wrap; justify-content: flex-start;">
+            <mat-chip-list *ngFor="let label of labels;">
                 <mat-chip class="matchip-content" [selectable]=true [style.background]="backgroundColor" *ngIf="contents.id==label.noteId;">{{label.labelName}}
                     <mat-icon matChipRemove>cancel</mat-icon>
                 </mat-chip>
             </mat-chip-list>
-        </div>
+        </div> -->
         <div style="margin-top: 3%;">
             <!-- <app-icon class="icons" [labels]="labels" [onDisplay]="true" (notify)="iconEvent($event,contents.id)"></app-icon> -->
         </div>

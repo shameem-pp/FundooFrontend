@@ -51,6 +51,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatChipsModule} from '@angular/material/chips';
 import { DataService } from './Service/data.service';
 import { SearchComponent } from './Component/search/search.component';
+import { FilterPipe }from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { SearchComponent } from './Component/search/search.component';
     EditNoteComponent,
     LabelDisplayComponent,
     LabelCreateComponent,
-    SearchComponent
+    SearchComponent,
+    FilterPipe
     ],
   imports: [
     FormsModule,
@@ -101,7 +103,8 @@ import { SearchComponent } from './Component/search/search.component';
     NgbModule,
     NgxSpinnerModule,
     MatCheckboxModule,
-    MatChipsModule
+    MatChipsModule,
+    
   ],
   entryComponents:[EditNoteComponent,LabelsComponent],
   providers: [UserService,
