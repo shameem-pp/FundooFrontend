@@ -27,7 +27,7 @@ export class BinComponent implements OnInit {
 
 
   apiCallGetAllNote(event?){
-    this.noteService.getAllNote("api/Note/GetTrashedNotes").subscribe(
+    this.noteService.getAllNotes("api/Note/GetTrashedNotes").subscribe(
       response=>{
         this.listOfNotes=response;
         console.log(response)

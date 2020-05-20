@@ -23,15 +23,15 @@ export class CreateNoteComponent implements OnInit {
 
   apiCallCreateNote(){
 
-    console.log(this.labels)
     if(this.notes.title!=null || this.notes.description!=null){
-      this.service.createNote(this.notes,'api/Note/CreateNote').subscribe(
+      this.service.createNote(this.notes,'api/Note/CreateNote').toPromise().then(
         response=>{
           this.clicked=false;
           this.notify.emit({name:'callGetAllNoteApi'});
-          if(this.labelEvent.value.noteId==-1){
+          if((this.labelEvent.value.noteId==-1)&&this.labelEvent!=undefined){
             this.labelEvent.name="createLabel";
             this.notify.emit(this.labelEvent);
+            this.labelEvent=null;
           }
           this.notes.title=null;
           this.notes.description=null;
@@ -40,8 +40,10 @@ export class CreateNoteComponent implements OnInit {
     }
     else{
       this.clicked=false;
-      this.labelEvent.value.noteId=0;
-      this.notify.emit(this.labelEvent);
+      if(this.labelEvent.value.noteId!=0){
+        this.labelEvent.value.noteId=0;
+        this.notify.emit(this.labelEvent);
+      }
     }
   }
 

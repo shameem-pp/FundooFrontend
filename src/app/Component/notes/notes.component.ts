@@ -15,20 +15,26 @@ export class NotesComponent implements OnInit {
   labels:Object; 
   data:Label=new Label();
   constructor(private labelService:LabelService,private service:NoteService,private spinner: NgxSpinnerService,private snackBar: MatSnackBar) { }
+  ngOnInit(): void {
+    this.apiCallGetAllNote();
+    this.apiCallGetAllLabel();
+    }
 
   apiCallGetAllLabel(){
     this.labelService.getAllLabel('api/label/GetAllLabel').subscribe
     (
       response=>{
+        console.log(response)
         this.labels=response;
       }
     )
   }
 
 
-  apiCallGetAllNote(evnt?){
-    this.service.getAllNote("api/Note/GetAllNotes").subscribe(
-      response=>{
+   apiCallGetAllNote(){
+    this.service.getAllNotes("api/Note/GetAllNotes").subscribe
+    ( 
+    response=>{
         this.listOfNotes=response;
         this.stopSpinner();
         console.log(response)
@@ -63,7 +69,7 @@ export class NotesComponent implements OnInit {
       break;
       case "deleteReminder":this.deleteReminder(evnt)
       break;
-      case "callGetAllNoteApi":this.apiCallGetAllNote(evnt);
+      case "callGetAllNoteApi":this.apiCallGetAllNote();
       break;
     }
   }
@@ -207,9 +213,5 @@ openSnackBar(message: string, action: string) {
     duration: 2000,
   });
 }
-  ngOnInit(): void {
-  this.apiCallGetAllNote();
-  this.apiCallGetAllLabel();
-  }
 
 }

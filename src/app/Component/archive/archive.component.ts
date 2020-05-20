@@ -27,7 +27,7 @@ export class ArchiveComponent implements OnInit {
 
 
   apiCallGetAllNote(event?){
-    this.noteService.getAllNote("api/Note/GetArchivededNotes").subscribe(
+    this.noteService.getAllNotes("api/Note/GetArchivededNotes").subscribe(
       response=>{
         this.listOfNotes=response;
         console.log(response)
