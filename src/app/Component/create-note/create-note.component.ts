@@ -24,10 +24,10 @@ export class CreateNoteComponent implements OnInit {
   apiCallCreateNote(){
 
     if(this.notes.title!=null || this.notes.description!=null){
-      this.service.createNote(this.notes,'api/Note/CreateNote').toPromise().then(
+      this.service.createNote(this.notes,'api/Note/CreateNote').subscribe(
         response=>{
           this.clicked=false;
-          this.notify.emit({name:'callGetAllNoteApi'});
+         this.notify.emit({name:'callGetAllNoteApi'});
           if((this.labelEvent.value.noteId==-1)&&this.labelEvent!=undefined){
             this.labelEvent.name="createLabel";
             this.notify.emit(this.labelEvent);

@@ -49,6 +49,7 @@ import { LabelDisplayComponent } from './Component/label-display/label-display.c
 import { LabelCreateComponent } from './Component/label-create/label-create.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatChipsModule} from '@angular/material/chips';
+import { DataService } from './Service/data.service';
 
 @NgModule({
   declarations: [
@@ -102,7 +103,12 @@ import {MatChipsModule} from '@angular/material/chips';
   ],
   entryComponents:[EditNoteComponent,LabelsComponent],
   providers: [UserService,
-  HttpService,AuthGuard,NoteService,LabelService],
+  HttpService,
+  AuthGuard,
+  NoteService,
+  LabelService,
+  DataService
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

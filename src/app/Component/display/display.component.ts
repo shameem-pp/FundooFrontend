@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Note } from 'src/app/Models/note';
 import { MatDialog } from '@angular/material/dialog';
 import { EditNoteComponent } from '../edit-note/edit-note.component';
+import {DataService} from 'src/app/Service/data.service'
 
 @Component({
   selector: 'app-display',
@@ -13,8 +13,11 @@ export class DisplayComponent implements OnInit {
   @Input() result: any;
   dialogeValue:any;
   backgroundColor:string;
+  width: any;
+  margin:any;
 
-  constructor(public dialog:MatDialog) { }
+  constructor(public dialog:MatDialog,private dataService:DataService) { }
+
   @Output() notify:EventEmitter<any> =new EventEmitter<any>();
 
   iconEvent(eventValue,id){
@@ -57,6 +60,8 @@ export class DisplayComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.dataService.share.subscribe(x=> this.width=x);
+    this.dataService.shareMargin.subscribe(x=>this.margin=x);
   }
 
 }

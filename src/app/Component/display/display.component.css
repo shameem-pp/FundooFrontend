@@ -12,9 +12,9 @@
 .display-container {
     display: flex;
     flex-wrap: wrap;
-    margin: 2% auto;
+    margin: 2% 20%;
     align-items: flex-start;
-    width: 60%;
+    width: 80%;
 }
 
 .mat-standard-chip ::ng-deep {

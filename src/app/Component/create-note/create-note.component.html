@@ -1,10 +1,10 @@
-<div *ngIf="!clicked; else elseBlock" style="margin: 2% auto; width: '42%';">
+<div *ngIf="!clicked; else elseBlock" style="margin: 2% 30% 2%; width: '42%';">
     <mat-card class="display-card">
         <input class="searchbox" type="text" name="search" style="width: '100%';" autocomplete="off" placeholder="Take a note" (click)='openNote()'>
     </mat-card>
 </div>
 <ng-template #elseBlock>
-    <div style="margin: 2% auto; width: '45%';">
+    <div style="margin: 2% 30% 2%; width: '42%';">
         <mat-card fxLayout="column" class="flex-container" class="display-card" [style.background]="backgroundColor">
             <div>
                 <div class="searchbox title-box" (input)="notes.title=$event.target.textContent" role="textbox" name="search" autocomplete="off" contentEditable=true data-text="Title" (click)='openNote()'></div>

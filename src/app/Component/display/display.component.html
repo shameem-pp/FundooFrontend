@@ -1,5 +1,5 @@
-<div class="display-container">
-    <mat-card *ngFor="let contents of result;" [style.background]=contents.changeColor class="display-card"> {{changeColour(contents.changeColor)}}
+<div [style.margin]="margin" class="display-container">
+    <mat-card [style.width]="width" *ngFor="let contents of result;" [style.background]=contents.changeColor class="display-card"> {{changeColour(contents.changeColor)}}
         <div (click)="openEditDialogue(contents)">
             <div class="title-box">{{contents.title}}</div>
             <div class="description-box">{{contents.description}}</div>
