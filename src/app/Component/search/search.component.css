@@ -1,0 +1,46 @@
+.searchbox {
+    border: 0px;
+    outline: none;
+    word-wrap: break-word;
+    white-space: initial;
+}
+
+.matchip-content {
+    font-size: 10px;
+}
+
+.display-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2% 20%;
+    align-items: flex-start;
+    width: 80%;
+}
+
+.mat-standard-chip ::ng-deep {
+    min-height: 20px;
+}
+
+.title-box {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.description-box {
+    height: auto;
+    margin-bottom: 3%;
+    word-break: break-word;
+}
+
+
+/* .icons {
+    visibility: hidden;
+} */
+
+.display-card {
+    margin-right: 3%;
+    width: 30%;
+    margin-bottom: 2%;
+    border-radius: 6px;
+    box-shadow: 1px 1px 4px rgb(127, 127, 128);
+}

@@ -77,4 +77,8 @@ export class DashboardComponent implements OnDestroy {
       duration: 2000,
     });
   }
+
+  onSearchChange(searchValue: string): void {  
+    this.dataService.updateSearch(searchValue);
+  }
 }

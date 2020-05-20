@@ -8,8 +8,7 @@ import { Note } from '../Models/note';
 export class DataService {
   private contentSearch=new BehaviorSubject<string>('');
   public shareSearch=this.contentSearch.asObservable();
-  private noteModel: Note;
-  private contentNote=new BehaviorSubject<Note>(this.noteModel);
+  private contentNote=new BehaviorSubject<any>(' ');
   public shareNote=this.contentNote.asObservable();
   private content = new BehaviorSubject<any>('20%');
   private contentMargin = new BehaviorSubject<any>('2% 20%');
@@ -24,7 +23,7 @@ export class DataService {
     this.contentMargin.next(text);
   }
 
-  updateNote(note:Note){
+  updateNote(note:any){
     this.contentNote.next(note);
   }
 

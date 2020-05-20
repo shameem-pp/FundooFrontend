@@ -7,7 +7,7 @@
             <button class="searchbutton" mat-icon-button>
                 <mat-icon class="search-icon" matSuffix>search</mat-icon>
               </button>
-            <input class="search-box" type="text" name="search" autocomplete="off" placeholder="Search">
+            <input class="search-box" type="text" (input)="onSearchChange($event.target.value)" name="search" autocomplete="off" placeholder="Search">
         </mat-card>
         <button *ngIf="viewToggle; else elseBlock" mat-button (click)="toggleViews()"><span class="material-icons">view_agenda</span></button>
         <ng-template #elseBlock>

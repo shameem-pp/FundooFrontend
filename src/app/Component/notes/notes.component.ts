@@ -4,6 +4,7 @@ import { NgxSpinnerService } from "ngx-spinner";
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LabelService } from 'src/app/Service/label.service';
 import { Label } from 'src/app/Models/label';
+import { DataService } from 'src/app/Service/data.service';
 
 @Component({
   selector: 'app-notes',
@@ -14,7 +15,7 @@ export class NotesComponent implements OnInit {
   listOfNotes: Object;
   labels:Object; 
   data:Label=new Label();
-  constructor(private labelService:LabelService,private service:NoteService,private spinner: NgxSpinnerService,private snackBar: MatSnackBar) { }
+  constructor(private dataService:DataService, private labelService:LabelService,private service:NoteService,private spinner: NgxSpinnerService,private snackBar: MatSnackBar) { }
   ngOnInit(): void {
     this.apiCallGetAllNote();
     this.apiCallGetAllLabel();
@@ -37,6 +38,7 @@ export class NotesComponent implements OnInit {
     response=>{
         this.listOfNotes=response;
         this.stopSpinner();
+        this.dataService.updateNote(response);
         console.log(response)
     },
     error=>{
