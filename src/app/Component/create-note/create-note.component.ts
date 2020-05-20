@@ -9,13 +9,13 @@ import { Note } from 'src/app/Models/note';
 })
 export class CreateNoteComponent implements OnInit {
   clicked:boolean=false;
-  contents:any={id:0};
+  contents:any;
   @Input() labels:any;
   @Input() notes:Note;
   backgroundColor:any='rgb(255,255,255)';
   constructor(private service:NoteService) { }
 
-  @Output() notify:EventEmitter<any>=new EventEmitter<any>();
+  @Output() notify=new EventEmitter<any>();
   openNote(){
     this.clicked=true;
   }
@@ -25,7 +25,7 @@ export class CreateNoteComponent implements OnInit {
       this.service.createNote(this.notes,'api/Note/CreateNote').subscribe(
         response=>{
           this.clicked=false;
-          this.notify.emit('callGetAllNoteApi');
+          this.notify.emit({name:'callGetAllNoteApi'});
           this.notes.title=null;
           this.notes.description=null;
           this.backgroundColor='rgb(255,255,255)';
@@ -37,6 +37,7 @@ export class CreateNoteComponent implements OnInit {
   }
 
   iconEvent(evnt){
+    debugger
     switch(evnt['name']){
     case "collaborator":this.collaborator(evnt['value']);
     break;
@@ -54,8 +55,10 @@ export class CreateNoteComponent implements OnInit {
     break;
     }
   }
+
   apiCallEditLabel(evnt) {
-    evnt.name="addLabel";
+    evnt.value.noteId=-1;
+    this.apiCallCreateNote();
     this.notify.emit(evnt);
   }
 

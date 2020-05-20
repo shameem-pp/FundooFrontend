@@ -15,7 +15,7 @@
             </div>
             <div style="width: auto; display: flex; flex-direction: row; margin-top: 1%; justify-content: flex-start;">
                 <mat-chip-list *ngFor="let label of labels;">
-                    <mat-chip style="font-size: 10px;" *ngIf="contents.id==label.noteId;">{{label.labelName}} </mat-chip>
+                    <mat-chip style="font-size: 10px;" *ngIf="label.id==-1">{{label.labelName}} </mat-chip>
                 </mat-chip-list>
             </div>
             <app-icon [labels]="labels" [onCreateNote]="true" (notify)="iconEvent($event)"></app-icon>

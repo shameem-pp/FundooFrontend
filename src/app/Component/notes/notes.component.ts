@@ -26,7 +26,7 @@ export class NotesComponent implements OnInit {
   }
 
 
-  apiCallGetAllNote(event?){
+  apiCallGetAllNote(evnt?){
     this.service.getAllNote("api/Note/GetAllNotes").subscribe(
       response=>{
         this.listOfNotes=response;
@@ -40,6 +40,7 @@ export class NotesComponent implements OnInit {
   }
 
   apiCall(evnt){
+    debugger;
     switch(evnt['name']){
       case "collaborator":this.collaborator(evnt);
       break;
@@ -61,11 +62,12 @@ export class NotesComponent implements OnInit {
       break;
       case "deleteReminder":this.deleteReminder(evnt)
       break;
+      case "callGetAllNoteApi":this.apiCallGetAllNote(evnt);
+      break;
     }
   }
 
 deleteReminder(evnt){
-  debugger
   this.service.updateNote(evnt.value,'api/Note/EditNote').subscribe
   (
     response=>{
@@ -92,6 +94,9 @@ deleteReminder(evnt){
     (
       response=>{
         this.apiCallGetAllLabel();
+      },
+      error=>{
+        this.apiCallGetAllLabel();
       }
     )
   }
@@ -108,9 +113,9 @@ deleteReminder(evnt){
       }
     )
   }
-  updateNote(event) {
+  updateNote(evnt) {
     this.startSpinner();
-    this.service.updateNote(event.data,'api/Note/EditNote').subscribe
+    this.service.updateNote(evnt.data,'api/Note/EditNote').subscribe
     (
       response=>{
         this.apiCallGetAllNote();
