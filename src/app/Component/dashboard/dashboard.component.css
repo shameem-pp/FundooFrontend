@@ -8,6 +8,21 @@
     right: 0;
 }
 
+::ng-deep .mat-menu-panel {
+    padding: 0 10px!important;
+    width: 600px!important;
+}
+
+.circular--square {
+    width: 80px;
+    height: 80px;
+    /* padding: 2% auto; */
+    border-top-left-radius: 50% 50%;
+    border-top-right-radius: 50% 50%;
+    border-bottom-right-radius: 50% 50%;
+    border-bottom-left-radius: 50% 50%;
+}
+
 .example-is-mobile .example-toolbar {
     position: fixed;
     /* Make sure the toolbar will stay on top of the content as it scrolls past. */
