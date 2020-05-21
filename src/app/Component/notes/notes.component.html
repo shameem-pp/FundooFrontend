@@ -1,3 +1,4 @@
 <app-create-note [labels]="labels" (notify)="apiCall($event)"></app-create-note>
-<app-display [labels]="labels" [result]="listOfNotes" (notify)="apiCall($event)"></app-display>
+<app-search *ngIf="showSearch()"></app-search>
+<app-display *ngIf="!showSearch()" [labels]="labels" [result]="listOfNotes" (notify)="apiCall($event)"></app-display>
 <ngx-spinner></ngx-spinner>

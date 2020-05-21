@@ -80,5 +80,6 @@ export class DashboardComponent implements OnDestroy {
 
   onSearchChange(searchValue: string): void {  
     this.dataService.updateSearch(searchValue);
+    console.log(searchValue)
   }
 }

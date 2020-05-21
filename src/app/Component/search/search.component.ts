@@ -9,6 +9,7 @@ import { DataService } from 'src/app/Service/data.service';
 export class SearchComponent implements OnInit {
   searchText:string;
   result: any;
+  
   constructor(private dataService:DataService) { }
 
   ngOnInit(): void {

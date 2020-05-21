@@ -1,5 +1,5 @@
 <div class="display-container">
-    <mat-card *ngFor="let contents of result | filter:searchText" [style.background]=contents.changeColor class="display-card">
+    <mat-card *ngFor="let contents of result | filter:searchText;" [style.background]=contents.changeColor class="display-card">
         <div>
             <div class="title-box">{{contents.title}}</div>
             <div class="description-box">{{contents.description}}</div>

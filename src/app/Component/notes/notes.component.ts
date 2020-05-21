@@ -15,12 +15,27 @@ export class NotesComponent implements OnInit {
   listOfNotes: Object;
   labels:Object; 
   data:Label=new Label();
+  searchText: string;
+  show: boolean=false;
+  noteSearch: any;
+
   constructor(private dataService:DataService, private labelService:LabelService,private service:NoteService,private spinner: NgxSpinnerService,private snackBar: MatSnackBar) { }
   ngOnInit(): void {
     this.apiCallGetAllNote();
     this.apiCallGetAllLabel();
+    this.dataService.shareSearch.subscribe(x=>this.searchText=x);
+    this.dataService.shareNote.subscribe(x=>this.noteSearch=x);
     }
 
+    showSearch(){
+
+      if(this.searchText!=""&&this.noteSearch!=null){
+       return this.show=!this.show;
+      }
+
+      return this.show;
+    }
+    
   apiCallGetAllLabel(){
     this.labelService.getAllLabel('api/label/GetAllLabel').subscribe
     (
