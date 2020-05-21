@@ -67,6 +67,7 @@ export class DashboardComponent implements OnDestroy {
     this.service.signOutAction('api/Account/Logout').subscribe(
       success => {
         localStorage.removeItem('token');
+        localStorage.removeItem('email');
         this.openSnackBar("Successfull", "Logout");
         this.router.navigate(['/login']);
       }

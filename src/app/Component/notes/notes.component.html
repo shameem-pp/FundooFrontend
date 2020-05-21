@@ -1,4 +1,7 @@
-<app-create-note [labels]="labels" (notify)="apiCall($event)"></app-create-note>
-<app-search *ngIf="showSearch()"></app-search>
-<app-display *ngIf="!showSearch()" [labels]="labels" [result]="listOfNotes" (notify)="apiCall($event)"></app-display>
+<app-search *ngIf='searchText!=""; else elseBlock'></app-search>
+{{searchText}}
+<ng-template #elseBlock>
+    <app-create-note [labels]="labels" (notify)="apiCall($event)"></app-create-note>
+    <app-display [labels]="labels" [result]="listOfNotes" (notify)="apiCall($event)"></app-display>
+</ng-template>
 <ngx-spinner></ngx-spinner>
