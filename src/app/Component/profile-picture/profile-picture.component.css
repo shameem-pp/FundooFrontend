@@ -1,0 +1,25 @@
+.title-container {
+    box-shadow: 0px 3px rgb(231, 231, 245);
+    padding-top: 18px;
+    padding-left: 18px;
+    padding-bottom: 1%;
+}
+
+label {
+    font-weight: 600;
+}
+
+.photo-selection-btn {
+    width: auto;
+    margin: 24% 36%;
+    box-shadow: 0px 1px rgb(231, 231, 245);
+}
+
+.set-dp {
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+::ng-deep .mat-dialog-container {
+    padding: 0px;
+}

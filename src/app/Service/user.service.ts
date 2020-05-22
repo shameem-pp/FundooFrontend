@@ -32,4 +32,8 @@ export class UserService {
     return !!localStorage.getItem('token');
   }
 
+  uploadProfilePic(path:string,data){
+    return this.http.put(path,data);
+  }
+
 }

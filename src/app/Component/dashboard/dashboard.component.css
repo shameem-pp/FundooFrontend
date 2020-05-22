@@ -8,6 +8,21 @@
     right: 0;
 }
 
+.email {
+    margin: 2% 21%;
+    width: auto;
+}
+
+.name {
+    margin: 2% 29%;
+    width: auto;
+}
+
+.signout-btn {
+    margin: 2% 32%;
+    width: 35%;
+}
+
 ::ng-deep .mat-menu-panel {
     padding: 0 10px!important;
     width: 600px!important;
@@ -15,7 +30,10 @@
 
 .upload-image {
     overflow: visible;
-    margin-left: 80px;
+    margin-left: 60px;
+    margin-top: -46px;
+    background-color: white;
+    border-radius: 50%;
 }
 
 .circular--square {

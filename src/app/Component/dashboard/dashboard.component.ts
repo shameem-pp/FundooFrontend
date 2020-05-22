@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { LabelsComponent } from '../labels/labels.component';
 import { LabelService } from 'src/app/Service/label.service';
 import { DataService } from 'src/app/Service/data.service'
+import { ProfilePictureComponent } from '../profile-picture/profile-picture.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,6 +18,9 @@ export class DashboardComponent implements OnDestroy {
   mobileQuery: MediaQueryList;
   labels: any = null;
 
+  email=localStorage.getItem('email');
+  name=localStorage.getItem('name');
+  profilePic=localStorage.getItem('profilePicture')
   private _mobileQueryListener: () => void;
   viewToggle: boolean = true;
 
@@ -68,6 +72,8 @@ export class DashboardComponent implements OnDestroy {
       success => {
         localStorage.removeItem('token');
         localStorage.removeItem('email');
+        localStorage.removeItem('profilePicture');
+        localStorage.removeItem('name');
         this.openSnackBar("Successfull", "Logout");
         this.router.navigate(['/login']);
       }
@@ -82,5 +88,16 @@ export class DashboardComponent implements OnDestroy {
   onSearchChange(searchValue: string): void {  
     this.dataService.updateSearch(searchValue);
     console.log(searchValue)
+  }
+
+  openDialogueOfProfilePic(){
+    const dialogRef = this.dialog.open(ProfilePictureComponent, {
+      width:'50%',
+      height:'80%'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed', result);
+    });
   }
 }

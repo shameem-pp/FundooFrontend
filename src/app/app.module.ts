@@ -52,6 +52,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import { DataService } from './Service/data.service';
 import { SearchComponent } from './Component/search/search.component';
 import { FilterPipe }from './filter.pipe';
+import { ProfilePictureComponent } from './Component/profile-picture/profile-picture.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +75,8 @@ import { FilterPipe }from './filter.pipe';
     LabelDisplayComponent,
     LabelCreateComponent,
     SearchComponent,
-    FilterPipe
+    FilterPipe,
+    ProfilePictureComponent
     ],
   imports: [
     FormsModule,
@@ -106,7 +108,7 @@ import { FilterPipe }from './filter.pipe';
     MatChipsModule,
     
   ],
-  entryComponents:[EditNoteComponent,LabelsComponent],
+  entryComponents:[EditNoteComponent,LabelsComponent,ProfilePictureComponent],
   providers: [UserService,
   HttpService,
   AuthGuard,

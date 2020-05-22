@@ -18,4 +18,8 @@ export class HttpService {
 public get(path: string){
   return this.http.get(environment.baseUrl+path);
 }
+
+public put(path:string,data){
+  return this.http.put(environment.baseUrl+path,data);
+}
 }

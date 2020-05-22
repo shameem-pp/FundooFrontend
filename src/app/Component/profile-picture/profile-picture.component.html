@@ -1,0 +1,12 @@
+<div class="title-container">
+    <h2>Select profile photo</h2>
+</div>
+<!-- <button ><input type="file">Select a photo from your computer</button> -->
+<!-- <label for="upload-photo">Select a photo from your computer</label>
+<input class="photo-selection-btn" type="file" name="photo" id="upload-photo" /> -->
+<div>
+    <button class="photo-selection-btn"><label for="files" class="btn">Select a photo from your computer</label></button>
+    <input (change)="onFileSelected($event)" id="files" style="visibility:hidden;" type="file">
+</div>
+<button (click)="uploadImage()" mat-raised-button color="primary" [disabled]="selectedFile==null" class="set-dp">Set as profile photo</button>
+<button mat-raised-button mat-dialog-close [disabled]="selectedFile==null">Cancel</button>
