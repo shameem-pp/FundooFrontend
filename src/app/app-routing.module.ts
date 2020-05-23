@@ -18,12 +18,10 @@ import { RemindersComponent } from './Component/reminders/reminders.component';
 
 const routes: Routes = [
   {path:'login',component:LoginComponent},
-  {path:'',component:NotesComponent},
+  {path:'',redirectTo: '/dashboard', pathMatch: 'full'},
   {path:'registration',component:RegistrationComponent},
   {path:'resetPassword',component:ResetPasswordComponent},
   {path:'forgotPassword',component:ForgotPasswordComponent},
-  {path:'fundoo',component:FundooComponent},
-  {path:'i',component:IconComponent},
   {path:'dashboard',component:DashboardComponent,canActivate:[AuthGuard],
   children:[{path:'',component:NotesComponent},
   {path:'label',component:LabelsComponent},

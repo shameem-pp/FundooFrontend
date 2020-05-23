@@ -14,7 +14,7 @@
 }
 
 .name {
-    margin: 2% 29%;
+    margin: 2% 25%;
     width: auto;
 }
 
@@ -30,8 +30,8 @@
 
 .upload-image {
     overflow: visible;
-    margin-left: 60px;
-    margin-top: -46px;
+    margin-left: 59px;
+    margin-top: -45px;
     background-color: white;
     border-radius: 50%;
 }

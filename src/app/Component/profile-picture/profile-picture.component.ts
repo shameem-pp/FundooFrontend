@@ -23,11 +23,10 @@ export class ProfilePictureComponent implements OnInit {
   }
 
   uploadImage(){
-  let  data={
-    filePath:this.selectedFile.name
-    }
+    const formData = new FormData();
+    formData.append('file',this.selectedFile)
 
-    this.service.uploadProfilePic("api/Account/UploadImage/"+localStorage.getItem('email'),data).subscribe
+    this.service.uploadProfilePic("api/Account/UploadImage/"+localStorage.getItem('email'),formData).subscribe
     (
       response=>{
         localStorage.setItem('profilePic',response.toString());

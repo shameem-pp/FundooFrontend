@@ -28,7 +28,7 @@ validation(){
       localStorage.setItem('token', success['token']); 
       localStorage.setItem('email', success['email']);
       localStorage.setItem('name', success['name']);
-      localStorage.setItem('profilePic', success['profilePicture']);
+      localStorage.setItem('profilePic', success['profilePic']);
       this.openSnackBar("Successfull","Login");
       this.router.navigate(['/dashboard']);
     },

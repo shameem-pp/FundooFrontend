@@ -16,10 +16,13 @@
         <button mat-button [matMenuTriggerFor]="menu"><span class="material-icons">account_circle</span></button>
         <mat-menu #menu="matMenu">
             <div style="margin: 2% 35%;">
-                <img class="circular--square" src="./../../../assets/john-lockwood-E_dM70NS2WU-unsplash.jpg">
+                <img *ngIf="profilePic==null; else elseBlock" class="circular--square" src="./../../../assets/john-lockwood-E_dM70NS2WU-unsplash.jpg">
+                <!-- <ng-template #elseBlock2>
+                    <img class="circular--square" src="{{profilePic}}">
+                </ng-template> -->
                 <svg class="upload-image" (click)="openDialogueOfProfilePic()" enable-background="new 0 0 24 24" focusable="false" height="26" viewBox="0 0 24 24" width="24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M20 5h-3.17L15 3H9L7.17 5H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 14H4V7h16v12zM12 9c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"></path></svg>
             </div>
-            <h2 class="name">demo demo</h2>
+            <h2 class="name">{{name}}</h2>
             <p class="email">{{email}}</p>
             <button mat-menu-item class="signout-btn" (click)="signOut()">Sign Out</button>
         </mat-menu>

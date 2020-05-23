@@ -33,7 +33,7 @@ export class UserService {
   }
 
   uploadProfilePic(path:string,data){
-    return this.http.put(path,data);
+    return this.http.post(data,path);
   }
 
 }

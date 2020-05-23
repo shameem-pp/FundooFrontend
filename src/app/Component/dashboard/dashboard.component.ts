@@ -72,7 +72,7 @@ export class DashboardComponent implements OnDestroy {
       success => {
         localStorage.removeItem('token');
         localStorage.removeItem('email');
-        localStorage.removeItem('profilePicture');
+        localStorage.removeItem('profilePic');
         localStorage.removeItem('name');
         this.openSnackBar("Successfull", "Logout");
         this.router.navigate(['/login']);
