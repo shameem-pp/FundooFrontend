@@ -9,6 +9,15 @@ label {
     font-weight: 600;
 }
 
+h2 {
+    display: inline;
+}
+
+.icon {
+    display: inline;
+    margin-left: 60%;
+}
+
 .photo-selection-btn {
     width: auto;
     margin: 24% 36%;
