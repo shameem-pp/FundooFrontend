@@ -9,6 +9,8 @@ import { UserService } from 'src/app/Service/user.service';
 })
 export class ProfilePictureComponent implements OnInit {
   selectedFile: File;
+  uploadResponse: any | { status: string; message: number; };
+  error: any;
 
   constructor(private service:UserService,public dialogRef: MatDialogRef<ProfilePictureComponent>,
     @Optional() @Inject(MAT_DIALOG_DATA) public datas: any) { 
@@ -29,9 +31,12 @@ export class ProfilePictureComponent implements OnInit {
     this.service.uploadProfilePic("api/Account/UploadImage/"+localStorage.getItem('email'),formData).subscribe
     (
       response=>{
-        localStorage.setItem('profilePic',response.toString());
+        this.uploadResponse = response,
+        localStorage.setItem('profilePic',response['profilePic'].toString());
         this.selectedFile=null;
-      }
+      },
+      (err) => this.error = err
     )
   }
 }
+

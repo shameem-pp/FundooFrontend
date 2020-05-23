@@ -20,7 +20,7 @@ export class DashboardComponent implements OnDestroy {
 
   email=localStorage.getItem('email');
   name=localStorage.getItem('name');
-  profilePic=localStorage.getItem('profilePicture')
+  profilePic:string=localStorage.getItem('profilePic')
   private _mobileQueryListener: () => void;
   viewToggle: boolean = true;
 
