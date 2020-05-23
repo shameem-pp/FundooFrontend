@@ -5,7 +5,7 @@
         <div style="margin-left: 70%;">Edited {{fromPage.modifiedDate}}</div>
     </div>
     <div style="display: flex;">
-        <app-icon></app-icon>
-        <button class="close-btn" mat-button mat-dialog-close (click)=apiCallUpdateNote()>Close</button>
+        <app-icon (notify)="iconEvent($event)"></app-icon>
+        <button class=" close-btn " mat-button mat-dialog-close (click)=apiCallUpdateNote()>Close</button>
     </div>
 </div>

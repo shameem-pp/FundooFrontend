@@ -19,7 +19,24 @@ export class EditNoteComponent implements OnInit {
       this.fromPage = data.pageValue;
       console.log(this.fromPage)
     }
-
+    iconEvent(eventValue){
+      switch(eventValue['name']){
+        case "collaborator":
+        break;
+        case "trash":this.fromPage.trash=true;
+        break;
+        case "color":this.fromPage.color=eventValue.value.color;
+        break;
+        case "addImage":
+        break;
+        case "archive":this.fromPage.archeive=true;
+        break;
+        case "reminder":this.fromPage.remainder=eventValue.value;
+        break;
+        case "label":
+        break;
+      }
+    }
   
     apiCallUpdateNote(){
       if(this.title!=null){
