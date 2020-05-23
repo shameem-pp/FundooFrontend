@@ -25,7 +25,7 @@ export class EditNoteComponent implements OnInit {
         break;
         case "trash":this.fromPage.trash=true;
         break;
-        case "color":this.fromPage.color=eventValue.value.color;
+        case "color":this.fromPage.changeColor=eventValue.value.color;
         break;
         case "addImage":
         break;
@@ -39,6 +39,7 @@ export class EditNoteComponent implements OnInit {
     }
   
     apiCallUpdateNote(){
+      debugger
       if(this.title!=null){
         this.fromPage.title=this.title;
       }

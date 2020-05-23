@@ -95,7 +95,7 @@ export class NotesComponent implements OnInit {
     this.data.id=evnt.value.id;
     this.data.labelName=evnt.value.labelName;
     this.data.email=evnt.value.email;
-    this.labelService.editlabel('api/label/EditLabel',this.data).subscribe
+    this.labelService.createLabel('api/label/CreateLabel',this.data).subscribe
     (
       response=>{
         this.apiCallGetAllLabel();
@@ -125,10 +125,9 @@ deleteReminder(evnt){
   }
   addLabel(evnt) {
     this.data.noteId=evnt.id;
-    this.data.id=evnt.value.id;
     this.data.labelName=evnt.value.labelName;
     this.data.email=evnt.value.email;
-    this.labelService.editlabel('api/label/EditLabel',this.data).subscribe
+    this.labelService.createLabel('api/label/EditLabel',this.data).subscribe
     (
       response=>{
         this.apiCallGetAllLabel();

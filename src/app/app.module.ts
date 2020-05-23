@@ -53,7 +53,6 @@ import { DataService } from './Service/data.service';
 import { SearchComponent } from './Component/search/search.component';
 import { FilterPipe }from './filter.pipe';
 import { ProfilePictureComponent } from './Component/profile-picture/profile-picture.component';
-import { ImageCropperModule } from 'ngx-image-cropper';
 
 @NgModule({
   declarations: [
@@ -107,7 +106,6 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     NgxSpinnerModule,
     MatCheckboxModule,
     MatChipsModule,
-    ImageCropperModule
   ],
   entryComponents:[EditNoteComponent,LabelsComponent,ProfilePictureComponent],
   providers: [UserService,
