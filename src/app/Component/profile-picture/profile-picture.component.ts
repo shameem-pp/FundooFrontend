@@ -21,6 +21,9 @@ export class ProfilePictureComponent implements OnInit {
   }
   onFileSelected(event){
     this.selectedFile=event.target.files[0];
+    if(this.selectedFile!=null){
+
+    }
     console.log(this.selectedFile)
   }
 
@@ -44,6 +47,8 @@ export class ProfilePictureComponent implements OnInit {
       }
     )
   }
+
+  
   startSpinner(){
     this.spinner.show();
   }
