@@ -28,11 +28,11 @@ export class CreateNoteComponent implements OnInit {
         response=>{
           this.clicked=false;
          this.notify.emit({name:'callGetAllNoteApi'});
-          if((this.labelEvent.value.noteId==-1)&&this.labelEvent!=undefined){
-            this.labelEvent.name="createLabel";
-            this.notify.emit(this.labelEvent);
-            this.labelEvent=null;
-          }
+          // if((this.labelEvent.value.noteId==-1)&&this.labelEvent!=undefined){
+          //   this.labelEvent.name="createLabel";
+          //   this.notify.emit(this.labelEvent);
+          //   this.labelEvent=null;
+          // }
           this.notes.title=null;
           this.notes.description=null;
           this.backgroundColor='rgb(255,255,255)';
@@ -40,10 +40,10 @@ export class CreateNoteComponent implements OnInit {
     }
     else{
       this.clicked=false;
-      if(this.labelEvent.value.noteId!=0){
-        this.labelEvent.value.noteId=0;
-        this.notify.emit(this.labelEvent);
-      }
+      // if(this.labelEvent.value.noteId!=0){
+      //   this.labelEvent.value.noteId=0;
+      //   this.notify.emit(this.labelEvent);
+      // }
     }
   }
 
