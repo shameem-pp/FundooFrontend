@@ -10,5 +10,4 @@ export class Note {
     remainder:string
     trash:boolean;
     modifiedDate:any;
-    LabelId:number;
 }

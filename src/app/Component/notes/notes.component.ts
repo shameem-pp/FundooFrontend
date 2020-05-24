@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { LabelService } from 'src/app/Service/label.service';
 import { Label } from 'src/app/Models/label';
 import { DataService } from 'src/app/Service/data.service';
+import { LabelNote } from 'src/app/Models/label-note';
 
 @Component({
   selector: 'app-notes',
@@ -14,13 +15,14 @@ import { DataService } from 'src/app/Service/data.service';
 export class NotesComponent implements OnInit {
   listOfNotes: Object;
   labels:Object; 
-  data:Label=new Label();
   searchText: string;
   show: boolean=false;
   noteSearch: any;
+  labelNote: any;
 
   constructor(private dataService:DataService, private labelService:LabelService,private service:NoteService,private spinner: NgxSpinnerService,private snackBar: MatSnackBar) { }
   ngOnInit(): void {
+    this.startSpinner();
     this.apiCallGetAllNote();
     this.apiCallGetAllLabel();
     this.dataService.shareSearch.subscribe(x=>this.searchText=x);
@@ -42,12 +44,30 @@ export class NotesComponent implements OnInit {
       response=>{
         console.log(response)
         this.labels=response;
+      },
+      err=>{
+        this.stopSpinner();
+      }
+    )
+  }
+
+
+  apiCallGetAllLabelNote(){
+    this.labelService.getAllLabel("api/Label/GetAllLabelNote").subscribe
+    (
+      res=>{
+        this.labelNote=res;
+        console.log(res)
+      },
+      err=>{
+        this.stopSpinner();
       }
     )
   }
 
 
    apiCallGetAllNote(){
+    this.apiCallGetAllLabelNote();
     this.service.getAllNotes("api/Note/GetAllNotes").subscribe
     ( 
     response=>{
@@ -78,32 +98,11 @@ export class NotesComponent implements OnInit {
       break;
       case "updateNote":this.updateNote(evnt);
       break;
-      case "label":this.addLabel(evnt);
-      break;
-      case "createLabel":this.addLabelFromCreateNote(evnt);
-      break;
-      case "deleteLabel":this.deleteLabel(evnt.id);
-      break;
       case "deleteReminder":this.deleteReminder(evnt)
       break;
       case "callGetAllNoteApi":this.apiCallGetAllNote();
       break;
     }
-  }
-  addLabelFromCreateNote(evnt: any) {
-    this.data.noteId=this.listOfNotes[0].id;
-    this.data.id=evnt.value.id;
-    this.data.labelName=evnt.value.labelName;
-    this.data.email=evnt.value.email;
-    this.labelService.createLabel('api/label/CreateLabel',this.data).subscribe
-    (
-      response=>{
-        this.apiCallGetAllLabel();
-      },
-      error=>{
-        this.apiCallGetAllLabel();
-      }
-    )
   }
 
 deleteReminder(evnt){
@@ -115,28 +114,6 @@ deleteReminder(evnt){
   )
 }
 
-  deleteLabel(id: any) {
-    this.labelService.deleteLabel('api/label/DeleteLabel/'+id).subscribe
-    (
-      response=>{
-        this.apiCallGetAllLabel();
-      }
-    );
-  }
-  addLabel(evnt) {
-    this.data.noteId=evnt.id;
-    this.data.labelName=evnt.value.labelName;
-    this.data.email=evnt.value.email;
-    this.labelService.createLabel('api/label/EditLabel',this.data).subscribe
-    (
-      response=>{
-        this.apiCallGetAllLabel();
-      },
-      error=>{
-        this.apiCallGetAllLabel();
-      }
-    )
-  }
 
   trash(evnt: any) {
     this.startSpinner();
@@ -196,7 +173,6 @@ deleteReminder(evnt){
   }
 
   addImage(eventValue) {
-    this.startSpinner();
   }
 
   addColor(eventValue) {

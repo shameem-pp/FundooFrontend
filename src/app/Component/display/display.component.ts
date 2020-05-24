@@ -2,6 +2,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { EditNoteComponent } from '../edit-note/edit-note.component';
 import {DataService} from 'src/app/Service/data.service'
+import { LabelService } from 'src/app/Service/label.service';
+import { LabelNote } from 'src/app/Models/label-note';
 
 @Component({
   selector: 'app-display',
@@ -9,24 +11,51 @@ import {DataService} from 'src/app/Service/data.service'
   styleUrls: ['./display.component.css']
 })
 export class DisplayComponent implements OnInit {
-  @Input() labels:any;
+  @Input() labels:[];
   @Input() result: any;
+  @Input() labelNote:any;
   dialogeValue:any;
   backgroundColor:string;
   width: any;
   margin:any;
+  data:LabelNote=new LabelNote();
 
-  constructor(public dialog:MatDialog,private dataService:DataService) { }
+  constructor( private labelService:LabelService,public dialog:MatDialog,private dataService:DataService) { }
 
   @Output() notify:EventEmitter<any> =new EventEmitter<any>();
 
-  iconEvent(eventValue,id){
+  iconEvent(event,id){
     console.log(id);
-    if(eventValue.name=='color'){
-      this.backgroundColor=eventValue.value.color;
+switch(event['name']){
+  case "label":this.addLabel(event,id);
+  break;
+}
+    this.notify.emit({id:id,value:event.value,name:event.name})
+  }
+  
+  deleteLabelNote(id: any) {
+  }
+
+  addLabel(evnt,id) {
+    this.data.labelId=evnt.value.id;
+    this.data.noteId=id;
+    this.labelService.createLabel('api/label/CreateLabelNote',this.data).subscribe
+    (
+      res=>{
+        this.notify.emit({name:'callGetAllNoteApi'});
+      }
+    )
+  }
+  
+  findLabel(labelId){
+    if(this.labels!=null){
+      for(let i=0;i<this.labels.length;i++){
+        if(labelId==this.labels[i]['id']){
+          return this.labels[i]['labelName'];
+        }
+      }
     }
 
-    this.notify.emit({id:id,value:eventValue.value,name:eventValue.name})
   }
 
   changeColour(color:string){
@@ -42,7 +71,13 @@ export class DisplayComponent implements OnInit {
     this.notify.emit({id:contents.id,value:contents,name:"deleteReminder"})
   }
   deleteLabel(id){
-    this.notify.emit({id:id,name:'deleteLabel'})
+    this.labelService.deleteLabel("api/label/DeleteLabelNote/"+id).subscribe
+    (
+      res=>{
+
+        this.notify.emit({name:'callGetAllNoteApi'});
+      }
+    )
   }
 
   openEditDialogue(contentOfNote){

@@ -59,7 +59,6 @@ export class ArchiveComponent implements OnInit {
   }
   addLabel(evnt) {
     debugger
-    this.data.noteId=evnt.id;
     this.data.id=evnt.value.id;
     this.data.labelName=evnt.value.labelName;
     this.data.email=evnt.value.email;

@@ -2,6 +2,6 @@
 {{searchText}}
 <ng-template #elseBlock>
     <app-create-note [labels]="labels" (notify)="apiCall($event)"></app-create-note>
-    <app-display [labels]="labels" [result]="listOfNotes" (notify)="apiCall($event)"></app-display>
+    <app-display [labelNote]="labelNote" [labels]="labels" [result]="listOfNotes" (notify)="apiCall($event)"></app-display>
 </ng-template>
 <ngx-spinner></ngx-spinner>

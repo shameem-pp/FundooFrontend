@@ -10,8 +10,8 @@
             </mat-chip-list>
         </div>
         <div style="width: auto; display: flex;  margin-top: 1%; flex-wrap: wrap; justify-content: flex-start;">
-            <mat-chip-list *ngFor="let label of labels;" [style.background]="backgroundColor">
-                <mat-chip class="matchip-content" [selectable]=true [style.background]="backgroundColor" *ngIf="contents.id==label.noteId;">{{label.labelName}}
+            <mat-chip-list *ngFor="let label of labelNote;" [style.background]="backgroundColor">
+                <mat-chip class="matchip-content" [selectable]=true [style.background]="backgroundColor" *ngIf="contents.id==label.noteId;">{{findLabel(label.labelId)}}
                     <mat-icon matChipRemove (click)="deleteLabel(label.id)">cancel</mat-icon>
                 </mat-chip>
             </mat-chip-list>
