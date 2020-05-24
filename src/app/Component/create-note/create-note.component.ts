@@ -1,6 +1,9 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NoteService } from 'src/app/Service/note.service';
 import { Note } from 'src/app/Models/note';
+import { Label } from 'src/app/Models/label';
+import { LabelNote } from 'src/app/Models/label-note';
+import { LabelService } from 'src/app/Service/label.service';
 
 @Component({
   selector: 'app-create-note',
@@ -10,11 +13,12 @@ import { Note } from 'src/app/Models/note';
 export class CreateNoteComponent implements OnInit {
   clicked:boolean=false;
   contents:any;
-  @Input() labels:any;
   @Input() notes:Note;
+  @Input() labels:any
   backgroundColor:any='rgb(255,255,255)';
-  labelEvent: any;
-  constructor(private service:NoteService) { }
+  labelArray=new Array();
+  data:LabelNote=new LabelNote();
+  constructor(private service:NoteService,private labelService:LabelService) { }
 
   @Output() notify=new EventEmitter<any>();
   openNote(){
@@ -26,24 +30,23 @@ export class CreateNoteComponent implements OnInit {
     if(this.notes.title!=null || this.notes.description!=null){
       this.service.createNote(this.notes,'api/Note/CreateNote').subscribe(
         response=>{
+          if(this.labelArray.length!=0){
+            this.labelArray.forEach(element => {
+              this.addLabel(element['id'],response['id'])
+            });
+          }
           this.clicked=false;
          this.notify.emit({name:'callGetAllNoteApi'});
-          // if((this.labelEvent.value.noteId==-1)&&this.labelEvent!=undefined){
-          //   this.labelEvent.name="createLabel";
-          //   this.notify.emit(this.labelEvent);
-          //   this.labelEvent=null;
-          // }
           this.notes.title=null;
           this.notes.description=null;
           this.backgroundColor='rgb(255,255,255)';
         });
     }
     else{
+      if(this.labelArray.length!=0){
+        this.labelArray=[];
+      }
       this.clicked=false;
-      // if(this.labelEvent.value.noteId!=0){
-      //   this.labelEvent.value.noteId=0;
-      //   this.notify.emit(this.labelEvent);
-      // }
     }
   }
 
@@ -61,15 +64,25 @@ export class CreateNoteComponent implements OnInit {
     break;
     case "createNote":this.apiCallCreateNote();
     break;
-    case "label":this.apiCallEditLabel(evnt);
+    case "label":this.addLabelToLabelArr(evnt);
     break;
     }
   }
 
-  apiCallEditLabel(evnt) {
-    evnt.value.noteId=-1;
-    this.notify.emit(evnt);
-    this.labelEvent=evnt;
+  
+ async addLabel(labelId,noteId) {
+    this.data.labelId=labelId;
+    this.data.noteId=noteId;
+    await this.labelService.createLabel('api/label/CreateLabelNote',this.data).subscribe
+    (
+      res=>{
+        debugger
+        console.log(res);
+      }
+    )
+  }
+  addLabelToLabelArr(evnt) {
+    this.labelArray.push(evnt.value);
   }
 
   addReminder(eventValue) {
