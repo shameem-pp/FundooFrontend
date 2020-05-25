@@ -53,6 +53,7 @@ import { DataService } from './Service/data.service';
 import { SearchComponent } from './Component/search/search.component';
 import { FilterPipe }from './filter.pipe';
 import { ProfilePictureComponent } from './Component/profile-picture/profile-picture.component';
+import { CollaboratorComponent } from './Component/collaborator/collaborator.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { ProfilePictureComponent } from './Component/profile-picture/profile-pic
     LabelCreateComponent,
     SearchComponent,
     FilterPipe,
-    ProfilePictureComponent
+    ProfilePictureComponent,
+    CollaboratorComponent
     ],
   imports: [
     FormsModule,
