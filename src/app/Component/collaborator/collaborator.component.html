@@ -2,7 +2,7 @@
     <mat-card>
         <h2>Collaborators</h2>
     </mat-card>
-    <mat-card>
+    <mat-card class="profile-container">
         <img [src]="profilePic" class="pic">
         <div class="inlineEmail">
             <div class="name">{{name}}&nbsp;(Owner)</div>
@@ -11,5 +11,7 @@
     </mat-card>
 </div>
 
-<button mat-raised-button class="">Save</button>
-<button mat-raised-button mat-dialog-close>Cancel</button>
+<div class="btns-container">
+    <button class="cancel-btn" mat-raised-button mat-dialog-close>Cancel</button>
+    <button class="save-btn" mat-raised-button class="">Save</button>
+</div>
