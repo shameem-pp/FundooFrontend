@@ -7,6 +7,10 @@
     content: attr(data-text)
 }
 
+.mat-standard-chip ::ng-deep {
+    min-height: 20px;
+}
+
 .display-card {
     border-radius: 10px;
     box-shadow: 3px 3px 8px rgb(127, 127, 128);
