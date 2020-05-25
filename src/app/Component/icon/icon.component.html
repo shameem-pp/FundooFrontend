@@ -2,7 +2,7 @@
     <button class="btn" type="button" matTooltip="Remind me" [matMenuTriggerFor]="rem" mat-button><span class="material-icons icon">
         notifications_none
         </span></button>
-    <button class="btn" type="button" matTooltip="Add Collaborator" [matMenuTriggerFor]="clbrtr" (click)="collaborator()" mat-button>    <span class="material-icons icon">
+    <button class="btn" type="button" matTooltip="Add Collaborator" (click)="collaborator()" mat-button>    <span class="material-icons icon">
         person_add
         </span></button>
     <button class="btn" type="button" matTooltip="Add Color" [matMenuTriggerFor]="clr" mat-button>    <span class="material-icons icon">
@@ -44,9 +44,6 @@
             <ngb-timepicker (click)="Propogation($event)" [(ngModel)]="currentTime"></ngb-timepicker><button mat-button (click)="reminder(' ')">Save</button>
         </div>
         <!-- </button> -->
-    </mat-menu>
-    <mat-menu #clbrtr="matMenu">
-        <button mat-menu-item>Add Collaborator</button>
     </mat-menu>
     <mat-menu #clr="matMenu">
         <div class="color-row" *ngFor="let colors of colorArray">

@@ -1,1 +1,15 @@
-<p>collaborator works!</p>
+<div class="title-container">
+    <mat-card>
+        <h2>Collaborators</h2>
+    </mat-card>
+    <mat-card>
+        <img [src]="profilePic" class="pic">
+        <div class="inlineEmail">
+            <div class="name">{{name}}&nbsp;(Owner)</div>
+            <div class="email">{{email}}</div>
+        </div>
+    </mat-card>
+</div>
+
+<button mat-raised-button class="">Save</button>
+<button mat-raised-button mat-dialog-close>Cancel</button>

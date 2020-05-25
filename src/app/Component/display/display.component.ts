@@ -4,6 +4,7 @@ import { EditNoteComponent } from '../edit-note/edit-note.component';
 import {DataService} from 'src/app/Service/data.service'
 import { LabelService } from 'src/app/Service/label.service';
 import { LabelNote } from 'src/app/Models/label-note';
+import { CollaboratorComponent } from '../collaborator/collaborator.component';
 
 @Component({
   selector: 'app-display',
@@ -29,8 +30,21 @@ export class DisplayComponent implements OnInit {
 switch(event['name']){
   case "label":this.addLabel(event,id);
   break;
+  case "collaborator":this.addCollaborator(event);
 }
     this.notify.emit({id:id,value:event.value,name:event.name})
+  }
+  addCollaborator(event: any) {
+    const dialogRef = this.dialog.open(CollaboratorComponent, {
+      width:'50%',
+      height:'auto'
+    });
+ 
+    dialogRef.afterClosed().subscribe(result => {
+      this.dialogeValue=result;
+      this.notify.emit(this.dialogeValue);
+      console.log('The dialog was closed');
+    });
   }
   
   deleteLabelNote(id: any) {
@@ -80,7 +94,7 @@ switch(event['name']){
     )
   }
 
-  openEditDialogue(contentOfNote){
+  openEditDialogue(contentOfNote){ 
     const dialogRef = this.dialog.open(EditNoteComponent, {
       width:'50%',
       height:'auto',

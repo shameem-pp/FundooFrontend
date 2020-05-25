@@ -190,7 +190,6 @@ deleteReminder(evnt){
   }
 
   collaborator(eventValue) {
-    this.startSpinner();
   }
  
 startSpinner(){
