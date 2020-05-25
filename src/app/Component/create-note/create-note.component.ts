@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { NoteService } from 'src/app/Service/note.service';
 import { Note } from 'src/app/Models/note';
-import { Label } from 'src/app/Models/label';
+import { LabelNote } from 'src/app/Models/label-note';
 
 @Component({
   selector: 'app-create-note',
@@ -14,7 +14,7 @@ export class CreateNoteComponent implements OnInit {
   @Input() notes: Note;
   @Input() labels: any
   backgroundColor: any = 'rgb(255,255,255)';
-  labelArray = new Array();
+  labelArray:LabelNote[]=[];
   constructor(private service: NoteService) { }
 
   @Output() notify = new EventEmitter<any>();
@@ -23,10 +23,22 @@ export class CreateNoteComponent implements OnInit {
   }
 
   apiCallCreateNote() {
+    this.clicked = false;
     if (this.notes.title != null || this.notes.description != null) {
-      this.service.createNote(this.notes, 'api/Note/CreateNote').subscribe(
+      let param="";
+      let self=this
+      this.labelArray.forEach(function(item,index){
+        if(index!=self.labelArray.length-1){
+          param+='labelArray[]='+item.id+"&";
+        }
+        else{
+        param+='labelArray[]='+item.id;
+        }
+
+      })
+      this.labelArray=[]
+      this.service.createNote(this.notes, 'api/Note/CreateNote?'+param).subscribe(
         response => {
-          this.clicked = false;
           this.notify.emit({ name: 'callGetAllNoteApi' });
           this.notes.title = null;
           this.notes.description = null;
@@ -87,12 +99,15 @@ export class CreateNoteComponent implements OnInit {
   collaborator(eventValue) {
     this.notes.collaborator = eventValue;
   }
+  
   deleteLabel(index){
     this.labelArray.splice(index,1);
   }
+
   deleteReminder(){
     this.notes.remainder=null;
   }
+
   ngOnInit(): void {
     this.notes = new Note();
   }
