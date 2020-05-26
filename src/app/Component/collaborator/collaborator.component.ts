@@ -29,7 +29,12 @@ export class CollaboratorComponent implements OnInit {
       noteId:this.fromPage
     }
     console.log(this.fromPage)
-    this.service.addCollaborator(data,'api/Collaborator/AddCollaborator');
+    this.service.addCollaborator(data,'api/Collaborator/AddCollaborator').subscribe
+    (
+      res=>{
+        this.dialogRef.close();
+      }
+    );
   }
 
 }

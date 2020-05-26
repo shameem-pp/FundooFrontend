@@ -27,10 +27,12 @@ export class DisplayComponent implements OnInit {
 
   iconEvent(event,id){
     console.log(id);
+    debugger
 switch(event['name']){
   case "label":this.addLabel(event,id);
-  break;
+  return
   case "collaborator":this.addCollaborator(event,id);
+  return
 }
     this.notify.emit({id:id,value:event.value,name:event.name})
   }
