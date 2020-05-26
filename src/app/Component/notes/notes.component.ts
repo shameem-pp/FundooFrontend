@@ -83,6 +83,8 @@ export class NotesComponent implements OnInit {
   }
 
   apiCall(evnt){
+    debugger
+
     switch(evnt['name']){
       case "collaborator":this.collaborator(evnt);
       break;

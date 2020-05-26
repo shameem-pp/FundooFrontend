@@ -28,6 +28,7 @@ export class CollaboratorComponent implements OnInit {
       recieverEmail:this.collaboratorEmail.value,
       noteId:this.fromPage
     }
+    console.log("after clicking save")
     console.log(this.fromPage)
     this.service.addCollaborator(data,'api/Collaborator/AddCollaborator').subscribe
     (

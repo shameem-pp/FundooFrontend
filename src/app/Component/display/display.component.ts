@@ -27,25 +27,25 @@ export class DisplayComponent implements OnInit {
 
   iconEvent(event,id){
     console.log(id);
-    debugger
 switch(event['name']){
   case "label":this.addLabel(event,id);
-  return
+  break
   case "collaborator":this.addCollaborator(event,id);
-  return
+  break
+  default:
+    this.notify.emit({id:id,value:event.value,name:event.name});
+    break;
 }
-    this.notify.emit({id:id,value:event.value,name:event.name})
   }
   addCollaborator(event: any,id) {
     const dialogRef = this.dialog.open(CollaboratorComponent, {
       width:'50%',
       height:'auto',
-      data:id
+      data:{pageValue:id}
     });
  
     dialogRef.afterClosed().subscribe(result => {
       this.dialogeValue=result;
-      this.notify.emit(this.dialogeValue);
       console.log('The dialog was closed');
     });
   }
