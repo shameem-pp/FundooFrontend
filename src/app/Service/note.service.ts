@@ -46,4 +46,8 @@ export class NoteService {
   getAllArchivedNote(path:string){
     return this.http.get(environment.baseUrl+path,this.header)
   }
+
+  addCollaborator(data,path:string){
+    return this.http.post(environment.baseUrl+path,data,this.header);
+  }
 }

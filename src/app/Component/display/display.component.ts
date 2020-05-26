@@ -30,14 +30,15 @@ export class DisplayComponent implements OnInit {
 switch(event['name']){
   case "label":this.addLabel(event,id);
   break;
-  case "collaborator":this.addCollaborator(event);
+  case "collaborator":this.addCollaborator(event,id);
 }
     this.notify.emit({id:id,value:event.value,name:event.name})
   }
-  addCollaborator(event: any) {
+  addCollaborator(event: any,id) {
     const dialogRef = this.dialog.open(CollaboratorComponent, {
       width:'50%',
-      height:'auto'
+      height:'auto',
+      data:id
     });
  
     dialogRef.afterClosed().subscribe(result => {

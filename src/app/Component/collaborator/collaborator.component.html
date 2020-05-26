@@ -1,7 +1,7 @@
 <div class="title-container">
-    <mat-card>
+    <div>
         <h2>Collaborators</h2>
-    </mat-card>
+    </div>
     <mat-card class="profile-container">
         <img [src]="profilePic" class="pic">
         <div class="inlineEmail">
@@ -9,9 +9,16 @@
             <div class="email">{{email}}</div>
         </div>
     </mat-card>
+    <mat-card class="profile-container">
+        <span class="material-icons icon">person_add</span>
+        <div class="inlineEmail">
+            <input class="text-input" placeholder="Person or email to share with" type="text" [formControl]="collaboratorEmail">
+            <!-- <div class="searchbox title-box" (input)="collaboratorEmail=$event.target.textContent" role="textbox" name="search" autocomplete="off" contentEditable=true data-text="Person or email to share with"></div> -->
+        </div>
+    </mat-card>
 </div>
 
 <div class="btns-container">
     <button class="cancel-btn" mat-raised-button mat-dialog-close>Cancel</button>
-    <button class="save-btn" mat-raised-button class="">Save</button>
+    <button class="save-btn" (click)="addCollaborator()" mat-raised-button class="">Save</button>
 </div>

@@ -1,11 +1,26 @@
 .pic {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
+}
+
+.btn-icon {
+    border-radius: 50%;
+}
+
+.text-input {
+    outline: none;
+    border: none;
+    width: 240%;
+}
+
+.icon {
+    font-size: 30px;
 }
 
 .profile-container {
     display: flex;
+    box-shadow: unset;
 }
 
 .inlineEmail {
@@ -15,13 +30,14 @@
 }
 
 .cancel-btn {
-    margin-left: 50%;
+    margin-left: 74%;
     margin-right: 2%;
     margin-top: 2%;
+    margin-bottom: 2%;
 }
 
 .save-btn {
-    margin-top: 2%;
+    margin: 0% 2%;
 }
 
 .btns-container {

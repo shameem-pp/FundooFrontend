@@ -43,6 +43,10 @@ export class CreateNoteComponent implements OnInit {
           this.notes.title = null;
           this.notes.description = null;
           this.backgroundColor = 'rgb(255,255,255)';
+          if(this.notes.remainder!=null){
+            this.notes.remainder=null;
+          }
+          this.notes.remainder=null;
         });
     }
     else {
