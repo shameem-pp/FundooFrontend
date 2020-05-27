@@ -3,9 +3,7 @@ import { NoteService } from 'src/app/Service/note.service';
 import { NgxSpinnerService } from "ngx-spinner";
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LabelService } from 'src/app/Service/label.service';
-import { Label } from 'src/app/Models/label';
 import { DataService } from 'src/app/Service/data.service';
-import { LabelNote } from 'src/app/Models/label-note';
 
 @Component({
   selector: 'app-notes',
@@ -27,15 +25,6 @@ export class NotesComponent implements OnInit {
     this.apiCallGetAllLabel();
     this.dataService.shareSearch.subscribe(x=>this.searchText=x);
     this.dataService.shareNote.subscribe(x=>this.noteSearch=x);
-    }
-
-    showSearch(){
-
-      if(this.searchText!=""&&this.noteSearch!=null){
-       return this.show=!this.show;
-      }
-
-      return this.show;
     }
     
   apiCallGetAllLabel(){
@@ -83,116 +72,98 @@ export class NotesComponent implements OnInit {
   }
 
   apiCall(evnt){
-    debugger
-
     switch(evnt['name']){
-      case "collaborator":this.collaborator(evnt);
-      break;
-      case "trash":this.trash(evnt);
-      break;
-      case "color":this.addColor(evnt);
-      break;
-      case "addImage":this.addImage(evnt);
-      break;
-      case "archive":this.archieve(evnt);
-      break;
-      case "reminder":this.addReminder(evnt);
-      break;
-      case "updateNote":this.updateNote(evnt);
-      break;
-      case "deleteReminder":this.deleteReminder(evnt)
-      break;
       case "callGetAllNoteApi":this.apiCallGetAllNote();
       break;
     }
   }
 
-deleteReminder(evnt){
-  this.service.updateNote(evnt.value,'api/Note/EditNote').subscribe
-  (
-    response=>{
-      this.apiCallGetAllNote();
-    }
-  )
-}
+// deleteReminder(evnt){
+//   this.service.updateNote(evnt.value,'api/Note/EditNote').subscribe
+//   (
+//     response=>{
+//       this.apiCallGetAllNote();
+//     }
+//   )
+// }
 
 
-  trash(evnt: any) {
-    this.startSpinner();
-    this.service.trashNote("api/Note/Trash/"+evnt.id,evnt.id).subscribe
-    (
-      response=>{
-        this.apiCallGetAllNote();
-      },
-      error=>{
-        this.stopSpinner();
-      }
-    )
-  }
-  updateNote(evnt) {
-    this.startSpinner();
-    this.service.updateNote(evnt.data,'api/Note/EditNote').subscribe
-    (
-      response=>{
-        this.apiCallGetAllNote();
-      },
-      error=>{
-        this.stopSpinner();
-      }
-    );
-  }
+//   trash(evnt: any) {
+//     this.startSpinner();
+//     this.service.trashNote("api/Note/Trash/"+evnt.id,evnt.id).subscribe
+//     (
+//       response=>{
+//         this.apiCallGetAllNote();
+//       },
+//       error=>{
+//         this.stopSpinner();
+//       }
+//     )
+//   }
+//   updateNote(evnt) {
+//     this.startSpinner();
+//     this.service.updateNote(evnt.data,'api/Note/EditNote').subscribe
+//     (
+//       response=>{
+//         this.apiCallGetAllNote();
+//       },
+//       error=>{
+//         this.stopSpinner();
+//       }
+//     );
+//   }
 
-  addReminder(eventValue) {
-    let data={
-      id:eventValue.id,
-      value:eventValue.value
-    }
-    this.startSpinner();
-    this.service.addReminder(data,'api/Note/Reminder').subscribe(
-      response=>{
-        this.apiCallGetAllNote();
-        console.log("success")
-      },
-      error=>{
-        this.stopSpinner();
-      }
-    );
-  }
+//   addReminder(eventValue) {
+//     let data={
+//       id:eventValue.id,
+//       value:eventValue.value
+//     }
+//     this.startSpinner();
+//     this.service.addReminder(data,'api/Note/Reminder').subscribe(
+//       response=>{
+//         this.apiCallGetAllNote();
+//         console.log("success")
+//       },
+//       error=>{
+//         this.stopSpinner();
+//       }
+//     );
+//   }
 
-  archieve(eventValue) {
+//   archieve(eventValue) {
     
-    this.service.archiveNote(eventValue.id,'api/Note/Archive/'+eventValue.id).subscribe
-    (
-      response=>{
-        this.apiCallGetAllNote();
-        console.log("success");
-      },
-      error=>{
-        this.stopSpinner();
-      }
+//     this.service.archiveNote(eventValue.id,'api/Note/Archive/'+eventValue.id).subscribe
+//     (
+//       response=>{
+//         this.apiCallGetAllNote();
+//         console.log("success");
+//       },
+//       error=>{
+//         this.stopSpinner();
+//       }
 
-    );
-  }
+//     );
+//   }
 
-  addImage(eventValue) {
-  }
+//   addImage(eventValue) {
+//   }
 
-  addColor(eventValue) {
-    let data={
-      id:eventValue.id,
-      value:eventValue.value.color
-    }
-    this.startSpinner();
-    this.service.addColor(data,"api/Note/ChangeColor").subscribe
-    (
-      response=>{
-        this.apiCallGetAllNote();
-      }
-    );
-  }
+//   addColor(eventValue) {
+//     let data={
+//       id:eventValue.id,
+//       value:eventValue.value.color
+//     }
+//     this.startSpinner();
+//     this.service.addColor(data,"api/Note/ChangeColor").subscribe
+//     (
+//       response=>{
+//         this.apiCallGetAllNote();
+//       }
+//     );
+//   }
 
-  collaborator(eventValue) {
-  }
+//   collaborator(eventValue) {
+//   }
  
 startSpinner(){
   this.spinner.show();

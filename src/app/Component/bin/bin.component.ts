@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Label } from 'src/app/Models/label';
 import { NoteService } from 'src/app/Service/note.service';
 import { LabelService } from 'src/app/Service/label.service';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-bin',
@@ -10,138 +12,75 @@ import { LabelService } from 'src/app/Service/label.service';
 })
 export class BinComponent implements OnInit {
 
-  labels:any;
-  listOfNotes:any;
+  labels: any;
+  listOfNotes: any;
 
-  data:Label=new Label();
-  constructor(private noteService:NoteService,private labelService:LabelService) { }
+  data: Label = new Label();
+  labelNote: Object;
+  constructor(private noteService: NoteService, private labelService: LabelService, private spinner: NgxSpinnerService, private snackBar: MatSnackBar) { }
 
-  apiCallGetAllLabel(){
+  apiCallGetAllLabel() {
     this.labelService.getAllLabel('api/label/GetAllLabel').subscribe
-    (
-      response=>{
-        this.labels=response;
-      }
-    )
+      (
+        response => {
+          this.labels = response;
+        },
+        err => {
+          this.stopSpinner();
+        }
+      )
+  }
+
+  apiCallGetAllLabelNote() {
+    this.labelService.getAllLabel("api/Label/GetAllLabelNote").subscribe
+      (
+        res => {
+          this.labelNote = res;
+          console.log(res)
+        },
+        err => {
+          this.stopSpinner();
+        }
+      )
   }
 
 
-  apiCallGetAllNote(event?){
+  apiCallGetAllNote(event?) {
     this.noteService.getAllNotes("api/Note/GetTrashedNotes").subscribe(
-      response=>{
-        this.listOfNotes=response;
+      response => {
+        this.listOfNotes = response;
         console.log(response)
-    },
-    error=>{
-    }
+      },
+      error => {
+        this.stopSpinner();
+      }
     );
   }
 
-  apiCall(evnt){
-    switch(evnt['name']){
-      case "collaborator":this.collaborator(evnt);
-      break;
-      case "trash":this.trash(evnt);
-      break;
-      case "color":this.addColor(evnt);
-      break;
-      case "addImage":this.addImage(evnt);
-      break;
-      case "archive":this.archieve(evnt);
-      break;
-      case "reminder":this.addReminder(evnt);
-      break;
-      case "updateNote":this.updateNote(evnt);
-      break;
-      case "label":this.addLabel(evnt);
+  apiCall(evnt) {
+    switch (evnt['name']) {
+      case "callGetAllNoteApi":this.apiCallGetAllNote();
       break;
     }
   }
-  addLabel(evnt) {
-    this.data.id=evnt.value.id;
-    this.data.labelName=evnt.value.labelName;
-    this.data.email=evnt.value.email;
-    this.labelService.editlabel('api/label/EditLabel',this.data).subscribe
-    (
-      response=>{
-        this.apiCallGetAllLabel();
-      }
-    )
+
+  startSpinner() {
+    this.spinner.show();
   }
 
-  trash(evnt: any) {
-    this.noteService.trashNote("api/Note/Trash/"+evnt.id,evnt.id).subscribe
-    (
-      response=>{
-        this.apiCallGetAllNote();
-      },
-      error=>{
-      }
-    )
+  stopSpinner() {
+    this.spinner.hide();
   }
-  updateNote(event) {
-    this.noteService.updateNote(event.data,'api/Note/EditNote').subscribe
-    (
-      response=>{
-        this.apiCallGetAllNote();
-      },
-      error=>{
-      }
-    );
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+    });
   }
-
-  addReminder(eventValue) {
-    let data={
-      id:eventValue.id,
-      value:eventValue.value
-    }
-    this.noteService.addReminder(data,'api/Note/Reminder').subscribe(
-      response=>{
-        this.apiCallGetAllNote();
-        console.log("success")
-      },
-      error=>{
-      }
-    );
-  }
-
-  archieve(eventValue) {
-    
-    this.noteService.archiveNote(eventValue.id,'api/Note/Archive/'+eventValue.id).subscribe
-    (
-      response=>{
-        this.apiCallGetAllNote();
-        console.log("success");
-      },
-      error=>{
-      }
-
-    );
-  }
-
-  addImage(eventValue) {
-  }
-
-  addColor(eventValue) {
-    let data={
-      id:eventValue.id,
-      value:eventValue.value.color
-    }
-    this.noteService.addColor(data,"api/Note/ChangeColor").subscribe
-    (
-      response=>{
-        this.apiCallGetAllNote();
-      }
-    );
-  }
-
-  collaborator(eventValue) {
-  }
- 
 
   ngOnInit(): void {
-  this.apiCallGetAllNote();
-  this.apiCallGetAllLabel();
+    this.startSpinner();
+    this.apiCallGetAllNote();
+    this.apiCallGetAllLabel();
   }
 
 }
