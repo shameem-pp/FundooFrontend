@@ -22,7 +22,7 @@
         <button mat-menu-item [matMenuTriggerFor]="addlabel">Add Label</button>
         <button *ngIf="!onCreateNote && onDisplay" (click)="delete()" mat-menu-item>Delete Note</button>
     </mat-menu>
-    <mat-menu (click)="Propogation($event)" #addlabel="matMenu">
+    <mat-menu #addlabel="matMenu">
         <div *ngFor="let label of labels;">
             <mat-checkbox (change)="addLabel(label)">{{label.labelName}}</mat-checkbox>
         </div>

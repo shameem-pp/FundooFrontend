@@ -1,10 +1,10 @@
 <div [style.margin]="margin" class="display-container">
     <mat-card [style.width]="width" *ngFor="let contents of result;" [style.background]=contents.changeColor class="display-card"> {{changeColour(contents.changeColor)}}
-        <div (click)="openEditDialogue(contents)">
+        <div id="openEditDialogue" (click)="openEditDialogue(contents)">
             <div class="title-box">{{contents.title}}</div>
             <div class="description-box">{{contents.description}}</div>
             <mat-chip-list style="width: auto;">
-                <mat-chip class="matchip-content" [style.background]="backgroundColor" *ngIf=contents.remainder;><span style="font-size: 16px;" class="material-icons">query_builder</span>&nbsp; {{contents.remainder}}
+                <mat-chip class="matchip-content-rem" [style.background]="backgroundColor" *ngIf=contents.remainder;><span style="font-size: 16px;" class="material-icons">query_builder</span>&nbsp; {{contents.remainder}}
                     <mat-icon matChipRemove (click)="deleteReminder(contents)">cancel</mat-icon>
                 </mat-chip>
             </mat-chip-list>

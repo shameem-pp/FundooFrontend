@@ -6,6 +6,10 @@
 }
 
 .matchip-content {
+    font-size: 12px;
+}
+
+.matchip-content-rem {
     font-size: 10px;
 }
 

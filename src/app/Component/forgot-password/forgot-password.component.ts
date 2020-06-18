@@ -24,8 +24,8 @@ export class ForgotPasswordComponent implements OnInit {
 
     this.service.forgotPasswordAction(data,"api/Account/ForgotPassword").subscribe(
       success=>{
-        this.openSnackBar("Successfull","ForgotPassword");
-        this.router.navigate(['/fundoo']);
+        this.openSnackBar("Reset Link Send to the email","Dismiss");
+        this.router.navigate(['/login']);
         this.loading=false;
       },
       error=>{

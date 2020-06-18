@@ -36,6 +36,27 @@
     border-radius: 50%;
 }
 
+.nav-list-item {
+    border-radius: 0 25px 25px 0;
+}
+
+
+/* a:focus,
+a:visited {
+    background-color: #feefc3;
+} */
+
+
+/* .nav-list-item:hover {
+    background-color: #f1f3f4;
+} */
+
+.circular--pic {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
 .circular--square {
     width: 80px;
     height: 80px;
